@@ -16,7 +16,6 @@ export const ListItem = ({ item }: Props) =>{
             <label>{item.modelo}</label>
             <label>{item.tipo}</label>
             <label>{item.status}</label>
-            <button onClick={() => handleRemoveItem()}> Deletar </button>
         </C.Container>
     );
 }

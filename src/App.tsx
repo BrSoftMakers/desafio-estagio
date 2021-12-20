@@ -50,7 +50,8 @@ const handleAddCar = (carid: string, carMarca: string, carModelo: string, carTip
        
         {/* Area de mostrar carros */}
         {list.map((item, id) => (
-          <div key={id}> 
+          <div key={id}>
+            <button onClick={() => handleRemoveItem(id)}> Deletar </button> 
           </div>
         ))}
         
