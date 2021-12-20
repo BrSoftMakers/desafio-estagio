@@ -11,11 +11,11 @@ type Props = {
 export const ListItem = ({ item }: Props) =>{
     return(
         <C.Container>
-            <label>{item.nome}</label>
-            <label>{item.marca}</label>
-            <label>{item.modelo}</label>
-            <label>{item.tipo}</label>
-            <label>{item.status}</label>
+            <label>Nome: {item.nome}</label>
+            <label>Marca: {item.marca}</label>
+            <label>Modelo: {item.modelo}</label>
+            <label>Tipo: {item.tipo}</label>
+            <label>Status: {item.status}</label>
         </C.Container>
     );
 }
