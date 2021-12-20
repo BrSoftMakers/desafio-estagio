@@ -1,8 +1,9 @@
 import * as C from './style';
 import { Item } from '../../types/Item';
-import { useState, KeyboardEvent } from 'react';
+import { useState, KeyboardEvent} from 'react';
 import handleRemoveItem from '../../App';
 import ReactDOM from "react-dom";
+import list from '../../App';
 
 type Props = {
     item: Item
