@@ -8,10 +8,7 @@ import ReactDOM from "react-dom";
 
 
 const App = () => {
-const [list, setlist] = useState<Item[]>([
-  {id: 1, nome: 'Argo', marca: 'Fiat', modelo: '2021', tipo: 'SUV', status: 'Alugado'},
-  {id: 1, nome: 'Argo', marca: 'Fiat', modelo: '2021', tipo: 'SUV', status: 'Disponivel'},
-]);
+const [list, setlist] = useState<Item[]>([]);
 
 function handleRemoveItem(id: number){
 
@@ -21,11 +18,11 @@ function handleRemoveItem(id: number){
 
 }
 
-const handleAddCar = (carid: string, carMarca: string, carModelo: string, carTipo: string, carStatus: string) => {
+const handleAddCar = (carNome: string, carMarca: string, carModelo: string, carTipo: string, carStatus: string) => {
   let newList = [...list];
   newList.push({
     id: list.length + 1,
-    nome: carid,
+    nome: carNome,
     marca: carMarca,
     modelo: carModelo,
     tipo: carTipo,
@@ -42,13 +39,13 @@ const handleAddCar = (carid: string, carMarca: string, carModelo: string, carTip
         {/* Area de adicionar novo carro */}
         <AddArea onEnter={handleAddCar}/>
 
-        {/* Remover Carro */}
-          
-          {list.map((item, id) => (
-            <ListItem key={id}  item={item} />
-          ))}
-       
+        
         {/* Area de mostrar carros */}
+        {list.map((item, id) => (
+          <ListItem key={id}  item={item} />
+        ))}
+       
+        {/* Remover Carro */}
         {list.map((item, id) => (
           <div key={id}>
             <button onClick={() => handleRemoveItem(id)}> Deletar </button> 
