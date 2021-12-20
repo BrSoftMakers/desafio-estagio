@@ -10,15 +10,15 @@ import ReactDOM from "react-dom";
 const App = () => {
 const [list, setlist] = useState<Item[]>([]);
 
-function handleRemoveItem(id: number){
+  function handleRemoveItem(id: number){
 
-  const newList = [...list];
-  newList.splice(id, 1);
-  setlist(newList);
+    const newList = [...list];
+    newList.splice(id, 1);
+    setlist(newList);
 
-}
+  }
 
-const handleAddCar = (carNome: string, carMarca: string, carModelo: string, carTipo: string, carStatus: string) => {
+  const handleAddCar = (carNome: string, carMarca: string, carModelo: string, carTipo: string, carStatus: string) => {
   let newList = [...list];
   newList.push({
     id: list.length + 1,
@@ -29,7 +29,7 @@ const handleAddCar = (carNome: string, carMarca: string, carModelo: string, carT
     status: carStatus,
   });
   setlist(newList);
-}
+  }
 
   return(
     <C.Container>
