@@ -1,19 +1,54 @@
- ![SoftMakers](https://www.softmakers.com.br/assets/img/logotipo14xxhdpi.png)
+### **Requisitos para  executar o projeto** 
 
-# Desafio - Desenvolvedor Fullstack - Estágio Health
-Seja bem-vindo! Este desafio foi projetado para avaliar a sua capacidade técnica como candidato ao cargo proposto.
+**Clone o repositório do projeto**
 
-## Instruções
-- Faça um fork deste repositório;
-- O conjunto mínimo de tecnologias a serem utilizadas são: HTML, CSS e JavaScript no front-end e alguma das tecnologias back-end informadas na proposta desse desafio;
-- Crie um passo a passo de como rodar a sua aplicação;
-- Após finalizar, submeta um pull request com um comentário informando o seu e-mail de contato e aguarde nossa avaliação.
+Baixe as seguintes ferramentas para rodar o projeto Backend
 
-## Proposta
-Você deverá desenvolver um projeto com a finalidade de que seja possível listar, visualizar, criar, editar e excluir carros de uma locadora de automóvel.
-> **Observações:**
-> - Você pode utilizar a estratégia que considerar pertinente para armazenar os registros de sua aplicação;
-> - Cada carro precisa ter um identificador único, modelo, marca, tipo(hatch, sedan e SUV) e status (alugado ou disponível); 
+- PHP
+- Composer: [https://getcomposer.org/download/](url)
+- Mysql Server: [https://dev.mysql.com/downloads/mysql/](url)
 
-## Diferenciais
-Serão considerados diferenciais o uso de qualquer tipo de framework utilizados no front-end (utilizamos ReactJS por aqui), no back-end (Utilizamos Node com Postgres como banco de dados) da aplicação.
+> Obs: Para facilitar o download do php, baixe o Xampp Server: [https://www.apachefriends.org/pt_br/download.html](url)
+
+---
+Abra o terminal de sua escolha, vá até a pasta **"backend"** dentro de **"health-desafio-estagio"** e siga os seguintes passos
+
+
+1. Rode no terminal, **composer install**
+2. Crie um arquivo **.env** no diretório raiz do projeto
+3. Abra o arquivo **.env.example**, copie todo o seu conteúdo e cole no arquivo **.env**
+4. Rode no terminal, **php artisan key:generate**
+5. No arquivo **.env** e no campo referente a conexão com o banco de dados, altere para que corresponda ao seu ambiente de desenvolvimento local. Segue o exemplo abaixo
+
+```bash 
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=root
+DB_PASSWORD=
+```
+6. Rode no terminal **php artisan migrate**
+7. Rode no terminal **php artisan** serve
+
+**Pronto, sua aplicação backend está rodando** 
+
+---
+
+Baixe as seguintes ferramentas para rodar o projeto frontend
+
+- Node.js: [https://nodejs.org/pt-br/download/](url)
+- Yarn(**opcional**): [https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable](url)
+
+> Obs: Caso escolha não utilizar o yarn, apague o arquivo yarn.lock no diretório raiz frontend
+
+Abra o terminal de sua escolha, vá até a pasta **"frontend"** dentro de **"health-desafio-estagio"** e siga os seguintes passos
+
+1. Rode no terminal, **npm install** ou **yarn**
+2. Rode no terminal, **npm run dev** ou **yarn dev**
+
+**Pronto, sua aplicação frontend está rodando** 
+
+---
+
+> Obs: o projeto **backend** tem que estar rodando antes do projeto **frontend** para que tudo funcione corretamente
