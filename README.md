@@ -12,8 +12,8 @@ Seja bem-vindo! Este desafio foi projetado para avaliar a sua capacidade técnic
 ## Proposta
 Você deverá desenvolver um projeto com a finalidade de que seja possível listar, visualizar, criar, editar e excluir carros de uma locadora de automóvel.
 
-> **Observações:**
-> - Cada carro precisa ter um identificador único, modelo, marca, tipo(hatch, sedan e SUV) e status (alugado ou disponível); 
+**Observações:**
+> - Cada carro precisa ter um identificador único, modelo, marca, tipo(hatch, sedan e SUV) e status (alugado ou disponível). Todos os campos são do formulário são obrigatório.
 
 ## Diferenciais
 Serão considerados diferenciais:
