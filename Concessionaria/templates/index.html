@@ -1,0 +1,40 @@
+{% extends "/comum/template.html" %}
+{% block conteudo %}
+    <!-- container -->
+    <div class="container">
+        <!-- title -->
+        <h1 class="text-center"> Carros Cadastrados </h1><br>
+        <!-- table -->
+        <table method="get" class="table table-hover table-striped table-bordered">
+            <!-- header -->
+            <thead>
+                <tr>
+                    <th scope="col"> Modelo do Carro </th>
+                    <th scope="col"> Marca do Carro </th>
+                    <th scope="col"> Tipo do Carro </th>
+                    <th scope="col"> Carro Disponível </th>
+                    <th scope="col"> Controle </th>
+                </tr>
+            </thead>
+            <!-- content -->
+            <tbody>
+                <!-- informations of bills -->
+                {% for automovel in automoveis %}
+                <tr>
+                    <td scope="row"> {{automovel.modelo}} </td>
+                    <td scope="row"> {{automovel.marca}} </td>
+                    <td scope="row"> {{automovel.tipo}} </td>
+                    <td scope="row"> {{automovel.status}} </td>
+                    <!-- manipulation buttons -->
+                    <td>
+                        <a class="btn btn-outline-primary btn-sm" href="{{url_for('editar', index=loop.index0)}}"> Editar </a>
+                        <a class="btn btn-outline-danger btn-sm" href="{{url_for('excluir', index=loop.index0)}}"> Excluir </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <!-- registration button -->
+        <a class="btn btn-primary" href="/carro/novo"> Cadastrar </a>
+    </div>
+{% endblock %}

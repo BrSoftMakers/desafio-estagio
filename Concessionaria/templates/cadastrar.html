@@ -1,0 +1,29 @@
+{% extends "/comum/template.html" %}
+{% block conteudo %}
+    <!-- container -->
+    <div class="container">
+        <!-- title -->
+        <h1 class="text-center"> Cadastro de Automóveis </h1><hr>
+        <!-- form registration -->
+        <form class="form" action="/carro/cadastrar" method="POST">
+            <div class="form-floating">
+                <input type="text" class="form-control" name="modelo" id="modelo" placeholder="Modelo do Carro" required>
+                <label for="modelo"> Modelo do Carro </label>
+            </div><br>
+            <div class="form-floating">
+                <input type="text" class="form-control" name="marca" id="marca" placeholder="Marca do Carro" required>
+                <label for="marca"> Marca do Carro </label>
+            </div><br>
+            <div class="form-floating">
+                <input type="text" class="form-control" name="tipo" id="tipo" placeholder="Tipo do Carro" required>
+                <label for="tipo"> Tipo do Carro </label>
+            </div><br>
+            <select class="form-control" name="status" id="status" required>
+                <option> Alugado </option>
+                <option> Disponível </option>
+            </select><br>
+            <!-- button registration -->
+            <button class="btn btn-success" type="submit"> Cadastrar </button>
+        </form>
+    </div>    
+{% endblock %}
