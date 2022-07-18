@@ -21,4 +21,4 @@ Serão considerados diferenciais:
 - O uso de PHP ou Node.js como linguagem sendo utilizada no lado do servidor;
 - O uso de qualquer banco de dados para armazenar os dados da sua aplicação;
 - O uso de qualquer framework;
-- Boas práticas de escrita de código (código limpo, padrões de arquitetura, etc.);
+- Boas práticas de escrita de código (código limpo, padrões de arquitetura, etc.).
