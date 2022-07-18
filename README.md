@@ -18,7 +18,7 @@ Você deverá desenvolver um projeto com a finalidade de que seja possível list
 ## Diferenciais
 Serão considerados diferenciais:
 
-  - O uso de PHP ou Node.js como linguagem sendo utilizado no lado do servidor;
+  - O uso de PHP ou Node.js como linguagem sendo utilizada no lado do servidor;
   - O uso de qualquer banco de dados para armazenar os dados da sua aplicação;
   - O uso de qualquer framework utilizado;
   - Boas práticas de escrita de código (código limpo, padrões de arquitetura, etc.);
