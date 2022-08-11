@@ -18,7 +18,7 @@
                                 <span class="rounded-full text-white shadow-lg">
                                     <img src="/storage/img/logo.png" width="100" height="100" />
                                 </span>
-                                <!--<jet-application-mark class="block h-9 w-auto" />-->
+                                
                                 </Link>
                             </div>
 

@@ -22829,7 +22829,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     href: _ctx.route('dashboard')
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("<jet-application-mark class=\"block h-9 w-auto\" />")];
+      return [_hoisted_7];
     }),
     _: 1
     /* STABLE */
@@ -24666,7 +24666,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return $options.submit && $options.submit.apply($options, arguments);
         }, ["prevent"])),
         "class": "mb-6"
-      }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("<div class=\"grid grid-cols-1\">\n                                <label\n                                    class=\"uppercase md:text-sm text-xs text-gray-500 text-light font-semibold\">Updated\n                                    By</label>\n                                <input id=\"updated_by\" v-model=\"form.updated_by\"\n                                    class=\"py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent\"\n                                    type=\"text\" placeholder=\"\" />\n                                <p class=\"error text-red-700\" v-if=\"errors.updated_by\">{{ errors.updated_by }}</p>\n                            </div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+      }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
         id: "situacao",
         "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
           return $data.form.situacao = $event;
@@ -24686,7 +24686,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.form.situacao]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("<div class=\"grid grid-cols-1\">\n                                <label\n                                    class=\"uppercase md:text-sm text-xs text-gray-500 text-light font-semibold\">Created\n                                    By</label>\n                                <input id=\"created_by\" v-model=\"form.created_by\"\n                                    class=\"py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent\"\n                                    type=\"text\" placeholder=\"\" />\n                                <p class=\"error text-red-700\" v-if=\"errors.created_by\">{{ errors.created_by }}</p>\n                            </div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.form.situacao]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
         id: "modelo",
         "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
           return $data.form.modelo = $event;
@@ -24796,11 +24796,11 @@ var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   "class": "block md:table-header-group"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", {
   "class": "border border-indigo-500 md:border-none block md:table-row absolute -top-full md:top-auto -left-full md:left-auto md:relative"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("<th\n                class=\"\n                  bg-indigo-500\n                  p-2\n                  text-white\n                  font-bold\n                  md:border md:border-indigo-500\n                  text-left\n                  block\n                  md:table-cell\n                \"\n              >\n                Updated By\n              </th>"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
   "class": "bg-gray-800 p-2 text-white font-bold md:border md:border-gray-800 text-left block md:table-cell"
 }, " Id "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
   "class": "bg-gray-800 p-2 text-white font-bold md:border md:border-gray-800 text-left block md:table-cell"
-}, " Situacao "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("<th\n                class=\"\n                  bg-indigo-500\n                  p-2\n                  text-white\n                  font-bold\n                  md:border md:border-indigo-500\n                  text-left\n                  block\n                  md:table-cell\n                \"\n              >\n                Created By\n              </th>"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+}, " Situacao "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
   "class": "bg-gray-800 p-2 text-white font-bold md:border md:border-gray-800 text-left block md:table-cell"
 }, " Modelo "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
   "class": "bg-gray-800 p-2 text-white font-bold md:border md:border-gray-800 text-left block md:table-cell"
@@ -24947,11 +24947,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", {
           key: carro.id,
           "class": "bg-white border border-gray-200 md:border-none block md:table-row"
-        }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("<td\n                class=\"\n                  p-2\n                  md:border md:border-gray-500\n                  text-left\n                  block\n                  md:table-cell\n                \"\n              >\n                <span class=\"inline-block w-1/3 md:hidden font-bold\"\n                  >Updated By</span\n                >{{ carro.updated_by }}\n              </td>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_14, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(carro.id), 1
+        }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_14, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(carro.id), 1
         /* TEXT */
         )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_16, [_hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(carro.situacao), 1
         /* TEXT */
-        )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("<td\n                class=\"\n                  p-2\n                  md:border md:border-gray-500\n                  text-left\n                  block\n                  md:table-cell\n                \"\n              >\n                <span class=\"inline-block w-1/3 md:hidden font-bold\"\n                  >Created By</span\n                >{{ carro.created_by }}\n              </td>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_18, [_hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(carro.modelo), 1
+        )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_18, [_hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(carro.modelo), 1
         /* TEXT */
         )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_20, [_hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(carro.marca), 1
         /* TEXT */
@@ -25107,9 +25107,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       , ["href"]), _hoisted_3, _hoisted_4])];
     }),
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("<div>\n            <div\n              class=\"\n                md:grid md:grid-cols-2\n                hover:bg-gray-50\n                md:space-y-0\n                space-y-1\n                p-4\n                border-b\n              \"\n            >\n              <p class=\"text-gray-600\">Updated By</p>\n              <p>\n                {{ carro.updated_by }}\n              </p>\n            </div>\n          </div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.carro.situacao), 1
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.carro.situacao), 1
       /* TEXT */
-      )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("<div>\n            <div\n              class=\"\n                md:grid md:grid-cols-2\n                hover:bg-gray-50\n                md:space-y-0\n                space-y-1\n                p-4\n                border-b\n              \"\n            >\n              <p class=\"text-gray-600\">Created By</p>\n              <p>\n                {{ carro.created_by }}\n              </p>\n            </div>\n          </div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [_hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.carro.modelo), 1
+      )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [_hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.carro.modelo), 1
       /* TEXT */
       )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.carro.marca), 1
       /* TEXT */
@@ -25245,7 +25245,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return $options.submit && $options.submit.apply($options, arguments);
         }, ["prevent"])),
         "class": "mb-6"
-      }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("<div class=\"grid grid-cols-1\">\n                <label\n                  class=\"\n                    uppercase\n                    md:text-sm\n                    text-xs text-gray-500 text-light\n                    font-semibold\n                  \"\n                  >Updated By</label\n                >\n                <input\n                  id=\"updated_by\"\n                  v-model=\"form.updated_by\"\n                  class=\"\n                    py-2\n                    px-3\n                    rounded-lg\n                    border-2 border-purple-300\n                    mt-1\n                    focus:outline-none\n                    focus:ring-2\n                    focus:ring-purple-600\n                    focus:border-transparent\n                  \"\n                  type=\"text\"\n                  placeholder=\"\"\n                />\n                <p class=\"error text-red-700\" v-if=\"errors.updated_by\">\n                  {{ errors.updated_by }}\n                </p>\n              </div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+      }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
         id: "situacao",
         "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
           return $data.form.situacao = $event;
@@ -25265,7 +25265,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.form.situacao]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("<div class=\"grid grid-cols-1\">\n                <label\n                  class=\"\n                    uppercase\n                    md:text-sm\n                    text-xs text-gray-500 text-light\n                    font-semibold\n                  \"\n                  >Created By</label\n                >\n                <input\n                  id=\"created_by\"\n                  v-model=\"form.created_by\"\n                  class=\"\n                    py-2\n                    px-3\n                    rounded-lg\n                    border-2 border-purple-300\n                    mt-1\n                    focus:outline-none\n                    focus:ring-2\n                    focus:ring-purple-600\n                    focus:border-transparent\n                  \"\n                  type=\"text\"\n                  placeholder=\"\"\n                />\n                <p class=\"error text-red-700\" v-if=\"errors.created_by\">\n                  {{ errors.created_by }}\n                </p>\n              </div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.form.situacao]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
         id: "modelo",
         "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
           return $data.form.modelo = $event;

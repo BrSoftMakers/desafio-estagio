@@ -18,23 +18,7 @@
           <div class="p-4 border-b">
             <h2 class="text-2xl">Detalhes</h2>
           </div>
-          <!--<div>
-            <div
-              class="
-                md:grid md:grid-cols-2
-                hover:bg-gray-50
-                md:space-y-0
-                space-y-1
-                p-4
-                border-b
-              "
-            >
-              <p class="text-gray-600">Updated By</p>
-              <p>
-                {{ carro.updated_by }}
-              </p>
-            </div>
-          </div>-->
+          
           <div>
             <div
               class="
@@ -52,23 +36,7 @@
               </p>
             </div>
           </div>
-          <!--<div>
-            <div
-              class="
-                md:grid md:grid-cols-2
-                hover:bg-gray-50
-                md:space-y-0
-                space-y-1
-                p-4
-                border-b
-              "
-            >
-              <p class="text-gray-600">Created By</p>
-              <p>
-                {{ carro.created_by }}
-              </p>
-            </div>
-          </div>-->
+          
           <div>
             <div
               class="

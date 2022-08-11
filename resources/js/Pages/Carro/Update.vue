@@ -14,37 +14,7 @@
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
           <form @submit.prevent="submit" class="mb-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
-              <!--<div class="grid grid-cols-1">
-                <label
-                  class="
-                    uppercase
-                    md:text-sm
-                    text-xs text-gray-500 text-light
-                    font-semibold
-                  "
-                  >Updated By</label
-                >
-                <input
-                  id="updated_by"
-                  v-model="form.updated_by"
-                  class="
-                    py-2
-                    px-3
-                    rounded-lg
-                    border-2 border-purple-300
-                    mt-1
-                    focus:outline-none
-                    focus:ring-2
-                    focus:ring-purple-600
-                    focus:border-transparent
-                  "
-                  type="text"
-                  placeholder=""
-                />
-                <p class="error text-red-700" v-if="errors.updated_by">
-                  {{ errors.updated_by }}
-                </p>
-              </div>-->
+              
               <div class="grid grid-cols-1">
                 <label class="
                     uppercase
@@ -71,37 +41,7 @@
                   <p class="error text-red-700" v-if="errors.situacao">{{ errors.situacao }}</p>
                 </select>
               </div>
-              <!--<div class="grid grid-cols-1">
-                <label
-                  class="
-                    uppercase
-                    md:text-sm
-                    text-xs text-gray-500 text-light
-                    font-semibold
-                  "
-                  >Created By</label
-                >
-                <input
-                  id="created_by"
-                  v-model="form.created_by"
-                  class="
-                    py-2
-                    px-3
-                    rounded-lg
-                    border-2 border-purple-300
-                    mt-1
-                    focus:outline-none
-                    focus:ring-2
-                    focus:ring-purple-600
-                    focus:border-transparent
-                  "
-                  type="text"
-                  placeholder=""
-                />
-                <p class="error text-red-700" v-if="errors.created_by">
-                  {{ errors.created_by }}
-                </p>
-              </div>-->
+              
               <div class="grid grid-cols-1">
                 <label class="
                     uppercase

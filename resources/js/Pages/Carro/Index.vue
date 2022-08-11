@@ -72,20 +72,7 @@
                 md:left-auto md:relative
               "
             >
-              <!--<th
-                class="
-                  bg-indigo-500
-                  p-2
-                  text-white
-                  font-bold
-                  md:border md:border-indigo-500
-                  text-left
-                  block
-                  md:table-cell
-                "
-              >
-                Updated By
-              </th>-->
+              
               <th
                 class="
                   bg-gray-800
@@ -114,20 +101,7 @@
               >
                 Situacao
               </th>
-              <!--<th
-                class="
-                  bg-indigo-500
-                  p-2
-                  text-white
-                  font-bold
-                  md:border md:border-indigo-500
-                  text-left
-                  block
-                  md:table-cell
-                "
-              >
-                Created By
-              </th>-->
+              
               <th
                 class="
                   bg-gray-800
@@ -185,19 +159,7 @@
                 md:table-row
               "
             >
-              <!--<td
-                class="
-                  p-2
-                  md:border md:border-gray-500
-                  text-left
-                  block
-                  md:table-cell
-                "
-              >
-                <span class="inline-block w-1/3 md:hidden font-bold"
-                  >Updated By</span
-                >{{ carro.updated_by }}
-              </td>-->
+              
               <td
                 class="
                   p-2
@@ -225,19 +187,7 @@
                   >Situacao</span
                 >{{ carro.situacao }}
               </td>
-              <!--<td
-                class="
-                  p-2
-                  md:border md:border-gray-500
-                  text-left
-                  block
-                  md:table-cell
-                "
-              >
-                <span class="inline-block w-1/3 md:hidden font-bold"
-                  >Created By</span
-                >{{ carro.created_by }}
-              </td>-->
+              
               <td
                 class="
                   p-2
