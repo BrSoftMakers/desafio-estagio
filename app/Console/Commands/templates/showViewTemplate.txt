@@ -1,0 +1,37 @@
+<template>
+     <app-layout>
+        <template #header>
+            <h2 class="font-semibold text-xl leading-tight">
+                <Link class="text-indigo-400 hover:text-indigo-600" :href="route('%routeName%.index')">%modelName%s </Link>
+                <span class="text-indigo-400 font-medium">/</span>
+                Visualizar %modelName%
+            </h2>        </template>
+
+        <div class="py-12">
+            <div class="min-h-screen flex items-start justify-center px-4">
+    
+    <div class="max-w-4xl  bg-white w-full rounded-lg shadow-xl">
+        <div class="p-4 border-b">
+            <h2 class="text-2xl ">
+                Detalhes
+            </h2>
+            
+        </div>
+        %_showFields%
+    </div>
+</div>
+        </div>
+    </app-layout>
+</template>
+
+<script>
+import AppLayout from "@/Layouts/AppLayout";
+import { Link } from '@inertiajs/inertia-vue3';
+export default {
+    components:{
+        AppLayout,
+        Link
+    },
+    props:['%modelVarName%'],
+}
+</script>

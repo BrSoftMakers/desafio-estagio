@@ -1,0 +1,68 @@
+<template>
+    <app-layout>
+        <template #header>
+            <h2 class="font-semibold text-xl leading-tight">
+                <Link class="text-indigo-400 hover:text-indigo-600" :href="route('%routeName%.index')">%modelName%s </Link>
+                <span class="text-indigo-400 font-medium">/</span>
+                Editar %modelName%
+            </h2>        </template>
+
+        <div class="py-12">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+
+                    <form @submit.prevent="submit" class="mb-6">
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
+                        
+                        %_formView%
+                       
+                        </div>
+
+                        <div class='flex justify-end md:gap-8 gap-4 pt-5 pb-5 pr-5'>
+                        <Link
+                            :href="route('%routeName%.index')"
+                            class='w-auto bg-gray-500 hover:bg-gray-700 rounded-lg shadow-xl font-medium text-white px-4 py-2' type="button">
+                            Cancelar
+                        </Link>
+                        <button
+                            type="submit"
+                            class='w-auto bg-purple-500 hover:bg-purple-700 rounded-lg shadow-xl font-medium text-white px-4 py-2'
+                        >
+                            Salvar
+                        </button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </app-layout>
+</template>
+
+<script>
+import AppLayout from "@/Layouts/AppLayout";
+import { Link } from '@inertiajs/inertia-vue3';
+export default {
+  components: {
+    AppLayout,
+    Link
+  },
+  props: [%props%],
+  data() {
+    return {
+      form: {
+        %formFields%
+      },
+    };
+  },
+  methods: {
+    submit() {
+      this.$inertia.put(
+        route("%routeName%.update", this.$props.%modelVarName%.id),
+        this.form
+      );
+    },
+  },
+};
+</script>

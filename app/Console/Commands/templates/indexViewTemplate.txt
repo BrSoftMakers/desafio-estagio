@@ -1,0 +1,157 @@
+<template>
+    <app-layout>
+        <template #header>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                %modelName%s
+            </h2>
+        </template>
+
+        
+        
+
+       
+<div class=" flex items-center justify-center" style="background: #edf2f7;">
+    
+     <div class="container ">
+
+     <div class="mb-2 mt-6 flex justify-between items-center block">
+
+            <div class="px-0 my-3 rounded-xl flex flex-col">
+            <div class="w-full">
+                    <Link
+                        :href="route('%routeName%.create')"
+                        class="
+                            focus:outline-none
+                            text-white text-sm
+                            py-2.5
+                            px-5
+                            border-b-4 border-blue-600
+                            rounded-md
+                            bg-blue-500
+                            hover:bg-blue-400
+                        "
+                        >Novo</Link>
+
+            <a  type="button" 
+                            class="
+                            focus:outline-none
+                            text-white text-sm
+                            py-2.5
+                            px-5
+                            ml-2
+                            border-b-4 border-green-600
+                            rounded-md
+                            bg-green-700
+                            hover:bg-green-500
+                            "
+                            :href="route('%routeName%.export',{term:this.term})"
+                            download="file.xlsx">
+                           Exportar
+                        </a>
+            </div>    
+        </div>
+
+        <div class="w-full max-w-max mr-0">
+                <label for="search" class=" p-2 text-gray-700">Filtro</label>
+                <input id="search" type="text" v-model="term" @keyup.enter="search" 
+                class="px-2 py-1 text-sm rounded border">
+            </div>
+
+        </div>
+
+
+        <table class="min-w-full border-collapse block md:table">
+		    <thead class="block md:table-header-group">
+			    <tr class="border border-indigo-500 md:border-none block md:table-row absolute -top-full md:top-auto -left-full md:left-auto  md:relative ">
+				    
+                    %tHead%
+                    <th class="bg-indigo-500 p-2 text-white font-bold md:border md:border-indigo-300 text-left block md:table-cell">Ações</th>
+			</tr>
+		</thead> 
+		<tbody class="block md:table-row-group">
+			<tr v-for="%modelVarName% in %modelVarName%s.data"
+                                :key="%modelVarName%.id"
+                                
+                                class="bg-white border 
+                                border-grey-500 md:border-none 
+                                block md:table-row">
+
+				%tBody%
+				
+				<td class="p-2 md:border md:border-grey-500 text-left block md:table-cell">
+					<span class="inline-block w-1/3 md:hidden font-bold">Ações</span>
+                    <Link
+                                            class="m-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded"
+                                            as="button"
+                                            type="button"
+                                            :href="
+                                                route(
+                                                    '%routeName%.show',
+                                                    %modelVarName%.id
+                                                )
+                                            "
+                                        >
+                                            <svg class="h-4 w-4 text-white"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="12" cy="12" r="2" />  <path d="M2 12l1.5 2a11 11 0 0 0 17 0l1.5 -2" />  <path d="M2 12l1.5 -2a11 11 0 0 1 17 0l1.5 2" /></svg>
+                                        </Link>
+                    <Link
+                                            class="m-1 bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-2 rounded"
+                                            as="button" 
+                                            type="button"
+                                            :href="
+                                                route(
+                                                    '%routeName%.edit',
+                                                    %modelVarName%.id
+                                                )
+                                            "
+                                        >
+                                            <svg class="h-4 w-4 text-white"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />  <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" /></svg>
+                                        </Link>
+                    
+                    <button class="m-1 bg-red-600 
+                        hover:bg-red-700 text-white 
+                        font-bold py-2 px-2 rounded" 
+                        tabindex="-1" 
+                        type="button" 
+                        @click="destroy(%modelVarName%)"><svg class="h-4 w-4 text-white"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <line x1="4" y1="7" x2="20" y2="7" />  <line x1="10" y1="11" x2="10" y2="17" />  <line x1="14" y1="11" x2="14" y2="17" />  <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />  <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /></svg></button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+     <pagination class="mt-6 " :links="%modelVarName%s.links" />
+     </div>
+</div>
+        
+    </app-layout>
+</template>
+
+<script>
+import AppLayout from "@/Layouts/AppLayout.vue";
+import { Link } from "@inertiajs/inertia-vue3";
+import Pagination from '@/Shared/Pagination';
+
+export default {
+    props: {
+        %modelVarName%s: Object,
+    },
+    data(){
+        return {
+            term:''
+        }
+    },
+    components: { 
+        AppLayout,
+        Link, 
+        Pagination,
+    },
+    methods: {
+        destroy(%modelVarName%) {
+            if (confirm('Você tem certeza que deseja excluir este registro?')) {
+                this.$inertia.delete(this.route('%routeName%.destroy',%modelVarName%.id))
+        }
+    },
+    search(){
+            this.$inertia.replace(this.route('%routeName%.index',{term:this.term}))
+    },
+  },
+};
+</script>
