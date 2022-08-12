@@ -32,7 +32,7 @@
             >
               <p class="text-gray-600">Situacao</p>
               <p>
-                {{ carro.situacao }}
+                {{ situacao }}
               </p>
             </div>
           </div>
@@ -85,6 +85,6 @@ export default {
     AppLayout,
     Link,
   },
-  props: ["carro"],
+  props: ["carro","situacao"],
 };
 </script>

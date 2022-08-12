@@ -83,8 +83,15 @@ class CarroController extends Controller
      */
     public function show(Carro $carro)
     {
+        $situacao=$carro::getSituacaoByID($carro->situacao);
+        
+
+        
         return Inertia::render('Carro/Show', [
             'carro' => $carro,
+            'situacao'=>$situacao
+            
+            
         ]);
     }
 

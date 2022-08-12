@@ -25,4 +25,4 @@ DB_PASSWORD=postgres
 
 9º Ver o resultado no navegador
 
-Para acessar o sistema é necessário que o Usuário cadastre-se, e logo após é só clicar no botão ENTRAR informar email e senha cadastrado.
+Para acessar o sistema é necessário que o Usuário cadastre-se, e logo após é só clicar no botão REGISTER.

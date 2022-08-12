@@ -44,9 +44,9 @@
         
 
     </div>
-    <div>
-        <p>Para acessar o sistema é necessario se cadastrar antes.</p><br>
-        <p>Após o cadastro realizado, basta clicar no botão ENTRAR, informar email e senha para acessar o sistema.</p>
+    <div class="ml-20 mb-20 font-bold text-1xl">
+        <p>OBS: Para acessar o sistema é necessario se cadastrar antes.</p><br>
+        <p>Após o cadastro realizado, basta clicar no botão REGISTER para acessar o sistema.</p>
     </div>
     
        
@@ -69,6 +69,9 @@
     .hover\:text-indigo-400:hover {
 	--tw-text-opacity: 1;
 	color: rgba(129, 140, 248, var(--tw-text-opacity));
+    }
+    .mb-20 {
+	margin-bottom: 5rem;
     }
 	.md\:text-2xl {
 		font-size: 1.5rem;
