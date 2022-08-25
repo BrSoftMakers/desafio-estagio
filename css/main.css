@@ -26,3 +26,8 @@ header {
     line-height: 70px;
     box-shadow: 0 1px 2px var(--shadow-color);
 }
+
+.header-title {
+    color: #000000;
+    font-size: 2rem;
+}
