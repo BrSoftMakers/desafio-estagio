@@ -10,3 +10,11 @@
     --shadow-color: #CCC;
     --text-color: #FFF;
 }
+
+boby {
+    min-width: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
+    position: relative;
+}
