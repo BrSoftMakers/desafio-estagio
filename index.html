@@ -7,6 +7,41 @@
     <title>Locadora</title>
 </head>
 <body>
-    
+    <header>Testando...</header>
+    <main>
+        <button type="button" class="button" id="listarCarros">Listar Carros</button>
+        <table class="tabela" id="tabelaCarros">
+            <thead>
+                <tr>
+                    <th>modelo</th>
+                    <th>marca</th>
+                    <th>tipo</th>
+                    <th>situação</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+        </table>
+        <div class="tela" id="telaCadastro">
+            <div class="tela-conteudo">
+                <header class="tela-header">
+                    <h2>Novo Veículo</h2>
+                    <span class="tela-close" id="telaClose">&#10006</span>
+                </header>
+                <form class="tela-form" id="form">
+                    <input type="text" class="tela-campo" id="modelo" placeholder="Modelo do Veículo" required>
+                    <input type="text" class="tela-campo" id="marca" placeholder="Marca do Veículo" required>
+                    <input type="text" class="tela-campo" id="tipo" placeholder="Tipo do Veículo" required>
+                    <input type="text" class="tela-campo" id="situaçao" placeholder="Situação do Veículo" required>
+                </form>
+                <footer class="tela-footer">
+                    <button class="button" id="salvar">Salvar</button>
+                    <button class="button" id="cancelar">Cancelar</button>
+                </footer>
+            </div>
+        </div>
+    </main>
+    <footer>
+        Copyright &copy; Elthon Silva
+    </footer>
 </body>
 </html>
