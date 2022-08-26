@@ -15,3 +15,10 @@
     height: 50px;
     padding-left: 20px;
 }
+
+.tabela th:last-child,
+.talbe td:last-child {
+    padding: 0;
+    min-width: 140px;
+    text-align: center;
+}
