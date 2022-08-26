@@ -1,0 +1,17 @@
+.tabela {
+    width: 100%;
+    user-select: none;
+    text-align: center;
+}
+
+.tabela th {
+    height: 50px;
+    background-color: var(--primary-color);
+    padding-left: 20px;
+    font-size: 1.2rem;
+}
+
+.tabela td {
+    height: 50px;
+    padding-left: 20px;
+}
