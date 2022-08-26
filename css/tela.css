@@ -13,3 +13,14 @@
     opacity: 1;
     z-index: 1;
 }
+
+.tela-conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 50vw;
+    margin: 15vh auto;
+    padding-bottom: 20px;
+    background-color: #ffffff;
+    box-shadow: 1px 1px 10px #000000;
+}
