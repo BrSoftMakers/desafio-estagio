@@ -21,3 +21,6 @@ const updateVeiculo = (index, veiculo) => {
     dbVeiculo[index] = veiculo
     setLocalStorage(dbVeiculo)
 }
+
+// READ
+const readVeiculo = () => getLocalStorage()
