@@ -24,3 +24,10 @@ const updateVeiculo = (index, veiculo) => {
 
 // READ
 const readVeiculo = () => getLocalStorage()
+
+// CREATE
+const createVeiculo = (veiculo) => {
+    const dbVeiculo = getLocalStorage()
+    dbVeiculo.push(veiculo)
+    setLocalStorage(dbVeiculo)
+}
