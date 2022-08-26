@@ -32,6 +32,19 @@ const createVeiculo = (veiculo) => {
     setLocalStorage(dbVeiculo)
 }
 
+//Interação
+const saveVeiculo = () => {
+    if(validarCampo()) {
+        const veiculo = {
+            modelo: document.getElementById("modelo").value, 
+            marca: document.getElementById("marca").value, 
+            tipo: document.getElementById("tipo").value, 
+            situaçao: document.getElementById("situaçao").value 
+        }
+        createVeiculo(veiculo)
+    }
+}
+
 //Eventos
 document.getElementById("listarCarros").addEventListener("click", abrirTela)
-document.getElementById("telaClose").addEventListener("click", fecharTela)
+document.getElementById("telaClose").addEventListener("click", fecharTela)  
