@@ -31,3 +31,6 @@ const createVeiculo = (veiculo) => {
     dbVeiculo.push(veiculo)
     setLocalStorage(dbVeiculo)
 }
+
+//Eventos
+document.getElementById("listarCarros").addEventListener("click", abrirTela)
