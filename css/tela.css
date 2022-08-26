@@ -67,3 +67,8 @@
     padding: 0 10px;
     font-size: 1rem;
 }
+
+.tela-campo:focus {
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 0 3 var(--primary-color);
+}
