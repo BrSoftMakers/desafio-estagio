@@ -1,0 +1,29 @@
+.header_container {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #222;
+    border-bottom: 3px solid steelblue;
+}
+
+.header_container h1 {
+    color: aliceblue;
+}
+
+.header_container a {
+    text-decoration: none;
+    color: aliceblue;
+    font-weight: bold;
+    padding: 8px 15px;
+    background-color: steelblue;
+    transition: .8s;
+}
+
+.header_container a:hover {
+    text-decoration: none;
+    border: 1px solid aliceblue;
+    
+    background-color: transparent;
+}
