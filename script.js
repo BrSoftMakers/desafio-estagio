@@ -34,3 +34,4 @@ const createVeiculo = (veiculo) => {
 
 //Eventos
 document.getElementById("listarCarros").addEventListener("click", abrirTela)
+document.getElementById("telaClose").addEventListener("click", fecharTela)
