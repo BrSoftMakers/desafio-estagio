@@ -32,6 +32,11 @@ const createVeiculo = (veiculo) => {
     setLocalStorage(dbVeiculo)
 }
 
+// Função que verifica se todos os campos são válidos 
+const validarCampo = () => {
+    return document.getElementById("form").reportValidity()
+}
+
 //Interação
 const saveVeiculo = () => {
     if(validarCampo()) {
