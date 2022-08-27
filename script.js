@@ -42,6 +42,7 @@ const validarCampo = () => {
 const limparCampo = () => {
     const campos = document.querySelectorAll(".tela-campo")
     campos.forEach(campo => campo.value = "")
+    document.getElementById("modelo").dataset.index = "new"
 }
 
 const saveVeiculo = () => {
@@ -81,7 +82,7 @@ const criarLinha = (veiculo, index) => {
 }
 
 const limparTabela = () => {
-    const linhas = document.querySelectorAll("tabelaCarros>tbody tr")
+    const linhas = document.querySelectorAll("#tabelaCarros>tbody tr")
     linhas.forEach(linha => linha.parentNode.removeChild(linha))
 }
 
