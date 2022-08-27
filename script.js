@@ -84,9 +84,17 @@ const atualizarTabela = () => {
     dbVeiculo.forEach(criarLinha)
 }
 
+const preencherCampo = (veiculo) => {
+    document.getElementById("modelo").value = veiculo.modelo
+    document.getElementById("marca").value = veiculo.marca
+    document.getElementById("tipo").value = veiculo.tipo
+    document.getElementById("situaçao").value = veiculo.situaçao
+}
+
 const editVeiculo = (index) => {
     const veiculo = readVeiculo()[index]
     preencherCampo(veiculo)
+    abrirTela()
 }
 
 const editarExcluir = (event) => {
