@@ -26,3 +26,21 @@
 .tabela tr:hover {
     background-color: var(--secundary-color);
 }
+
+@media(max-width: 480px) {
+    .tabela {
+        top: 100%;
+        transition: all 1s ease;
+    }
+    .tabela.active {
+        top: 0;
+    }
+    .tabela-conteudo {
+        margin: 0;
+        width: 100%;
+        position: fixed;
+    }
+    .tabela-campo {
+        width: 100%;
+    }
+}
