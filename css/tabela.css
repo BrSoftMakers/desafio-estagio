@@ -1,14 +1,14 @@
 .tabela {
-    width: 100%;
-    user-select: none;
     text-align: center;
+    user-select: none;
+    width: 100%;
 }
 
 .tabela th {
-    height: 50px;
     background-color: var(--primary-color);
-    padding-left: 20px;
     font-size: 1.2rem;
+    height: 50px;
+    padding-left: 20px;
 }
 
 .tabela td {
@@ -18,8 +18,8 @@
 
 .tabela th:last-child,
 .talbe td:last-child {
-    padding: 0;
     min-width: 140px;
+    padding: 0;
     text-align: center;
 }
 
@@ -37,8 +37,8 @@
     }
     .tabela-conteudo {
         margin: 0;
-        width: 100%;
         position: fixed;
+        width: 100%;
     }
     .tabela-campo {
         width: 100%;
