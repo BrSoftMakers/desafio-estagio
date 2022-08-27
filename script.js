@@ -84,6 +84,11 @@ const atualizarTabela = () => {
     dbVeiculo.forEach(criarLinha)
 }
 
+const editVeiculo = (index) => {
+    const veiculo = readVeiculo()[index]
+    preencherCampo(veiculo)
+}
+
 const editarExcluir = (event) => {
     if(event.target.type == "button") {
         const [action, index] = event.target.id.split("-")
