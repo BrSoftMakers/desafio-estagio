@@ -60,3 +60,4 @@ const saveVeiculo = () => {
 //Eventos
 document.getElementById("listarCarros").addEventListener("click", abrirTela)
 document.getElementById("telaClose").addEventListener("click", fecharTela)  
+document.getElementById("salvar").addEventListener("click", saveVeiculo)
