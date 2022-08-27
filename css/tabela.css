@@ -27,20 +27,27 @@
     background-color: var(--secundary-color);
 }
 
-@media(max-width: 480px) {
-    .tabela {
-        top: 100%;
-        transition: all 1s ease;
+@media(max-width:480px){
+    .tabela{
+        border-spacing: 5px;
     }
-    .tabela.active {
-        top: 0;
+    .tabela thead{
+        display:none;
     }
-    .tabela-conteudo {
-        margin: 0;
-        position: fixed;
-        width: 100%;
+    .tabela tr{
+        box-shadow: 0 1px 3px var(--shadow-color);
     }
-    .tabela-campo {
-        width: 100%;
+    .tabela td:not(:first-child){
+        display:flex;
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+
+    .tabela td{
+        margin:10px 0;
+    }
+
+    .tabela tr:hover{
+        background-color: inherit;
     }
 }
