@@ -113,7 +113,12 @@ const editarExcluir = (event) => {
         if(action == "edit") {
             editVeiculo(index)
         }else {
-            console.log("deletando veiculo");
+            const veiculo = readVeiculo()[index]
+            const confirmacao = confirm(`Deseja realmente excluir o veiculo ${veiculo.modelo}?`)
+            if(confirmacao) {
+                deleteVeiculo(index)
+                atualizarTabela()
+            }
         }
     }
 }
