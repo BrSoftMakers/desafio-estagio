@@ -58,7 +58,7 @@ const saveVeiculo = () => {
     }
 }
 
-const criarLinha = (veiculo) => {
+const criarLinha = (veiculo, index) => {
     const novaLinha = document.createElement("tr")
     novaLinha.innerHTML = `
         <td>${veiculo.modelo}</td>
@@ -66,8 +66,8 @@ const criarLinha = (veiculo) => {
         <td>${veiculo.tipo}</td>
         <td>${veiculo.situaçao}</td>
         <td>
-            <button type="button" class="button green">editar</button>
-            <button type="button" class="button red">excluir</button>
+            <button type="button" class="button green" id="edit-${index}">Editar</button>
+            <button type="button" class="button red" id="delete-${index}">Excluir</button>
         </td>
     `
     document.querySelector("#tabelaCarros>tbody").appendChild(novaLinha)
@@ -82,6 +82,18 @@ const atualizarTabela = () => {
     const dbVeiculo = readVeiculo()
     limparTabela()
     dbVeiculo.forEach(criarLinha)
+}
+
+const editarExcluir = (event) => {
+    if(event.target.type == "button") {
+        const [action, index] = event.target.id.split("-")
+
+        if(action == "edit") {
+            editVeiculo(index)
+        }else {
+            console.log("deletando veiculo");
+        }
+    }
 }
 
 atualizarTabela()
