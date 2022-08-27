@@ -57,6 +57,13 @@ const saveVeiculo = () => {
     }
 }
 
+const atualizarTabela = () => {
+    const dbVeiculo = readVeiculo()
+    dbVeiculo.forEach(criarLinha)
+}
+
+atualizarTabela()
+
 //Eventos
 document.getElementById("listarCarros").addEventListener("click", abrirTela)
 document.getElementById("telaClose").addEventListener("click", fecharTela)  
