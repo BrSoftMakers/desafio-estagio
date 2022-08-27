@@ -53,6 +53,7 @@ const saveVeiculo = () => {
             situaçao: document.getElementById("situaçao").value 
         }
         createVeiculo(veiculo)
+        atualizarTabela()
         fecharTela()
     }
 }
@@ -72,8 +73,14 @@ const criarLinha = (veiculo) => {
     document.querySelector("#tabelaCarros>tbody").appendChild(novaLinha)
 }
 
+const limparTabela = () => {
+    const linhas = document.querySelectorAll("tabelaCarros>tbody tr")
+    linhas.forEach(linha => linha.parentNode.removeChild(linha))
+}
+
 const atualizarTabela = () => {
     const dbVeiculo = readVeiculo()
+    limparTabela()
     dbVeiculo.forEach(criarLinha)
 }
 
