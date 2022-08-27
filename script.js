@@ -57,6 +57,21 @@ const saveVeiculo = () => {
     }
 }
 
+const criarLinha = (veiculo) => {
+    const novaLinha = document.createElement("tr")
+    novaLinha.innerHTML = `
+        <td>${veiculo.modelo}</td>
+        <td>${veiculo.marca}</td>
+        <td>${veiculo.tipo}</td>
+        <td>${veiculo.situaçao}</td>
+        <td>
+            <button type="button" class="button green">editar</button>
+            <button type="button" class="button red">excluir</button>
+        </td>
+    `
+    document.querySelector("#tabelaCarros>tbody").appendChild(novaLinha)
+}
+
 const atualizarTabela = () => {
     const dbVeiculo = readVeiculo()
     dbVeiculo.forEach(criarLinha)
