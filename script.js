@@ -52,9 +52,16 @@ const saveVeiculo = () => {
             tipo: document.getElementById("tipo").value, 
             situaçao: document.getElementById("situaçao").value 
         }
-        createVeiculo(veiculo)
-        atualizarTabela()
-        fecharTela()
+        const index = document.getElementById("modelo").dataset.index
+        if(index == "new") {
+            createVeiculo(veiculo)
+            atualizarTabela()
+            fecharTela()
+        } else {
+            updateVeiculo(index, veiculo)
+            atualizarTabela()
+            fecharTela()
+        }
     }
 }
 
@@ -89,10 +96,12 @@ const preencherCampo = (veiculo) => {
     document.getElementById("marca").value = veiculo.marca
     document.getElementById("tipo").value = veiculo.tipo
     document.getElementById("situaçao").value = veiculo.situaçao
+    document.getElementById("modelo").dataset.index = veiculo.index
 }
 
 const editVeiculo = (index) => {
     const veiculo = readVeiculo()[index]
+    veiculo.index = index
     preencherCampo(veiculo)
     abrirTela()
 }
