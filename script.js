@@ -2,6 +2,7 @@
 
 const abrirTela = () => document.getElementById("tela").classList.add("active")
 const fecharTela = () => {
+    limparCampo()
     document.getElementById("tela").classList.remove("active")
 }
 
@@ -38,6 +39,11 @@ const validarCampo = () => {
 }
 
 //Interação
+const limparCampo = () => {
+    const campos = document.querySelectorAll(".tela-campo")
+    campos.forEach(campo => campo.value = "")
+}
+
 const saveVeiculo = () => {
     if(validarCampo()) {
         const veiculo = {
@@ -47,6 +53,7 @@ const saveVeiculo = () => {
             situaçao: document.getElementById("situaçao").value 
         }
         createVeiculo(veiculo)
+        fecharTela()
     }
 }
 
