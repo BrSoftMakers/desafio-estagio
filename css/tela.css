@@ -79,7 +79,7 @@
     text-align: right;
 }
 
-@media (max-width:480px){
+@media(max-width:540px){
     .tela{
         top:100%;
         transition: all 1s ease;
