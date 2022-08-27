@@ -1,24 +1,37 @@
- ![SoftMakers](https://www.softmakers.com.br/assets/img/logotipo14xxhdpi.png)
+# Desafio Estágio SoftMakers
 
-# Desafio - Desenvolvedor Fullstack - Estágio
-Seja bem-vindo! Este desafio foi projetado para avaliar a sua capacidade técnica como candidato ao cargo proposto.
+### Como rodar a aplicação
 
-## Instruções
-- Faça um fork deste repositório;
-- O conjunto mínimo de tecnologias a serem utilizadas são: HTML, CSS e JS;
-- Crie um passo a passo de como rodar a sua aplicação;
-- Após finalizar, submeta um pull request com um comentário informando o seu e-mail de contato e aguarde nossa avaliação.
 
-## Proposta
-Você deverá desenvolver um projeto com a finalidade de que seja possível listar, visualizar, criar, editar e excluir carros de uma locadora de automóvel.
+**1** - Para a aplicação funcionar é necessário ter o NodeJS e o MySQL instalados na máquina.
 
-**Observações:**
-> - Cada carro precisa ter um identificador único, modelo, marca, tipo (hatch, sedan ou SUV) e situação (disponível ou indisponível). Todos os campos são do formulário são obrigatório.
+**Links para instalação**
 
-## Diferenciais
-Serão considerados diferenciais:
+NodeJS versão 16.15.1 ou superior: <https://nodejs.dev/en/download/>
 
-- O uso de PHP ou Node.js como linguagem sendo utilizada no lado do servidor;
-- O uso de qualquer banco de dados para armazenar os dados da sua aplicação;
-- O uso de qualquer framework;
-- Boas práticas de escrita de código (código limpo, padrões de arquitetura, etc.).
+MySQL Community Server 8.0.29 ou superior: <https://dev.mysql.com/downloads/mysql/>
+
+**2** - Com o Node e MySQL instalados, e assumindo que o usuário root do MySQL e a senha foram configurados, precisamos instalar a dependência do Node para conexão com o banco de dados. Abra o terminal e execute o comando: 
+
+> npm install mysql2
+
+**3** - Depois, acesse o arquivo *createDatabase.js* que está no diretório do projeto e altere as configurações de host, username e password para "localhost", "root", e no campo password a senha configurada.
+
+
+**4** - Feito isso, é necessário criar o banco de dados da aplicação rodando o script *createDatabase.js*. No terminal, navegue até a pasta do projeto e execute o comando: 
+
+> node createDatabase.js
+
+**5** - Com o banco de dados criado, vá até a pasta backend e acesse o arquivo **dbConfig.js** dentro da pasta *models* para informar o usuário e a senha root nos campos "username" e "password" da classe Sequelize.
+
+**6** - Terminado esses passos, agora temos que instalar as dependências do backend e do frontend. Acesse o terminal na pasta backend do projeto e rode o comando **npm install**. Faça o mesmo na pasta frontend.
+
+**7** - Por fim, podemos rodar a aplicação. Execute os comandos abaixo na ordem e  nas suas respectivas pastas: 
+
+**/backend/**
+> npm start
+
+**/frontend/**
+
+> npm start
+

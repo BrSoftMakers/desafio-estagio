@@ -1,0 +1,97 @@
+.veiculo_container {
+    width: 300px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+
+}
+
+.veiculo_img_container {
+    width: 100%;
+    height: 60%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #ccc;
+}
+
+.veiculo_img_container img {
+    width: 100%;
+    height: 100%;
+}
+
+.veiculo_info_container {
+    width: 90%;
+    margin-bottom: 10px;
+}
+
+.veiculo_info_container p {
+    padding: 2px;
+    font-size: 1.2em;
+    
+}
+
+.veiculo_info_container span {
+    display: inline-block;
+    width: 40%;
+    font-weight: bold;
+}
+
+.veiculo_icons_container {
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.veiculo_icons_container svg {
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: .5s;
+    color: #222;
+}
+
+.veiculo_icons_container svg:hover {
+    cursor: pointer;
+}
+
+.veiculo_icons_container a {
+    text-decoration: none;
+    color: #222;
+}
+
+.icon_container {
+    display: flex;
+    width: 90px;
+    padding: 5px;
+}
+
+.icon_container:hover {
+    cursor: pointer;
+    
+}
+
+.icon_container span {
+    font-size: .8em;
+    font-weight: bold;
+    margin-left:  5px;
+    color: #222;
+}
+
+.status_green {
+    color: seagreen
+}
+
+.status_red {
+    color: darkred
+}
+
+@media screen and (min-width: 500px){
+    .veiculo_container {
+        width: 280px;
+        margin-right: 10px;
+    }
+}

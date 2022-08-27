@@ -1,0 +1,13 @@
+.footer_container {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #222;
+    border-top: 3px solid steelblue;
+}
+
+.footer_container p {
+    color: aliceblue;
+}
