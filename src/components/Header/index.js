@@ -1,12 +1,11 @@
 import React from "react";
-
+// Logo
 import Shoshinsha from "../../assets/shoshinsha.png";
-
+// Icones
+import { FaUserAlt } from "react-icons/fa";
 // Estilos
-
-import { Container, Link, Logo } from "./styles";
-
-// Recuperando as informações do menu
+import { Container, LinkItem, Logo, User } from "./styles";
+// Importando o array com informações do path, icons, name e id.
 import { Data } from "./data";
 
 function Header() {
@@ -20,13 +19,15 @@ function Header() {
         {/* Mapeando Array Para gerar os links do menu  */}
         {Data.map((item) => (
           // Atribuindo Identificador único do item
-          <Link to={item.path} key={item.id} end>
+          <LinkItem to={item.path} key={item.id} end>
             {/* Atribuindo o Texto do link */}
             {item.name}
-          </Link>
+          </LinkItem>
         ))}
       </ul>
-      <div>Circle</div>
+      <User>
+        <FaUserAlt />
+      </User>
     </Container>
   );
 }

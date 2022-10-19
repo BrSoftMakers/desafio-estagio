@@ -18,9 +18,7 @@ export const Container = styled.div`
     justify-content: space-evenly;
 
     /* li {
-      font-weight: 400;
-      font-size: 1.25rem;
-      margin: 2.125rem;
+      
     } */
   }
 `;
@@ -33,6 +31,7 @@ export const Logo = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
+  cursor: pointer;
   img {
     width: 35px;
     height: 50px;
@@ -46,7 +45,7 @@ export const Logo = styled.div`
 
 // Estilizando a propriedade Navlink do React Router
 
-export const Link = styled(NavLink)`
+export const LinkItem = styled(NavLink)`
   color: var(--Gray-600);
   text-decoration: none;
   font-weight: 400;
@@ -55,5 +54,20 @@ export const Link = styled(NavLink)`
     padding-bottom: 2px;
     color: var(--Pink-700);
     border-bottom: 2px solid var(--Cyan-300);
+  }
+`;
+
+export const User = styled.div`
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--Black-900);
+  cursor: pointer;
+  svg {
+    color: var(--Black-900);
+    font-size: 1.15rem;
   }
 `;
