@@ -7,13 +7,16 @@ import { FaUserAlt } from "react-icons/fa";
 import { Container, LinkItem, Logo, User } from "./styles";
 // Importando o array com informações do path, icons, name e id.
 import { Data } from "./data";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
     <Container>
       <Logo>
-        <img src={Shoshinsha} />
-        <h1>CRUD CAR</h1>
+        <Link to="/">
+          <img src={Shoshinsha} />
+          MIDNIGHT CARS
+        </Link>
       </Logo>
       <ul>
         {/* Mapeando Array Para gerar os links do menu  */}

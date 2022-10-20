@@ -16,30 +16,30 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-
-    /* li {
-      
-    } */
   }
 `;
 
 // Estilização Logo
 
 export const Logo = styled.div`
-  width: 15%;
+  width: 20%;
   min-width: 177.74px;
   height: 100%;
   display: flex;
   align-items: center;
   cursor: pointer;
   img {
-    width: 35px;
-    height: 50px;
+    width: 30px;
+    height: 40px;
+    margin-right: 1.5rem;
   }
-  h1 {
+  a {
+    display: flex;
+    align-items: center;
     font-size: 1.25rem;
-    margin-left: 1.5rem;
     font-weight: 600;
+    text-decoration: none;
+    color: var(--Black-900);
   }
 `;
 
@@ -52,7 +52,7 @@ export const LinkItem = styled(NavLink)`
   font-size: 1.25rem;
   &.active {
     padding-bottom: 2px;
-    color: var(--Pink-700);
+    color: var(--Cyan-300);
     border-bottom: 2px solid var(--Cyan-300);
   }
 `;
