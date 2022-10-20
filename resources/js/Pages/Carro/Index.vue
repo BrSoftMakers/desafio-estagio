@@ -218,7 +218,7 @@
                   text-left
                   block
                   md:table-cell
-                  
+
                 "
               >
                 <span class="inline-block w-1/3 md:hidden font-bold"
@@ -292,8 +292,8 @@
                   :href="route('carros.show', carro.id)"
                 >
                   <span class="rounded-full text-white shadow-lg">
-                      <img  src="/storage/img/view.png" width="24" height="24"/> 
-                  </span> 
+                      <img  src="/storage/img/view.png" width="24" height="24"/>
+                  </span>
                 </Link>
                 <Link
                   class="
@@ -311,8 +311,8 @@
                   :href="route('carros.edit', carro.id)"
                 >
                   <span class="rounded-full text-white shadow-lg">
-                      <img  src="/storage/img/lapis.png" width="24" height="24"/> 
-                  </span> 
+                      <img  src="/storage/img/lapis.png" width="24" height="24"/>
+                  </span>
                 </Link>
 
                 <button
@@ -331,8 +331,8 @@
                   @click="destroy(carro)"
                 >
                   <span class="rounded-full text-white shadow-lg">
-                      <img  src="/storage/img/lixeira.png" width="24" height="24"/> 
-                  </span> 
+                      <img  src="/storage/img/lixeira.png" width="24" height="24"/>
+                  </span>
                 </button>
               </td>
             </tr>
