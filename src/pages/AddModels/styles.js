@@ -9,7 +9,6 @@ export const Container = styled.div`
     margin-top: 7.5rem;
     form {
       width: 350px;
-      background-color: var(--White-900);
       margin: 0 auto;
       display: flex;
       align-items: center;
