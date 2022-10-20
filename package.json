@@ -1,0 +1,27 @@
+{
+  "name": "desafio-estagio-matheuspl",
+  "version": "1.0.0",
+  "description": "Este projeto é um desafio com a finalidade de avaliação para o cargo de estagiário fullstack na SoftMakers.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matheuspl92/desafio-estagio-matheuspl.git"
+  },
+  "keywords": [
+    "desafio",
+    "softmakers"
+  ],
+  "author": "Matheus Porto Lambert",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matheuspl92/desafio-estagio-matheuspl/issues"
+  },
+  "homepage": "https://github.com/matheuspl92/desafio-estagio-matheuspl#readme",
+  "dependencies": {
+    "pg": "^8.8.0",
+    "sequelize": "^6.25.3"
+  }
+}
