@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const database = require('./db.js');
+const database = require('./../database/db.js');
 
 const Vehicle = database.define('vehicle', {
     id: {

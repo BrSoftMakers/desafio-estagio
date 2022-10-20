@@ -25,8 +25,8 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const database = require('./db.js');
-const Vehicle = require('./vehicle.js');
+const database = require('./database/db.js');
+const Vehicle = require('./models/vehicle.js');
 
 const app = express();
 const port = 3000;
