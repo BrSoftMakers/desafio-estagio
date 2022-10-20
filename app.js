@@ -1,28 +1,3 @@
-/*
-(async () => {
-    const database = require('./db.js');
-    const Vehicle = require('./vehicle.js');
-
-    try {
-        const result = await database.sync();
-        console.log(result);
-
-        const resultCreate = await Vehicle.create({
-            model: 'Corsa 2015',
-            brand: 'Chevrolet',
-            availability: true
-        })
-        console.log(resultCreate);
-
-        const vehicles = await Vehicle.findAll();
-        console.log(vehicles);
-
-    } catch (error) {
-        console.log(error);
-    }
-})();
-*/
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const database = require('./database/db.js');
@@ -31,6 +6,15 @@ const { response, request } = require('express');
 
 const app = express();
 const port = 3000;
+
+(async () => {
+
+    try {
+        const result = await database.sync();
+    } catch (error) {
+        console.log(error);
+    }
+})();
 
 app.use(bodyParser.json());
 app.use(
