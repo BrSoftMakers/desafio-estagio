@@ -4,13 +4,13 @@ Para rodar esse projeto é necessário ter instalado o PHP, POSTGRES,COMPOSER, M
 
 2º Entrar na pasta do Projeto via terminal
 
-3º Rodar o composer update
+3º Rodar o php /usr/local/bin/composer update
 
 4º Rodar o npm install
 
 5º Restaurar o arquivo desafio-estagio.sql que está na pasta banco
 
-6º Configurar o banco no arquivo .env
+6º Caso não esteja configurado, Configurar o banco no arquivo .env
 
 Ex: DB_CONNECTION=pgsql DB_HOST=127.0.0.1 DB_PORT=5432 DB_DATABASE=desafio_estagio DB_USERNAME=postgres DB_PASSWORD=postgres
 
