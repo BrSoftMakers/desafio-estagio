@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const bodyParser = require('body-parser');
 const database = require('./database/db.js');
 const Vehicle = require('./models/vehicle.js');
@@ -8,9 +9,9 @@ const app = express();
 const port = 3000;
 
 (async () => {
-
     try {
         const result = await database.sync();
+        console.log(result);
     } catch (error) {
         console.log(error);
     }
@@ -24,7 +25,8 @@ app.use(
 );
 
 app.get('/', (request, response) => {
-    response.json({ info: 'Hello World!' })
+    response.sendFile(path.join(__dirname, 'views', 'index.html'));
+    //response.json({ info: 'Hello World!' })
   });
 
 app.get('/api/vehicles', (request, response) => {
