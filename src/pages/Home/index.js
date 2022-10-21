@@ -1,8 +1,11 @@
 import React from "react";
-import Banner from "../../components/Banner";
 
 // Components
 import Header from "../../components/Header";
+import Banner from "../../components/Banner";
+import Card from "../../components/Card";
+import Button from "../../components/Button";
+import { car } from "../../pages/Models";
 
 // Icones
 import { AiOutlineLike } from "react-icons/ai";
@@ -18,7 +21,8 @@ import {
   SectionCars,
   Footer,
   Circle,
-  Image
+  Image,
+  Content
 } from "./styles.js";
 
 function Home() {
@@ -62,9 +66,24 @@ function Home() {
             </p>
           </div>
         </SectionInfo>
-        {/* <SectionCars></SectionCars> */}
+        <SectionCars>
+          <Content>
+            {car.map((item) => (
+              <Card
+                key={item.id}
+                brand={item.brand}
+                image={item.image}
+                category={item.category}
+                price={item.price}
+                model={item.model}
+                situation={item.situation}
+              />
+            ))}
+          </Content>
+          <Button text={"Ver Mais"} />
+        </SectionCars>
       </main>
-      <Footer></Footer>
+      <Footer>A</Footer>
     </Container>
   );
 }
