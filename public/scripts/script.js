@@ -126,11 +126,12 @@ function createCard(vehicle, index) {
 
     const deleteButton = document.createElement("button");
     deleteButton.className = "delete";
-    deleteButton.dataset.index = index;
-    deleteButton.addEventListener('click', e => {
+    deleteButton.dataset.index = vehicle.id;
+    deleteButton.addEventListener('click', async (e) => {
         console.log("DELETE");
         //myLibrary.splice(e.target.dataset.index, 1);
-        //showLibrary();
+        await deleteVehicle(e.target.dataset.index);
+        showVehicleLibrary();
     })
 
     const availableCheckbox = document.createElement("input");
