@@ -8,7 +8,8 @@ Para rodar esse projeto é necessário ter instalado o PHP, POSTGRES,COMPOSER, M
 
 4º Rodar o npm install
 
-5º Restaurar o arquivo desafio-estagio.sql que está na pasta banco
+5º Restaurar o arquivo desafio-estagio.sql que está na pasta banco, fiz o backup do banco com o pg_dump e para restaurar é muito simples basta:
+Criar um banco postgres vázio recomendo usar o nome desse banco de "desafio-estagio" que aí o arquivo .env do projeto já estará configurado, mas caso queira colocar outro nome é so ir no arquivo .env e alterar feito o exmplo a baixo e depois é só entrar na pasta banco do projeto via terminal e rodar o comando "sudo -u psql nome-do-banco-vazio-que-foi-criado < desafio-estagio.sql"
 
 6º Caso não esteja configurado, Configurar o banco no arquivo .env
 
