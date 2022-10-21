@@ -1,4 +1,93 @@
+const getAllVehicles = async () => {
+    try {
+        const dataResponse = await fetch('http://localhost:3000/api/vehicles', {
+            method: 'GET',
+            mode: 'cors',
+        });
+        const data = await dataResponse.json();
+        return data;
+    } catch (error) {
+        console.log('ERROR!');
+    }
+};
+
+const getVehicle = async (id) => {
+    try {
+        const dataResponse = await fetch(`http://localhost:3000/api/vehicles/${id}`, {
+            method: 'GET',
+            mode: 'cors',
+        });
+        const data = await dataResponse.json();
+        return data;
+    } catch (error) {
+        console.log('ERROR!');
+    }
+};
+
+const createVehicle = async (bodyData) => {
+    try {
+        const dataResponse = await fetch('http://localhost:3000/api/vehicles', {
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            redirect: 'follow',
+            body: JSON.stringify(bodyData)
+        });
+        const data = await dataResponse.json();
+        return data;
+    } catch (error) {
+        console.log('ERROR!');
+    }
+};
+
+const editVehicle = async (id, bodyData) => {
+    try {
+        const dataResponse = await fetch(`http://localhost:3000/api/vehicles/${id}`, {
+            method: 'PUT',
+            mode: 'cors',
+            cache: 'no-cache',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            redirect: 'follow',
+            body: JSON.stringify(bodyData)
+        });
+        const data = await dataResponse.json();
+        return data;
+    } catch (error) {
+        console.log('ERROR!');
+    }
+};
+
+const deleteVehicle = async (id) => {
+    try {
+        const dataResponse = await fetch(`http://localhost:3000/api/vehicles/${id}`, {
+            method: 'DELETE',
+            mode: 'cors',
+        });
+        const data = await dataResponse.json();
+        return data;
+    } catch (error) {
+        console.log('ERROR!');
+    }
+};
+
+/*
 let myVehicleLibrary = [];
+
+getAllVehicles().then( (vehiclesArray) => {
+    console.log(vehiclesArray);
+    for (let i = 0; i < vehiclesArray.length; i += 1) {
+        myVehicleLibrary.push(vehiclesArray[i]);
+    }
+    console.log("DONE");
+})
+*/
 
 class Vehicle {
     constructor(id, model, brand, type, availability) {
@@ -10,78 +99,88 @@ class Vehicle {
     }
 }
 
-function addVehicleToLibrary(id, model, brand, type, availability) {
-    const newVehicle = new Vehicle(id, model, brand, type, availability);
-    myVehicleLibrary.push(newVehicle);
+async function addVehicleToLibrary(model, brand, type, availability) {
+    console.log("ADD VEHICLE")
+    await createVehicle( {model, brand, type, availability} );
+    //const newVehicle = new Vehicle(id, model, brand, type, availability);
+    //myVehicleLibrary.push(newVehicle);
 }
 
 function createCard(vehicle, index) {
     const cardContainer = document.createElement("div");
     cardContainer.classList.add("card");
 
-    const bookName = document.createElement("h3");
-    const bookAuthor = document.createElement("h4");
-    const bookPages = document.createElement("p");
-    const bookReadDiv = document.createElement("div");
-    const bookReadText = document.createElement("p");
+    const vehicleId = document.createElement('p');
+    const vehicleModel = document.createElement("h3");
+    const vehicleBrand = document.createElement("h4");
+    const vehicleType = document.createElement("p");
+    const vehicleAvailabilityDiv = document.createElement("div");
+    const vehicleAvailabilityText = document.createElement("p");
 
-    bookName.innerHTML = book.bookName;
-    bookAuthor.innerHTML = `Written by ${book.bookAuthor}`;
-    bookPages.innerHTML = `${book.bookPages} pages`;
-    bookReadDiv.className = "book-read";
-    bookReadText.innerHTML = "Have you read the book?";
+    vehicleId.innerHTML = vehicle.id;
+    vehicleModel.innerHTML = vehicle.model;
+    vehicleBrand.innerHTML = vehicle.brand;
+    vehicleType.innerHTML = vehicle.type;
+    vehicleAvailabilityDiv.className = "vehicle-available";
+    vehicleAvailabilityText.innerHTML = "Veículo disponível?";
 
     const deleteButton = document.createElement("button");
     deleteButton.className = "delete";
     deleteButton.dataset.index = index;
     deleteButton.addEventListener('click', e => {
-        myLibrary.splice(e.target.dataset.index, 1);
-        showLibrary();
+        console.log("DELETE");
+        //myLibrary.splice(e.target.dataset.index, 1);
+        //showLibrary();
     })
 
-    const readCheckbox = document.createElement("input");
-    readCheckbox.type = "checkbox";
-    readCheckbox.checked = book.wasBookRead;
-    readCheckbox.dataset.index = index;
-    readCheckbox.addEventListener("change", e => {
-        myLibrary[e.target.dataset.index].wasBookRead = e.target.checked;
+    const availableCheckbox = document.createElement("input");
+    availableCheckbox.type = "checkbox";
+    availableCheckbox.checked = vehicle.availability;
+    availableCheckbox.dataset.index = index;
+    availableCheckbox.addEventListener("change", e => {
+        console.log("CHANGE");
+        //myLibrary[e.target.dataset.index].wasBookRead = e.target.checked;
     })
 
-    bookReadDiv.appendChild(bookReadText);
-    bookReadDiv.appendChild(readCheckbox);
+    vehicleAvailabilityDiv.appendChild(vehicleAvailabilityText);
+    vehicleAvailabilityDiv.appendChild(availableCheckbox);
 
-    cardContainer.appendChild(bookName);
-    cardContainer.appendChild(bookAuthor);
-    cardContainer.appendChild(bookPages);
-    cardContainer.appendChild(bookReadDiv);
+    cardContainer.appendChild(vehicleId);
+    cardContainer.appendChild(vehicleModel);
+    cardContainer.appendChild(vehicleBrand);
+    cardContainer.appendChild(vehicleType);
+    cardContainer.appendChild(vehicleAvailabilityDiv);
     cardContainer.appendChild(deleteButton);
 
     return cardContainer;
 }
 
 function cleanInputs() {
-    document.getElementById("book-name").value = "";
-    document.getElementById("book-author").value = "";
-    document.getElementById("book-pages").value = "";
-    document.getElementById("wasBookRead").checked = false;
+    document.getElementById("vehicle-model").value = "";
+    document.getElementById("vehicle-brand").value = "";
+    document.getElementById("vehicle-type").value = "";
+    document.getElementById("isAvailable").checked = false;
 }
 
-function showLibrary() {
+async function showVehicleLibrary() {
+    const myVehicleLibrary = await getAllVehicles();
+    console.log(myVehicleLibrary);
+
     const container = document.querySelector(".container");
     while (container.firstChild) {
         container.removeChild(container.lastChild);
     }
 
-    for (let i = 0; i < myLibrary.length; i++) {
-        container.appendChild(createCard(myLibrary[i], i));        
+    for (let i = 0; i < myVehicleLibrary.length; i++) {
+        container.appendChild(createCard(myVehicleLibrary[i], i));        
     }
 
 }
 
-showLibrary();
+showVehicleLibrary();
 
-const addBookBtn = document.querySelector("#add-book");
-addBookBtn.addEventListener("click", () => {
+const addVehicleBtn = document.querySelector("#add-vehicle");
+addVehicleBtn.addEventListener("click", () => {
     document.getElementById("modalOne").style.display = "block";
 })
 
@@ -99,14 +198,14 @@ window.onclick = function (event) {
     }
 };
 
-const bookForm = document.querySelector(".book-form");
-bookForm.addEventListener("submit", () => {
-    addBookToLibrary(document.getElementById("book-name").value,
-                     document.getElementById("book-author").value,
-                     document.getElementById("book-pages").value,
-                     document.getElementById("wasBookRead").checked);
+const vehicleForm = document.querySelector(".vehicle-form");
+vehicleForm.addEventListener("submit", () => {
+    addVehicleToLibrary(document.getElementById("vehicle-model").value,
+                     document.getElementById("vehicle-brand").value,
+                     document.getElementById("vehicle-type").value,
+                     document.getElementById("isAvailable").checked);
 
     document.getElementById("modalOne").style.display = "none";
-    showLibrary();
+    showVehicleLibrary();
     cleanInputs();
 });
