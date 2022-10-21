@@ -1,7 +1,9 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Card from "../../components/Card";
 import Header from "../../components/Header";
 import { Container, Content, HeaderComponent, Main } from "./styles";
+
+import axios from "axios";
 
 export const car = [
   {
@@ -35,15 +37,18 @@ export const car = [
 
 function Models() {
   const [search, setSearch] = useState("");
-  // Função para filtrar lista
-  // useMemo usado para não afetar na perfomace;
-  // Memorizando a fução, sendo executada quando necessario(quando o valor de (search) for alterado)
-  const ListFilter = useMemo(() => {
-    const SearchLowerCase = search.toLowerCase();
-    return car.filter((valueState) =>
-      valueState.brand.toLowerCase().includes(SearchLowerCase)
-    );
-  }, [search]);
+  const [cars, setCars] = useState([]);
+  useEffect(() => {
+    axios.get("http://localhost:8080/cars").then((response) => {
+      setCars(response.data);
+    });
+  }, []);
+
+  // Função para filtrar lista; useMemo usado para não afetar na perfomace;
+  // Memorizando a fução, sendo executada quando necessario(quando o valor de (search) for alterado).
+  // const ListFilter = useMemo(() => {
+  //   return cars.filter((valueState) => valueState.brand);
+  // }, [search]);
   return (
     <Container>
       <HeaderComponent>
@@ -57,9 +62,9 @@ function Models() {
           <option>BMW</option>
         </select>
         <Content>
-          {ListFilter.map((item) => (
+          {cars.map((item) => (
             <Card
-              key={item.id}
+              key={item._id}
               brand={item.brand}
               image={item.image}
               category={item.category}
