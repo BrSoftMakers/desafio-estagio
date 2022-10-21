@@ -172,7 +172,7 @@ input {
 .delete {
 	background: none;
 	border: none;
-	background-image: url(./images/icons/icons8-delete-48.png);
+	background-image: url(./../images/icons8-delete-48.png);
 	background-size: cover;
 	align-self: end;
 	height: 30px;
@@ -183,7 +183,7 @@ input {
 	cursor: pointer;
 }
 
-.book-read {
+.vehicle-available {
 	display: flex;
 	gap: 20px;
 	align-items: center;
