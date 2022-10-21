@@ -137,10 +137,17 @@ function createCard(vehicle, index) {
     const availableCheckbox = document.createElement("input");
     availableCheckbox.type = "checkbox";
     availableCheckbox.checked = vehicle.availability;
-    availableCheckbox.dataset.index = index;
-    availableCheckbox.addEventListener("change", e => {
+    availableCheckbox.dataset.index = vehicle.id;
+    availableCheckbox.addEventListener("change", async (e) => {
         console.log("CHANGE");
         //myLibrary[e.target.dataset.index].wasBookRead = e.target.checked;
+        await editVehicle(e.target.dataset.index, {
+            model: vehicle.model,
+            brand: vehicle.brand,
+            type: vehicle.type,
+            availability: e.target.checked
+        })
+        showVehicleLibrary();
     })
 
     vehicleAvailabilityDiv.appendChild(vehicleAvailabilityText);
