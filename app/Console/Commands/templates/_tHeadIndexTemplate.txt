@@ -1,0 +1,1 @@
+<th class="bg-indigo-500 p-2 text-white font-bold md:border md:border-indigo-500 text-left block md:table-cell">%label%</th>
