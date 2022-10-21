@@ -116,4 +116,7 @@ out
 .yarn/install-state.gz
 .pnp.*
 
+# backup directory
+backup
+
 # End of https://mrkandreev.name/snippets/gitignore-generator/#Node
