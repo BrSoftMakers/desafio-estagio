@@ -1,0 +1,14 @@
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+::-webkit-scrollbar {
+  background: transparent;
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #606060;
+  border: 0px solid #fff;
+}
