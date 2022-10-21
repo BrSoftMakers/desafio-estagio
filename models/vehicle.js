@@ -16,6 +16,10 @@ const Vehicle = database.define('vehicle', {
         type: Sequelize.STRING,
         allowNull: false
     },
+    type: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
     availability: {
         type: Sequelize.BOOLEAN,
         allowNull: false

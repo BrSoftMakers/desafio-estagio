@@ -11,13 +11,27 @@
 <body>
     <header>
         <h2>LocaMAX</h2>
+        <button id="add-vehicle">Novo veículo</button>
     </header>
-    <div class="container">
-        <button id="GET">GET ALL</button>
-        <button id="POST">POST</button>
-        <button id="PUT">PUT</button>
-        <button id="DELETE">DELETE</button>
-    </div>
+    <div class="container"></div>
+    <div id="modalOne" class="modal">
+        <div class="modal-content">
+          <form class="vehicle-form" onsubmit="return false">
+            <div class="modal-header">
+              <a class="close">&times;</a>
+              <h3>Informações do veículo</h2>
+            </div>
+            <input id="vehicle-model" type="text" name="model" placeholder="Modelo" required/>
+            <input id="vehicle-brand" type="text" name="brand" placeholder="Montadora" required/>
+            <input id="vehicle-type" type="text" name="type" placeholder="Tipo" required/>
+            <div class="availability-checkbox">
+              <label for="isAvailable">Veículo disponível para locação?</label>
+              <input id="isAvailable" type="checkbox" name="availability"/>
+            </div>
+            <button type="submit" id="confirm-add">Adicionar veículo</button>
+          </form>
+        </div>
+      </div>
     <footer>
         <p>Copyright © 2022 <a href="https://github.com/matheuspl92" target="_blank">matheuspl92</a></p>
     </footer>

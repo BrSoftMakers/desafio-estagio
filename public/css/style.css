@@ -1,0 +1,195 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	height: 100vh;
+	display: grid;
+	grid-template-rows: 100px 1fr 50px;
+	font-family: sans-serif;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+header {
+	box-shadow: 0px 0px 10px #6c6c6c;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0px 50px;
+	z-index: 1;
+}
+
+footer {
+	box-shadow: 0px 0px 10px #6c6c6c;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.container {
+	background: linear-gradient(#f2f2f2, #e2e2e2);
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 600px));
+	grid-template-rows: repeat(auto-fit, 250px);
+	padding: 25px;
+	gap: 25px;
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 10px;
+	background: white;
+	border-radius: 10px;
+	padding: 25px;
+	box-shadow: 0px 0px 5px #6c6c6c;
+}
+
+h2 {
+	font-weight: bold;
+	font-size: 2.75em;
+}
+
+h3 {
+	font-weight: bold;
+	font-size: 2em;
+}
+
+h4 {
+	font-style: italic;
+	font-size: 1.25em;
+}
+
+#add-vehicle {
+	font-weight: bold;
+	font-size: 1em;
+	padding: 10px;
+	border-radius: 20px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 8;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+	display: flex;
+	justify-content: center;
+    margin: 100px auto;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+	text-align: end;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.vehicle-form {
+	width: 350px;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+    padding: 25px;
+	margin: 0 25px;
+    box-shadow: 0 2px 5px #f5f5f5;
+    background: #eee;
+	border-radius: 20px;
+}
+      
+input {
+    padding: 10px;
+    border: 2px solid black;
+	border-radius: 10px;
+    outline: none;
+}
+
+.vehicle-form button {
+    font-weight: bold;
+	font-size: 1em;
+	padding: 10px;
+	border-radius: 20px;
+}
+
+.delete {
+	background: none;
+	border: none;
+	background-image: url(./images/icons/icons8-delete-48.png);
+	background-size: cover;
+	align-self: end;
+	height: 30px;
+	width: 30px;
+}
+
+.delete:hover {
+	cursor: pointer;
+}
+
+.book-read {
+	display: flex;
+	gap: 20px;
+	align-items: center;
+	font-style: italic;
+}
+
+a {
+	color: black;
+}

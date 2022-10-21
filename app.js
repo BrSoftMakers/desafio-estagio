@@ -54,6 +54,7 @@ app.post('/api/vehicles', (request, response) => {
     Vehicle.create({
         model: request.body.model,
         brand: request.body.brand,
+        type: request.body.type,
         availability: request.body.availability
     }).then((vehicle) => {
         response.json(vehicle);
@@ -77,11 +78,11 @@ app.delete('/api/vehicles/:id', (request, response) => {
 
 app.put('/api/vehicles/:id', (request, response) => {
     const id = request.params.id;
-    const { model, brand, availability} = request.body;
+    const { model, brand, type, availability} = request.body;
 
     Vehicle.findByPk(id).then( (vehicle) => {
         if (vehicle) {
-            vehicle.update({model, brand, availability}).then( () => {
+            vehicle.update({model, brand, type, availability}).then( () => {
                 response.status(204).send();
             })
         } else {
