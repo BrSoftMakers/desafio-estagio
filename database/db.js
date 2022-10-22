@@ -1,4 +1,4 @@
-//Define e exporta instância do Sequelize configurada pelo arquivo "config/db.config.js"
+// Define e exporta instância do Sequelize configurada pelo arquivo "config/db.config.js"
 
 const dbConfig = require('./../config/db.config.js');
 

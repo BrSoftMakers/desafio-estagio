@@ -1,4 +1,4 @@
-//Arquivo de configuração do banco de dados
+// Arquivo de configuração do banco de dados
 
 module.exports = {
     HOST: "babar.db.elephantsql.com",

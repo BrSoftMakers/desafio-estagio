@@ -1,6 +1,6 @@
 # Instruções de uso
 
-- Configuração do projeto (Executar o comando "npm install" no terminal na raiz do projeto);
+- Configuração do projeto (Executar o comando "npm install" no terminal na raíz do projeto);
 
 - Configuração do banco de dados (O projeto já vem configurado com um banco de dados remoto, mas é possível configurar um novo banco de dados a partir do arquivo "config/db.config.js");
 

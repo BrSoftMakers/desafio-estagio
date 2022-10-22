@@ -1,3 +1,4 @@
+// Definição da porta utilizada, é necessário que seja a mesma do servidor!
 const PORT = 3000;
 
 const getAllVehicles = async () => {
@@ -9,7 +10,7 @@ const getAllVehicles = async () => {
         const data = await dataResponse.json();
         return data;
     } catch (error) {
-        console.log('ERROR!');
+        console.log(error);
     }
 };
 
@@ -22,7 +23,7 @@ const getVehicle = async (id) => {
         const data = await dataResponse.json();
         return data;
     } catch (error) {
-        console.log('ERROR!');
+        console.log(error);
     }
 };
 
@@ -42,7 +43,7 @@ const createVehicle = async (bodyData) => {
         const data = await dataResponse.json();
         return data;
     } catch (error) {
-        console.log('ERROR!');
+        console.log(error);
     }
 };
 
@@ -62,7 +63,7 @@ const editVehicle = async (id, bodyData) => {
         const data = await dataResponse.json();
         return data;
     } catch (error) {
-        console.log('ERROR!');
+        console.log(error);
     }
 };
 
@@ -75,7 +76,7 @@ const deleteVehicle = async (id) => {
         const data = await dataResponse.json();
         return data;
     } catch (error) {
-        console.log('ERROR!');
+        console.log(error);
     }
 };
 
@@ -90,15 +91,14 @@ class Vehicle {
 }
 
 async function addVehicleToLibrary (model, brand, type, availability) {
-    console.log("ADD VEHICLE")
     await createVehicle({ model, brand, type, availability });
 }
 
 async function editVehicleToLibrary (id, model, brand, type, availability) {
-    console.log("ADD VEHICLE")
     await editVehicle(id, { model, brand, type, availability });
 }
 
+// Cria os elementos HTML de um cartão com os dados de um determinado veículo
 function createCard(vehicle) {
     const cardContainer = document.createElement("div");
     cardContainer.classList.add("card");
@@ -140,7 +140,6 @@ function createCard(vehicle) {
     deleteButton.className = "delete";
     deleteButton.dataset.index = vehicle.id;
     deleteButton.addEventListener('click', async (e) => {
-        console.log("DELETE");
         await deleteVehicle(e.target.dataset.index);
         showVehicleLibrary();
     });
@@ -153,7 +152,6 @@ function createCard(vehicle) {
     availableCheckbox.checked = vehicle.availability;
     availableCheckbox.dataset.index = vehicle.id;
     availableCheckbox.addEventListener("change", async (e) => {
-        console.log("CHANGE");
         await editVehicle(e.target.dataset.index, {
             model: vehicle.model,
             brand: vehicle.brand,
@@ -176,6 +174,7 @@ function createCard(vehicle) {
     return cardContainer;
 };
 
+// Limpa os campos do formulário da janela modal
 function cleanInputs() {
     document.getElementById("vehicle-model").value = "";
     document.getElementById("vehicle-brand").value = "";
@@ -183,9 +182,9 @@ function cleanInputs() {
     document.getElementById("isAvailable").checked = false;
 };
 
+// Cria um cartão para cada veículo no banco de dados
 async function showVehicleLibrary() {
     const myVehicleLibrary = await getAllVehicles();
-    console.log(myVehicleLibrary);
 
     const container = document.querySelector(".container");
     while (container.firstChild) {
@@ -199,6 +198,10 @@ async function showVehicleLibrary() {
 };
 
 showVehicleLibrary();
+
+//
+// Elementos da janela modal com o formulário 
+//
 
 const addVehicleBtn = document.querySelector("#add-vehicle");
 addVehicleBtn.addEventListener("click", () => {
@@ -221,6 +224,7 @@ window.onclick = function (event) {
     }
 };
 
+// Formulário que adiciona ou edita um veículo
 const vehicleForm = document.querySelector(".vehicle-form");
 vehicleForm.addEventListener("submit", async () => {
     const index = document.querySelector(".vehicle-form").dataset.index;

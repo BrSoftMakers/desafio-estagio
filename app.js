@@ -6,6 +6,8 @@ const Vehicle = require('./models/vehicle.js');
 
 const app = express();
 
+
+// Sincronização com o banco de dados
 (async () => {
     try {
         const result = await database.sync();
@@ -24,9 +26,12 @@ app.use(
     })
 );
 
+//
+// Rotas
+//
+
 app.get('/', (request, response) => {
     response.sendFile(path.join(__dirname, 'views', 'index.html'));
-    //response.json({ info: 'Hello World!' })
   });
 
 app.get('/api/vehicles', (request, response) => {
@@ -89,6 +94,10 @@ app.put('/api/vehicles/:id', (request, response) => {
         
     })
 })
+
+//
+// Definição da porta utilizada pelo servidor
+//
 
 const PORT = 3000;
 
