@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.get("/cars", async (req, res, next) => {
+app.get("/cars", async (req, res) => {
   try {
     const cars = await CarModel.find({});
     res.status(200).json(cars);
