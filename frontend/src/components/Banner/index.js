@@ -1,21 +1,23 @@
 import React from "react";
-import { Circle, Container, Content, Description, Title } from "./styles";
+import { Circle, Container, Description, Title } from "./styles";
 
 function Banner({ image, description, titleContrast, title }) {
   return (
     <Container>
-      <Content>
-        <Circle>
-          <Description>{description}</Description>
-          <Title>
-            <h1>
-              <span>{titleContrast}</span>
-              {title}
-            </h1>
-          </Title>
-          <img src={image} />
-        </Circle>
-      </Content>
+      <Circle>
+        {/* Pequeno Texto */}
+        <Description>{description}</Description>
+        <Title>
+          <h1>
+            {/* Texto com Modelo do carro Em Branco */}
+            <span>{titleContrast}</span>
+            {/* Texto com Modelo do carro preto */}
+            {title}
+          </h1>
+        </Title>
+        {/* Imagem do carro */}
+        <img src={image} />
+      </Circle>
     </Container>
   );
 }

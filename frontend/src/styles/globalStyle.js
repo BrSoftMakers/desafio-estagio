@@ -26,7 +26,7 @@ export const GlobalStyles = createGlobalStyle`
         /* Rosa */
         --Pink-700: #ff0066;
         /* Azul */
-        --Cyan-300: #BEDBEC;
+        --Cyan-300: #0038FF;
 
     }
 `;

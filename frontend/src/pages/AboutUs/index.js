@@ -1,19 +1,22 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
+// components
+import Footer from "../../components/Footer";
 import Header from "../../components/Header";
-import { Container, Content, HeaderComponent, Main } from "./styles";
+import { Container, Content, Main } from "./styles";
 
 function About() {
   return (
     <Container>
-      <HeaderComponent>
-        <Header />
-      </HeaderComponent>
+      <Header />
       <Main>
         <h1>Sobre Nós</h1>
         <Content>
           <a href="https://unsplash.com/s/photos/dealership?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
-            <img src={"https://i.ibb.co/xDMxwXk/dealership.jpg"} />
+            <img
+              src={"https://i.ibb.co/xDMxwXk/dealership.jpg"}
+              alt={"Dealership"}
+            />
           </a>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -49,7 +52,7 @@ function About() {
           </p>
         </Content>
       </Main>
-      <footer></footer>
+      <Footer />
     </Container>
   );
 }

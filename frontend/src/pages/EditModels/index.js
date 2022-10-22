@@ -5,6 +5,7 @@ import Header from "../../components/Header";
 import Button from "../../components/Button";
 import { Container } from "./styles";
 import { useParams } from "react-router-dom";
+import Footer from "../../components/Footer";
 
 function EditModels() {
   const [values, setValues] = useState();
@@ -12,8 +13,11 @@ function EditModels() {
   const { id } = useParams();
 
   useEffect(() => {
+    // Conexão e Requisição para a api
     axios.get(`http://localhost:8080/cars/${id}`).then((data) => {
+      // Conectando os dados da api em um objeto
       const { image, brand, model, category, situation, price } = data.data;
+      // Armazenando os dados anteriormente no objeto integrado a variavel details
       const details = {
         id,
         image,
@@ -23,18 +27,23 @@ function EditModels() {
         situation,
         price
       };
+      // armazenando no estado details
       setDetails(details);
     });
   }, [id]);
 
+  // armazenando valores dos inputs atraves do name em uma função
   const handleChangeValues = (value) => {
+    // armazenando os dados no estado values
     setValues((preventValue) => ({
       ...preventValue,
       [value.target.name]: value.target.value
     }));
   };
 
+  // Enviando as alterações para o banco de dados
   const handleSendChangeValues = (e) => {
+    // Previnindo o carregamento do form
     e.preventDefault();
     try {
       axios
@@ -104,6 +113,7 @@ function EditModels() {
           text={"Alterar"}
         />
       </form>
+      <Footer />
     </Container>
   );
 }

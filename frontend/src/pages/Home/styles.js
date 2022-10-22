@@ -3,26 +3,28 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100%;
   height: 100vh;
+  footer {
+    margin-top: 7.5rem;
+  }
 `;
-export const HeaderComponent = styled.header`
-  width: 100%;
-  height: 90px;
-`;
+
 export const SectionMain = styled.section`
   width: 100%;
-  height: 100vh;
+  height: 100%;
   margin-top: 7.5rem;
   position: relative;
 `;
 
 export const SectionInfo = styled.section`
   width: 100%;
-  height: 378px;
   margin-top: 7.5rem;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  @media screen and (min-width: 768px) {
+    height: 378px;
+  }
   div {
     width: 100%;
     max-width: 350px;
@@ -56,22 +58,21 @@ export const SectionCars = styled.section`
   display: flex;
   align-items: center;
   flex-direction: column;
+  background-color: red;
   button {
     margin-top: 3rem;
+  }
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    height: 100vh;
   }
 `;
 
 export const Content = styled.div`
-  width: 95%;
+  width: 100%;
   height: 100%;
-  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   flex-wrap: wrap;
-`;
-
-export const Footer = styled.footer`
-  width: 100%;
-  margin-top: 7.5rem;
 `;

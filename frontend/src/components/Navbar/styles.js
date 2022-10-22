@@ -7,7 +7,7 @@ export const Container = styled.div`
   display: flex;
   @media screen and (max-width: 768px) {
     width: 70%;
-    height: 100vh;
+    height: 100%;
     position: fixed;
     top: 0;
     right: ${(props) => props.active};
@@ -27,13 +27,25 @@ export const Ul = styled.ul`
   list-style: none;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  @media screen and (min-width: 768px) {
+    a {
+      display: flex;
+      align-items: center;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    margin-top: 5rem;
+    height: 50%;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-evenly;
+  }
 `;
 
 export const Closed = styled.div`
   width: 100%;
-  padding: 12px 0;
-  font-size: 1.5rem;
+  padding: 1.5rem 0;
+  font-size: 2.5rem;
   color: var(--Black-900);
   display: none;
   @media screen and (max-width: 768px) {
@@ -53,16 +65,17 @@ export const IconMenu = styled.div`
     display: flex;
     align-items: center;
     color: var(--Black-900);
-    font-size: 18pt;
+    font-size: 1.5rem;
   }
 `;
 
 export const ItemLink = styled(NavLink)`
-  color: white;
+  width: 100%;
+  height: 100%;
   text-decoration: none;
   color: var(--Black-900);
-  span {
-    text-align: center;
+  @media screen and (max-width: 768px) {
+    font-size: 2rem;
   }
   &.active {
     color: var(--Pink-700);

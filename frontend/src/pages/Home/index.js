@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 // Components
 import Header from "../../components/Header";
 import Banner from "../../components/Banner";
 import Card from "../../components/Card";
 import Button from "../../components/Button";
-import { car } from "../../pages/Models";
+import Footer from "../../components/Footer";
 
 // Icones
 import { AiOutlineLike } from "react-icons/ai";
@@ -15,22 +16,25 @@ import { BsSpeedometer2 } from "react-icons/bs";
 // Estilos
 import {
   Container,
-  HeaderComponent,
   SectionMain,
   SectionInfo,
   SectionCars,
-  Footer,
-  Circle,
-  Image,
   Content
 } from "./styles.js";
 
 function Home() {
+  // Estado para armazenar a lista
+  const [cars, setCars] = useState([]);
+  // Conexão e requisição para a api
+  useEffect(() => {
+    axios.get("http://localhost:8080/cars").then((response) => {
+      setCars(response.data);
+    });
+  }, [cars]);
+
   return (
     <Container>
-      <HeaderComponent>
-        <Header />
-      </HeaderComponent>
+      <Header />
       <main>
         <SectionMain>
           <Banner
@@ -68,7 +72,7 @@ function Home() {
         </SectionInfo>
         <SectionCars>
           <Content>
-            {car.map((item) => (
+            {cars.map((item) => (
               <Card
                 key={item.id}
                 brand={item.brand}
@@ -83,7 +87,7 @@ function Home() {
           <Button text={"Ver Mais"} />
         </SectionCars>
       </main>
-      <Footer>A</Footer>
+      <Footer />
     </Container>
   );
 }

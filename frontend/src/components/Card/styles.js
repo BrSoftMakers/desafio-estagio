@@ -1,15 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  width: 100%;
+  height: 100%;
   max-width: 250px;
-  min-width: 250px;
+  max-height: 280px;
   background-color: white;
-  margin: 25px 0;
   cursor: pointer;
-  transition: 0.5s;
-  :hover {
-    transform: scale(0.9);
-  }
+
   img {
     width: 100%;
     height: 175px;

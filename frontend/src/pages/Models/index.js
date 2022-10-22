@@ -1,90 +1,72 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
+
+// Icones
+import { BsPencilSquare } from "react-icons/bs";
+import { MdDeleteOutline } from "react-icons/md";
+
+// Components
+
 import Card from "../../components/Card";
 import Header from "../../components/Header";
-import { Container, Content, HeaderComponent, Main } from "./styles";
-
-import axios from "axios";
-
-export const car = [
-  {
-    id: 1,
-    brand: "BMW",
-    model: "Bmw M5",
-    category: "Sedan",
-    price: "700.000",
-    situation: "Disponível",
-    image: "https://i.ibb.co/DPFYg8B/bmw.jpg"
-  },
-  {
-    id: 2,
-    brand: "Mazda",
-    model: "Mazda",
-    category: "Mazda",
-    price: "700.000",
-    situation: "Indisponível",
-    image: "https://i.ibb.co/vJ0gTMv/mazda.jpg"
-  },
-  {
-    id: 3,
-    brand: "Mitsubishi",
-    model: "Mitsubishi",
-    category: "Mitsubishi",
-    price: "700.000",
-    situation: "Disponível",
-    image: "https://i.ibb.co/0Fc9Xr4/mitsubishi.jpg"
-  }
-];
+import Footer from "../../components/Footer";
+import {
+  CardContent,
+  Container,
+  Content,
+  DeleteButton,
+  EditButton,
+  Main
+} from "./styles";
 
 function Models() {
-  const [search, setSearch] = useState();
+  // Estados
   const [cars, setCars] = useState([]);
+
+  // Conexão com Api
   useEffect(() => {
     axios.get("http://localhost:8080/cars").then((response) => {
       setCars(response.data);
     });
   }, [cars]);
+  // Função para deletar item
+  const handleDeleteItem = (id) => {
+    axios.delete(`http://localhost:8080/cars/${id}`);
+  };
 
-  // Função para filtrar lista; useMemo usado para não afetar na perfomace;
-  // Memorizando a fução, sendo executada quando necessario(quando o valor de (search) for alterado).
-  const ListFilter = useMemo(() => {
-    return cars.filter((valueState) => valueState.brand);
-  }, [search]);
   return (
     <Container>
-      <HeaderComponent>
-        <Header />
-      </HeaderComponent>
+      <Header />
       <Main>
-        <select value={search} onChange={(e) => setSearch(e.target.value)}>
-          <option>Marca</option>
-          <option>Mazda</option>
-          <option>Mitsubishi</option>
-          <option>BMW</option>
-        </select>
         <Content>
           {cars.map((item) => (
-            <>
+            <CardContent key={item._id}>
               <Card
-                key={item._id}
                 brand={item.brand}
                 image={item.image}
                 category={item.category}
                 price={item.price}
+                opacity={item.situation}
                 model={item.model}
-                situation={item.situation}
               />
-              <button
-                onClick={() => {
-                  axios.delete(`http://localhost:8080/cars/${item._id}`);
-                }}
-              >
-                Excluir
-              </button>
-            </>
+              <EditButton>
+                <button>
+                  <Link to={`/vehicles/${item._id}`}>
+                    <BsPencilSquare />
+                  </Link>
+                </button>
+              </EditButton>
+              <DeleteButton>
+                <button onClick={() => handleDeleteItem(item._id)}>
+                  <MdDeleteOutline />
+                </button>
+              </DeleteButton>
+            </CardContent>
           ))}
         </Content>
       </Main>
-      <footer></footer>
+      <Footer />
     </Container>
   );
 }

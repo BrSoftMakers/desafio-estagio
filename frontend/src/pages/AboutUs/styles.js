@@ -3,19 +3,19 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100%;
   height: 100vh;
-`;
-export const HeaderComponent = styled.header`
-  width: 100%;
-  height: 90px;
+  footer {
+    margin-top: 7.5rem;
+  }
 `;
 
 export const Main = styled.main`
   width: 95%;
-  height: 100%;
   margin: 0 auto;
-  margin-top: 7.5rem;
   h1 {
     font-weight: 600;
+  }
+  footer {
+    margin-top: 7.5rem;
   }
 `;
 

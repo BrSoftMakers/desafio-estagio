@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
+// Components
 import Header from "../../components/Header";
 import Button from "../../components/Button";
+import Footer from "../../components/Footer";
 import { Container } from "./styles";
 
 function AddModels() {
+  // estados
   const [values, setValues] = useState();
-  const [details, setDetails] = useState([]);
 
   const handleChangeValues = (value) => {
     setValues((preventValue) => ({
@@ -16,7 +18,9 @@ function AddModels() {
     }));
   };
 
-  const handleSendChangeValues = (e) => {
+  // criando novo modelo de carro
+  const handleAddCar = (e) => {
+    // previnido o reload da página
     e.preventDefault();
     try {
       axios
@@ -74,12 +78,9 @@ function AddModels() {
           onChange={handleChangeValues}
         />
 
-        <Button
-          type={"submit"}
-          onClick={handleSendChangeValues}
-          text={"Cadastrar"}
-        />
+        <Button type={"submit"} onClick={handleAddCar} text={"Cadastrar"} />
       </form>
+      <Footer />
     </Container>
   );
 }
