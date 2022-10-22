@@ -54,5 +54,6 @@
 # Extras 🥱
 
 ### Vídeo demonstrando o projeto: https://youtu.be/_zsZYDJHqd8
+### Link do projeto no FIGMA: https://www.figma.com/file/V9FUewXh5wytETUj081i6m/Untitled?node-id=2%3A38
 
 <img src="https://i.postimg.cc/4NBC7916/img1.png" alt="">
