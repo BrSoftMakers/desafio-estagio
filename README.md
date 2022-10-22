@@ -32,6 +32,9 @@ Este projeto utiliza o Create React App e uma API em NodeJS que Ultiliza o Banco
   npm start # ou yarn start
 ```
 
+## Rotas
+  Adicionar Novo Modelo na rota: /vehicles
+
 
 ## Tecnologias
   - React
