@@ -13,7 +13,7 @@
 
 # Como instalar o projeto ? 😎
 
-### 1 - Para que a aplicação funcione perfeitamente é necessario ter o nodeJS, MySQL e o Visual Studio Code Instalados no seu PC.
+### 1️⃣ - Para que a aplicação funcione perfeitamente é necessario ter o nodeJS, MySQL e o Visual Studio Code Instalados no seu PC.
 
 ### Links para Download:
 
@@ -24,7 +24,7 @@
 
 <hr>
 
-### 2 - Depois de tudo instalado, temos que configurar o MySql, abra o MySql no seu PC, lembrando que a senha e usuário padrão configurada no projeto e no MySql é: Senha: 123456 | Usuário: root. 
+### 2️⃣ - Depois de tudo instalado, temos que configurar o MySql, abra o MySql no seu PC, lembrando que a senha e usuário padrão configurada no projeto e no MySql é: Senha: 123456 | Usuário: root. 
 ### OBS: Você deve modificar de acordo com as configurações do seu MySql.
 
 ### Se quiser fazer alguma modificação, acesse a pasta "server" e depois vá em "index.js"
@@ -36,21 +36,23 @@
 
 <hr>
 
-### 3 - Agora temos que inicializar o servidor NODE, abra a pasta do projeto vá na pasta "server" e abra um terminal nessa pasta, e depois digite "node index.js" e se der tudo certo vai aparecer um nome "Rodando Servidor".
+### 3️⃣ - Agora temos que inicializar o servidor NODE, abra a pasta do projeto vá na pasta "server" e abra um terminal nessa pasta, e depois digite "node index.js" e se der tudo certo vai aparecer um nome "Rodando Servidor".
 > node index.js
 
 <img src="https://i.postimg.cc/sxJVNpXD/proje.png" alt="">
 
+# Abrindo o Projeto ?
 
+### 4️⃣ - Agora temos que inicializar o projeto, acesse a pasta do projeto, e depois disso, vá na pasta "soft-car" e abra um terminal nessa pasta, e digite o seguinte comando "npm install" para fazer a instação do projeto, e depois disso, digite, "npm start", para inicializar o projeto.
+> npm install 
 
-# Abrindo o Projeto ? ❤️
-
-### 4 - Agora temos que inicializar o projeto, acesse a pasta do projeto, e depois disso, vá na pasta "soft-car" e abra um terminal nessa pasta, e digite o seguinte comando "npm install" para fazer a instação do projeto, e depois disso, digite, "npm start", para inicializar o projeto.
-
+> npm start
+### Caso de algum problema na hora da instalação do projeto execulte o seguinte comando.
+> npm install --legacy-peer-deps --save radium
 
 
 # Extras 🥱
 
 ### Vídeo demonstrando o projeto: https://youtu.be/_zsZYDJHqd8
 
-<img src="https://github.com/antoniocristovam/desafio-estagio/blob/main/soft-car/src/assets/img/img1.png?raw=true" alt="">
+<img src="https://i.postimg.cc/4NBC7916/img1.png" alt="">
