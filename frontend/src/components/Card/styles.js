@@ -46,3 +46,10 @@ export const Price = styled.span`
   color: var(--Cyan-300);
   font-weight: 600;
 `;
+export const Situation = styled.span`
+  font-size: 0.85rem;
+  color: var(--Cyan-300);
+  font-weight: 400;
+  position: relative;
+  left: 5rem;
+`;

@@ -1,5 +1,5 @@
 import React from "react";
-import { Brand, Category, Model, Price, Text } from "./styles";
+import { Brand, Category, Model, Price, Situation, Text } from "./styles";
 import { Container } from "./styles";
 
 function Card({ image, brand, model, category, price, situation, key }) {
@@ -11,6 +11,7 @@ function Card({ image, brand, model, category, price, situation, key }) {
         <Model>{model}</Model>
         <Category>{category}</Category>
         <Price>R$ {price}</Price>
+        <Situation>{situation}</Situation>
       </Text>
     </Container>
   );

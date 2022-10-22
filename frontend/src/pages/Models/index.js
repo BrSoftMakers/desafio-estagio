@@ -47,7 +47,7 @@ function Models() {
                 image={item.image}
                 category={item.category}
                 price={item.price}
-                opacity={item.situation}
+                situation={item.situation}
                 model={item.model}
               />
               <EditButton>
