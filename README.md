@@ -1,24 +1,15 @@
- ![SoftMakers](https://www.softmakers.com.br/assets/img/logotipo14xxhdpi.png)
+## Iniciando no projeto
 
-# Desafio - Desenvolvedor Fullstack - Estágio
-Seja bem-vindo! Este desafio foi projetado para avaliar a sua capacidade técnica como candidato ao cargo proposto.
+### Dependências
 
-## Instruções
-- Faça um fork deste repositório;
-- O conjunto mínimo de tecnologias a serem utilizadas são: HTML, CSS e JS;
-- Crie um passo a passo de como rodar a sua aplicação;
-- Após finalizar, submeta um pull request com um comentário informando o seu e-mail de contato e aguarde nossa avaliação.
+Segue abaixo as dependências para poder rodar o projeto:
 
-## Proposta
-Você deverá desenvolver um projeto com a finalidade de que seja possível listar, visualizar, criar, editar e excluir carros de uma locadora de automóvel.
+* XAMPP
+* PHP >= 7.4
+* MySQL
 
-**Observações:**
-> - Cada carro precisa ter um identificador único, modelo, marca, tipo (hatch, sedan ou SUV) e situação (disponível ou indisponível). Todos os campos são do formulário são obrigatório.
+### COnfigurando o projeto
 
-## Diferenciais
-Serão considerados diferenciais:
-
-- O uso de PHP ou Node.js como linguagem sendo utilizada no lado do servidor;
-- O uso de qualquer banco de dados para armazenar os dados da sua aplicação;
-- O uso de qualquer framework;
-- Boas práticas de escrita de código (código limpo, padrões de arquitetura, etc.).
+* faça a importação do banco de dados usando o arquivo .sql que deixei na raiz do projeto
+* Mova a pasta do projeto para a pasta htdocs do xampp 
+* acesse a rota http://localhost/LocadoraVeiculos/html/
