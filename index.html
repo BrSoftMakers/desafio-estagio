@@ -84,7 +84,11 @@
     <dialog class="modal__car-edit modal">
       <header>
         <h2>Editar um Carro do Catálogo</h2>
-        <p>Para editar um carro do catálogo digite primeiramente o número de chassi do carro desejado e então preencha os campos que pretende editar. Não é necessário preencher todos os campos!</p>
+        <details>
+          <summary><i class="fa-solid fa-circle-info"></i>Como Editar?</summary>
+          <p>Para editar um carro do catálogo digite primeiramente o número de chassi do carro desejado e então preencha os campos que pretende editar do mesmo. Não é necessário preencher todos os campos!</p>
+          <p>Não é possível editar o número de chassi, caso tenha digitado o código erradamente no momento do cadastro, delete o anúncio do catálogo e cadastre novamente com o código correto!</p>
+        </details>
       </header>
 
       <form method="dialog" class="form" id="car-edit__form">        
@@ -136,7 +140,10 @@
     <dialog class="modal__car-remove modal">
       <header>
         <h2>Remover um Carro do Catálogo</h2>
-        <p>Para remover um carro do catálogo basta digitar o número do chassi do veículo desejado.</p>
+        <details>
+          <summary><i class="fa-solid fa-circle-info"></i>Como Remover?</summary>
+          <p>Para remover um carro do catálogo basta digitar o número do chassi do veículo desejado.</p>
+        </details>
       </header>
 
       <form method="dialog" class="form" id="car-remove__form">
