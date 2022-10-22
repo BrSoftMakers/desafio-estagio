@@ -182,9 +182,21 @@ function cleanInputs() {
     document.getElementById("isAvailable").checked = false;
 };
 
+// Função ordenação de array auxiliar
+function mergeSort (array) {
+    if (array.length === 1) return array;
+    const sortedArray = [];
+    const leftArray = mergeSort(array.slice(0, array.length / 2));
+    const rightArray = mergeSort(array.slice(array.length / 2));
+    while (leftArray.length !== 0 && rightArray.length !== 0) {
+        (leftArray[0].id <= rightArray[0].id) ? sortedArray.push(leftArray.splice(0, 1)[0]) : sortedArray.push(rightArray.splice(0, 1)[0]);
+    }
+    return (leftArray.length === 0) ? sortedArray.concat(rightArray) : sortedArray.concat(leftArray);
+}
+
 // Cria um cartão para cada veículo no banco de dados
 async function showVehicleLibrary() {
-    const myVehicleLibrary = await getAllVehicles();
+    const myVehicleLibrary = mergeSort(await getAllVehicles());
 
     const container = document.querySelector(".container");
     while (container.firstChild) {
