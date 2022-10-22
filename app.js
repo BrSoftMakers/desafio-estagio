@@ -6,7 +6,7 @@ const Vehicle = require('./models/vehicle.js');
 //const { response, request } = require('express');
 
 const app = express();
-const port = 3000;
+//const port = 3000;
 
 (async () => {
     try {
@@ -92,6 +92,8 @@ app.put('/api/vehicles/:id', (request, response) => {
     })
 })
 
-app.listen(port, () => {
-    console.log(`App running on port ${port}.`)
+const PORT = 3000;
+
+app.listen(PORT, () => {
+    console.log(`App running on port ${PORT}.`)
 });

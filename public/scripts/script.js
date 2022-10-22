@@ -1,6 +1,8 @@
+const PORT = 3000;
+
 const getAllVehicles = async () => {
     try {
-        const dataResponse = await fetch('http://localhost:3000/api/vehicles', {
+        const dataResponse = await fetch(`http://localhost:${PORT}/api/vehicles`, {
             method: 'GET',
             mode: 'cors',
         });
@@ -13,7 +15,7 @@ const getAllVehicles = async () => {
 
 const getVehicle = async (id) => {
     try {
-        const dataResponse = await fetch(`http://localhost:3000/api/vehicles/${id}`, {
+        const dataResponse = await fetch(`http://localhost:${PORT}/api/vehicles/${id}`, {
             method: 'GET',
             mode: 'cors',
         });
@@ -26,7 +28,7 @@ const getVehicle = async (id) => {
 
 const createVehicle = async (bodyData) => {
     try {
-        const dataResponse = await fetch('http://localhost:3000/api/vehicles', {
+        const dataResponse = await fetch(`http://localhost:${PORT}/api/vehicles`, {
             method: 'POST',
             mode: 'cors',
             cache: 'no-cache',
@@ -46,7 +48,7 @@ const createVehicle = async (bodyData) => {
 
 const editVehicle = async (id, bodyData) => {
     try {
-        const dataResponse = await fetch(`http://localhost:3000/api/vehicles/${id}`, {
+        const dataResponse = await fetch(`http://localhost:${PORT}/api/vehicles/${id}`, {
             method: 'PUT',
             mode: 'cors',
             cache: 'no-cache',
@@ -66,7 +68,7 @@ const editVehicle = async (id, bodyData) => {
 
 const deleteVehicle = async (id) => {
     try {
-        const dataResponse = await fetch(`http://localhost:3000/api/vehicles/${id}`, {
+        const dataResponse = await fetch(`http://localhost:${PORT}/api/vehicles/${id}`, {
             method: 'DELETE',
             mode: 'cors',
         });
