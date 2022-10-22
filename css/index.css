@@ -1,0 +1,156 @@
+/* ====== Corpo da Pagina ====== */
+body{
+    background: #03071e;
+    color: white;
+    text-align: center;
+}
+/* ======================== */
+
+/* ====== Imagem logo ====== */
+img{
+    width: 220px;
+    height: 180px;
+    margin-top: 15px;
+    margin-right: 80px;
+}
+/* ======================== */
+
+/* ====== Botão Sair ====== */
+.sair{
+    display: inline-flex;
+    justify-content: center;
+    gap: .1%;
+    left: 100%;
+    margin-top: 2%;
+    margin-left: 85%;
+}
+
+#btnSair {
+    background-color: #2f3640;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    align-items: center;
+    width: 80px;
+}
+
+#btnSair:hover {
+    background-color: #536179;
+    color: #fff;
+    border: 1px solid;
+    padding: 9;
+}
+/* ======================== */
+
+/* ====== Botão Cadastrar ====== */
+.cadastrar{
+    display: inline-flex;
+    justify-content: center;
+    gap: .1%;
+    left: 100%;
+    margin-top: 5%;
+    margin-left: 85%;
+}
+
+#btnCadastro {
+    background-color: #2f3640;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    display: flex;
+    border-radius: 5px;
+    align-items: center;
+}
+
+#btnCadastro:hover {
+    background-color: #536179;
+    color: #fff;
+    border: 1px solid;
+    padding: 9;
+}
+/* ======================== */
+
+/* ====== Botão Pesquisa ====== */
+.box-search{
+    position: absolute;
+    margin-top: 5%;
+    margin-left: 5%;
+    background: #2c3441;
+    height: 60px;
+    border-radius: 40px;
+    padding: 10px;
+}
+
+.box-search:hover > input{
+    width: 300px;
+    padding: 0 10px;
+}
+
+.box-search:hover > .icon{
+    background: #536179;
+}
+
+.icon{
+    color: #fff;
+    float: right;
+    width: 40px;
+    font-size: 1.3rem;
+    height: 40px;
+    border-radius: 50%;
+    background: #2f3640;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.icon:hover{
+    transform: rotate(360deg) scale(0.8);
+}
+
+input{
+    width: 0;
+    border: none;
+    outline: none;
+    padding: 0;
+    background: none;
+    font-size: 1.1rem;
+    transition: 0.5s ease;
+    line-height: 40px;
+    color: #fff;
+}
+/* ======================== */
+
+/* ====== Tabela ====== */
+.m-5 {
+    margin: 2rem!important;
+}
+
+.table-bg{
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px 15px 0 0;
+}
+/* ======================== */
+
+/* ====== botão Editar e Excluir ====== */
+.btn{
+    background-color: #03071e;
+    border:1px solid #0077b6;
+    border-radius: 10px;
+    padding: 8px;
+    width: 15%;
+    color: white;
+    cursor: pointer;
+    transition: .5s; 
+}
+
+.btn:hover{
+    background: #0077b6;
+    color: #d4d4d4;
+    border-radius: 5px;
+    box-shadow: 0 0 5px#0077b6, 0 0 25px #0077b6, 0 0 50px #0077b6;
+}
+/* ============================== */

@@ -1,0 +1,158 @@
+/* ====== Corpo da Pagina ====== */
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: #03071e;
+}
+/* ======================== */
+
+/* ====== Container ====== */
+.container {
+    background-color: #03071e;
+    box-shadow: 0 15px 25px  #0077b6;
+    border-radius: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 50px;
+    padding-top: 25px;
+    color: #fff;
+    display: inline-flex;
+    width: 250px;
+    animation: pulse 1s infinite;
+  }
+  /*Animação de pulsar no container*/
+  @-webkit-keyframes pulse {
+    0% {
+      -webkit-box-shadow: 0 0 0 0 #0077b6;;
+    }
+    70% {
+        -webkit-box-shadow: 0 0 0 10px #0077b6;;
+    }
+    100% {
+        -webkit-box-shadow: 0 0 0 0 #0077b6;;
+    }
+  }
+  @keyframes pulse {
+    0% {
+      -moz-box-shadow: 0 0 0 0 #0077b6;;
+      box-shadow: 0 17px 27px  #0077b6;;
+    }
+    70% {
+        -moz-box-shadow: 0 0 0 10px #0077b6;;
+        box-shadow: 0 16px 26px  #0077b6;;
+    }
+    100% {
+        -moz-box-shadow: 0 0 0 0 #0077b6;;
+        box-shadow: 0 15px 25px  #0077b6;;
+    }
+  }
+/* ======================== */
+
+/* ====== Posição do Formulario ====== */
+#formulario{
+    padding-left: 25px;
+}
+/* ======================== */
+
+/* ====== Input de Nome da Plataforma, Login e Senha ====== */
+.input-container{
+    left: -15px;
+    width: 200px;
+    position: relative;
+}
+
+.label{
+    position: absolute;
+    left: 10px;
+    top: 14px;
+    transition: all 0.2s;
+    padding: 0 2px;
+    z-index: 1;
+    color: #b3b3b3;
+    user-select: none;
+}
+
+.text-input{
+    padding: 0.8rem;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #2f2c45;
+    background: #03071e;
+    border-radius: 5px;
+    font-size: 18px;
+    outline: none;
+    transition: all 0.3s;
+    color: #FFF;
+}
+
+.label::before{
+    content: "";
+    height: 5px;
+    background: #272530;
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 100%;
+    z-index: -1;
+}
+
+.text-input:focus{
+    border: 2px solid #38f2ff;
+}
+
+.text-input:focus + .label{
+    top: -10px;
+    color: #38f2ff;
+    font-size: 18px;
+    text-shadow: 1.5px 1px 2px rgba(8, 8, 8, 0.493);
+}
+
+.text-input::placeholder{
+    font-size: 16px;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.text-input:focus::placeholder{
+    opacity: 1;
+}
+
+.text-input:not(:placeholder-shown) + .label{
+    top: -10px;
+    color: #38f2ff;
+    font-size: 18;
+}
+
+select{
+    padding: 0.8rem;
+    width: 115%;
+    height: 100%;
+    border: 2px solid #2f2c45;
+    background: #03071e;
+    border-radius: 5px;
+    font-size: 18px;
+    color: #FFF;
+}
+/* ======================== */
+
+/* ====== Botão Editar ====== */
+.btEditar{
+    background-color: #03071e;
+    border:1px solid #0077b6;
+    border-radius: 10px;
+    padding: 15px;
+    width: 100%;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.btEditar:hover{
+    background: #0077b6;
+    color: #d4d4d4;
+    border-radius: 5px;
+    box-shadow: 0 0 5px#0077b6, 0 0 25px #0077b6, 0 0 50px #0077b6;
+}
+/* ======================== */
