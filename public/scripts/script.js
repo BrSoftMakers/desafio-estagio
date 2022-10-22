@@ -101,16 +101,22 @@ class Vehicle {
     }
 }
 
-async function addVehicleToLibrary(model, brand, type, availability) {
+async function addVehicleToLibrary (model, brand, type, availability) {
     console.log("ADD VEHICLE")
-    await createVehicle( {model, brand, type, availability} );
+    await createVehicle({ model, brand, type, availability });
     //const newVehicle = new Vehicle(id, model, brand, type, availability);
     //myVehicleLibrary.push(newVehicle);
 }
 
-function createCard(vehicle, index) {
+async function editVehicleToLibrary (id, model, brand, type, availability) {
+    console.log("ADD VEHICLE")
+    await editVehicle(id, { model, brand, type, availability });
+}
+
+function createCard(vehicle) {
     const cardContainer = document.createElement("div");
     cardContainer.classList.add("card");
+    if (!vehicle.availability) cardContainer.classList.add("unavailable");
 
     const vehicleId = document.createElement('p');
     const vehicleModel = document.createElement("h3");
@@ -118,13 +124,34 @@ function createCard(vehicle, index) {
     const vehicleType = document.createElement("p");
     const vehicleAvailabilityDiv = document.createElement("div");
     const vehicleAvailabilityText = document.createElement("p");
+    const buttonsDiv = document.createElement("div");
 
-    vehicleId.innerHTML = vehicle.id;
+    vehicleId.innerHTML = `id#${vehicle.id}`;
     vehicleModel.innerHTML = vehicle.model;
     vehicleBrand.innerHTML = vehicle.brand;
-    vehicleType.innerHTML = vehicle.type;
+    vehicleType.innerHTML = `Tipo: ${vehicle.type}`;
     vehicleAvailabilityDiv.className = "vehicle-available";
-    vehicleAvailabilityText.innerHTML = "Veículo disponível?";
+    vehicleAvailabilityText.innerHTML = "Veículo disponível para locação?";
+    buttonsDiv.className = "buttons-div";
+
+    const editButton = document.createElement("button");
+    editButton.className = "edit";
+    editButton.dataset.index = vehicle.id;
+    editButton.addEventListener('click', async (e) => {
+        console.log("EDIT");
+
+        document.getElementById("modalOne").style.display = "block";
+        document.querySelector(".vehicle-form").dataset.index = vehicle.id;
+        document.getElementById("confirm-button").innerHTML = "Editar veículo";
+
+        document.getElementById("vehicle-model").value = vehicle.model;
+        document.getElementById("vehicle-brand").value = vehicle.brand;
+        document.getElementById("vehicle-type").value = vehicle.type;
+        document.getElementById("isAvailable").checked = vehicle.availability;
+        //myLibrary.splice(e.target.dataset.index, 1);
+        //await deleteVehicle(e.target.dataset.index);
+        //showVehicleLibrary();
+    })
 
     const deleteButton = document.createElement("button");
     deleteButton.className = "delete";
@@ -135,6 +162,9 @@ function createCard(vehicle, index) {
         await deleteVehicle(e.target.dataset.index);
         showVehicleLibrary();
     })
+
+    buttonsDiv.appendChild(editButton);
+    buttonsDiv.appendChild(deleteButton);
 
     const availableCheckbox = document.createElement("input");
     availableCheckbox.type = "checkbox";
@@ -160,7 +190,7 @@ function createCard(vehicle, index) {
     cardContainer.appendChild(vehicleBrand);
     cardContainer.appendChild(vehicleType);
     cardContainer.appendChild(vehicleAvailabilityDiv);
-    cardContainer.appendChild(deleteButton);
+    cardContainer.appendChild(buttonsDiv);
 
     return cardContainer;
 }
@@ -181,8 +211,8 @@ async function showVehicleLibrary() {
         container.removeChild(container.lastChild);
     }
 
-    for (let i = 0; i < myVehicleLibrary.length; i++) {
-        container.appendChild(createCard(myVehicleLibrary[i], i));        
+    for (let i = 0; i < myVehicleLibrary.length; i += 1) {
+        container.appendChild(createCard(myVehicleLibrary[i]));
     }
 
 }
@@ -192,6 +222,8 @@ showVehicleLibrary();
 const addVehicleBtn = document.querySelector("#add-vehicle");
 addVehicleBtn.addEventListener("click", () => {
     document.getElementById("modalOne").style.display = "block";
+    document.querySelector(".vehicle-form").dataset.index = "";
+    document.getElementById("confirm-button").innerHTML = "Adicionar veículo";
 })
 
 let closeBtns = [...document.querySelectorAll(".close")];
@@ -209,13 +241,22 @@ window.onclick = function (event) {
 };
 
 const vehicleForm = document.querySelector(".vehicle-form");
-vehicleForm.addEventListener("submit", () => {
-    addVehicleToLibrary(document.getElementById("vehicle-model").value,
-                     document.getElementById("vehicle-brand").value,
-                     document.getElementById("vehicle-type").value,
-                     document.getElementById("isAvailable").checked);
+vehicleForm.addEventListener("submit", async () => {
+    const index = document.querySelector(".vehicle-form").dataset.index;
+    if (index === "") {
+        await addVehicleToLibrary(document.getElementById("vehicle-model").value,
+        document.getElementById("vehicle-brand").value,
+        document.getElementById("vehicle-type").value,
+        document.getElementById("isAvailable").checked);
 
+    } else {
+        await editVehicleToLibrary(index, document.getElementById("vehicle-model").value,
+        document.getElementById("vehicle-brand").value,
+        document.getElementById("vehicle-type").value,
+        document.getElementById("isAvailable").checked)
+    }
+    
     document.getElementById("modalOne").style.display = "none";
-    showVehicleLibrary();
+    await showVehicleLibrary();
     cleanInputs();
 });
