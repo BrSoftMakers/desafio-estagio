@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body {
+  background: rgb(35, 35, 35);
+}
+
+/*body {
+  background-image: url(assets/img/backgroundCar.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center 60%;
+} */
+
+.backgroundTeste {
+  height: 100vh;
+  background-image: url(assets/img/backgroundCar.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center 60%;
+}
