@@ -41,7 +41,7 @@
 
 <img src="https://i.postimg.cc/sxJVNpXD/proje.png" alt="">
 
-# Abrindo o Projeto ?
+# Abrindo o Projeto 😎
 
 ### 4️⃣ - Agora temos que inicializar o projeto, acesse a pasta do projeto, e depois disso, vá na pasta "soft-car" e abra um terminal nessa pasta, e digite o seguinte comando "npm install" para fazer a instação do projeto, e depois disso, digite, "npm start", para inicializar o projeto.
 > npm install 
