@@ -1,24 +1,55 @@
- ![SoftMakers](https://www.softmakers.com.br/assets/img/logotipo14xxhdpi.png)
+# MIDNIGHT CRUD
 
-# Desafio - Desenvolvedor Fullstack - Estágio
-Seja bem-vindo! Este desafio foi projetado para avaliar a sua capacidade técnica como candidato ao cargo proposto.
+Projeto Concessionária. 
+Este projeto utiliza o Create React App e uma API em NodeJS que Ultiliza o Banco de Dados Mongodb Atlas.
 
-## Instruções
-- Faça um fork deste repositório;
-- O conjunto mínimo de tecnologias a serem utilizadas são: HTML, CSS e JS;
-- Crie um passo a passo de como rodar a sua aplicação;
-- Após finalizar, submeta um pull request com um comentário informando o seu e-mail de contato e aguarde nossa avaliação.
+## Instalação do projeto
 
-## Proposta
-Você deverá desenvolver um projeto com a finalidade de que seja possível listar, visualizar, criar, editar e excluir carros de uma locadora de automóvel.
+1. [NodeJS](https://nodejs.org) Deve ser instalado, Após a instalação do node, Terá que Clonar este repositório:
+```sh
+  git clone https://github.com/Alexsandro-ms/dealership-softmakers.git
+```
 
-**Observações:**
-> - Cada carro precisa ter um identificador único, modelo, marca, tipo (hatch, sedan ou SUV) e situação (disponível ou indisponível). Todos os campos são do formulário são obrigatório.
+2. Instalar Dependências do Front-end e do Back-end:
+  - Backend:
+```sh
+  cd dealership-softmaker/backend && npm install # ou yarn install
+```
+  - Frontend:
+```
+  cd ../frontend && npm install # ou yarn install
+```
 
-## Diferenciais
-Serão considerados diferenciais:
+## Iniciando Aplicação:
 
-- O uso de PHP ou Node.js como linguagem sendo utilizada no lado do servidor;
-- O uso de qualquer banco de dados para armazenar os dados da sua aplicação;
-- O uso de qualquer framework;
-- Boas práticas de escrita de código (código limpo, padrões de arquitetura, etc.).
+3. Acesse a pasta do backend e inicie o servidor com:
+```sh
+  npm start # ou yarn start
+```
+
+4. Agora inicie o front-end:
+```sh
+  npm start # ou yarn start
+```
+
+## Rotas
+  Adicionar Novo Modelo na rota: /vehicles
+
+
+## Tecnologias
+  - React
+    - Styled Components
+    - React Router
+    - React Icons
+    - Axios
+    - Commitizen
+  - Node
+    - Cors
+    - DotEnv
+    - Express
+    - Mongoose
+ - Database
+   - MongoDB Atlas
+   
+- Design
+  - [Design Do Figma](https://www.figma.com/file/6eOCrciHflP9xTE5A5s9kj/MIDNIGHT-CRUD?node-id=0%3A1)
