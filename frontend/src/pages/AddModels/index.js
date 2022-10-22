@@ -39,7 +39,7 @@ function AddModels() {
         <input
           type={"text"}
           placeholder={"Link da imagem..."}
-          name={"img"}
+          name={"image"}
           onChange={handleChangeValues}
         />
         <label>Marca</label>

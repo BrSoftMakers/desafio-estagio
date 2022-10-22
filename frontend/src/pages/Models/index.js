@@ -26,10 +26,11 @@ function Models() {
 
   // Conexão com Api
   useEffect(() => {
-    axios.get("http://localhost:8080/cars").then((response) => {
-      setCars(response.data);
-    });
-  }, [cars]);
+    axios
+      .get("http://localhost:8080/cars/")
+      .then((response) => setCars(response.data));
+  }, []);
+
   // Função para deletar item
   const handleDeleteItem = (id) => {
     axios.delete(`http://localhost:8080/cars/${id}`);

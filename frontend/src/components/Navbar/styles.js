@@ -75,7 +75,7 @@ export const ItemLink = styled(NavLink)`
   text-decoration: none;
   color: var(--Black-900);
   @media screen and (max-width: 768px) {
-    font-size: 2rem;
+    font-size: 1.2rem;
   }
   &.active {
     color: var(--Pink-700);

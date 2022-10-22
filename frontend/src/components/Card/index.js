@@ -5,7 +5,7 @@ import { Container } from "./styles";
 function Card({ image, brand, model, category, price, situation, key }) {
   return (
     <Container key={key}>
-      <img src={image} />
+      <img src={`${image}`} />
       <Text>
         <Brand>{brand}</Brand>
         <Model>{model}</Model>
