@@ -6,8 +6,7 @@ const mongoose = require("mongoose");
 const databaseConnected = async () => {
   await mongoose.connect(
     // Conexão com o banco de dados através da string
-    // `mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@cluster0.e2nt1by.mongodb.net/database?retryWrites=true&w=majority`,
-    `mongodb+srv://admin:admin12345678@cluster0.e2nt1by.mongodb.net/database?retryWrites=true&w=majority`,
+    `mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@cluster0.e2nt1by.mongodb.net/database?retryWrites=true&w=majority`,
     (err) => {
       // Função Para informar erro
       if (err) {
