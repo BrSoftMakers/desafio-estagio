@@ -1,0 +1,235 @@
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  --color-1: hsl(4, 76%, 31%);
+  --color-2: #202020;
+}
+
+body {
+  font-family: Rubik, sans-serif;
+  height: 100vh;
+
+  display: grid;
+  grid-template-rows: 70px 1fr 60px;
+}
+
+button,
+.btn {
+  border: 0;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 500;
+  background-color: var(--color-2);
+  color: white;
+  padding: .5em 1em;
+  border-radius: .5em;
+}
+
+button:hover,
+.btn:hover {
+  background-color: hsl(0, 0%, 20%);
+}
+
+.page-header {
+  background-color: var(--color-1);
+  color: white;
+  padding: 1em clamp(2em, 4vw, 3em);
+
+  display: flex;
+  align-items: center;
+}
+
+main {
+  padding: clamp(2em, 4vw, 3em) clamp(1em, 4vw, 3em);
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+  margin: auto;
+}
+
+/* HERO SECTION */
+.hero-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  --lottie-scale: 2;
+  height: calc(var(--lottie-scale) * 100px);
+}
+
+.hero-section__data {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  max-width: 40%;
+}
+
+.hero-section__btns {
+  display: flex;
+  gap: .5em;
+}
+
+.hero-section button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: .5em;
+}
+
+.hero-section__lottie {
+  width: 400px;
+  transform: scaleX(-1) translateY(1%);
+  scale: var(--lottie-scale);
+  clip-path: inset(30% 30% 30% 30%);
+}
+
+@media (max-width: 800px) {
+  .hero-section__data {
+    max-width: none;
+  }
+
+  .hero-section__lottie {
+    display: none;
+  }
+}
+/* HERO SECTION */
+
+/* MODAL FORMS */
+.modal {
+  border: 0;
+  margin: auto;
+  box-shadow: 0 0 10px hsl(0 0% 0% / .5);
+
+  background-color: var(--color-1);
+  border-radius: .7em;
+  
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.modal::backdrop {
+  background-color: hsl(0 0% 0% / .5);
+}
+
+.modal header {
+  border-radius: .7em .7em 0 0;
+  background-color: var(--color-2);
+  padding: 1.5em;
+}
+
+.modal header p {
+  margin-top: 1em;
+  text-transform:none;
+  max-width: 50ch;
+  background-color: hsl(0, 0%, 20%);
+  border-radius: .5em;
+  padding: .5em;
+}
+
+.form {
+  padding: 2em;
+  max-width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.form > section {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+}
+
+.form .required::after {
+  content: "*";
+  color: white;
+}
+
+.form input[type="text"] {
+  background-color: white;
+  border: 0;
+  border-radius: .5em;
+  padding: .3em .5em;
+  width: 100%;
+}
+
+.form select,
+.form input[type="file"] {
+  cursor: pointer;
+}
+
+.form__btns {
+  margin-top: 1em;
+}
+
+.form button {
+  width: 100%;
+}
+/* MODAL FORMS */
+
+/* CAR CATALOG */
+
+.container__car-catalog {
+  background-color: var(--color-1);
+  padding: 2em;
+  border-radius: 1em;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+}
+
+.car-card {
+  background-color: var(--color-2);
+  color: white;
+  max-width: fit-content;
+  --card--border-radius: .5em;
+  border-radius: var(--card--border-radius);
+}
+
+.car-card__img {
+  width: 13em;
+  border-radius: var(--card--border-radius) var(--card--border-radius) 0 0;
+  margin-bottom: -5px;
+}
+
+.car-card__data {
+  padding: .5em .7em;
+  display: flex;
+  flex-direction: column;
+  gap: .5em;
+}
+
+.car-card ul {
+  list-style: none;
+}
+
+.car-card__brand {
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.car-card__availability {
+  font-weight: 200;
+  font-size: .9rem;
+  color: hsl(0 0% 80%);
+}
+/* CAR CATALOG */
+
+.page-footer {
+  background-color: var(--color-1);
+  color: white;
+  padding: 1.5em 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-footer a {
+  color: currentColor;
+}

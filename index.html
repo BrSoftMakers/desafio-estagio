@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/style.css">
+  <link rel="shortcut icon" href="/assets/eduardochaves-favicon.svg" type="image/x-icon">
+  <script defer src="/script.js"></script>
+  <script defer src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="crud-locadora.eduardochaves.me">
+  <meta property="og:image" content="https://github.com/eduardochaves1/public-imgs/blob/main/social-share-for-pages/crud-locadora.jpg?raw=true">
+  <meta property="og:title" content="Loca Auto 🚗 - Eduardo Chaves">
+  <meta property="og:description" content="Projeto de Desafio Técnico proposto pela SoftMakersBr para vaga de Estágio Full Stack.">
+
+  <title>Loca Auto 🚗 - Eduardo Chaves</title>
+  <meta name="description" content="Projeto de Desafio Técnico proposto pela SoftMakersBr para vaga de Estágio Full Stack.">
+</head>
+<body>
+  <header class="page-header">
+    <h1>Loca Auto</h1>
+  </header>
+
+  <main>
+    <dialog class="modal__car-add modal">
+      <header>
+        <h2>Adicionar um Carro ao Catálogo</h2>
+      </header>
+
+      <form method="dialog" class="form" id="car-add__form">
+        <section class="form__brand">
+          <label for="brand" class="required">Marca:</label>
+          <input type="text" name="brand--add" id="brand--add" maxlength="15" autocomplete="brand" required>
+        </section>
+  
+        <section class="form__model">
+          <label for="model" class="required">Modelo:</label>
+          <input type="text" name="model--add" id="model--add" maxlength="25" autocomplete="model" required>
+        </section>
+        
+        <section class="form__chassis-number">
+          <label for="chassis-number" class="required">Nº do Chassi:</label>
+          <input type="text" name="chassis-number--add" id="chassis-number--add" maxlength="17" required>
+        </section>
+  
+        <section class="form__type">
+          <label for="type" class="required">Tipo:</label>
+          <select name="type--add" id="type--add" required>
+            <option value="null">---</option>
+            <option value="hatch">Hatch</option>
+            <option value="sedan">Sedan</option>
+            <option value="suv">SUV</option>
+          </select>
+        </section>
+
+        <section class="form__availability">
+          <label for="availability" class="required">Disponibilidade:</label>
+          <select name="availability--add" id="availability--add" required>
+            <option value="null">---</option>
+            <option value="available">Disponível</option>
+            <option value="unavailable">Indisponível</option>
+          </select>
+        </section>
+
+        <section class="form__picture-file">
+          <label for="picture-file">Foto do Carro:</label>
+          <input type="file" name="picture-file--add" id="picture-file--add">
+        </section>
+
+        <section class="form__btns">
+          <button class="btn-close--add-form">Cancelar</button>
+          <button type="submit">Adicionar</button>
+        </section>
+      </form>
+    </dialog>
+    <dialog class="modal__car-edit modal">
+      <header>
+        <h2>Editar um Carro do Catálogo</h2>
+        <p>Para editar um carro do catálogo digite primeiramente o número de chassi do carro desejado e então preencha os campos que pretende editar. Não é necessário preencher todos os campos!</p>
+      </header>
+
+      <form method="dialog" class="form" id="car-edit__form">        
+        <section class="form__chassis-number">
+          <label for="chassis-number" class="required">Nº do Chassi:</label>
+          <input type="text" name="chassis-number--edit" id="chassis-number--edit" maxlength="17" required>
+        </section>
+        
+        <section class="form__brand">
+          <label for="brand">Marca:</label>
+          <input type="text" name="brand--edit" id="brand--edit" maxlength="15" autocomplete="brand">
+        </section>
+  
+        <section class="form__model">
+          <label for="model">Modelo:</label>
+          <input type="text" name="model--edit" id="model--edit" maxlength="25" autocomplete="model">
+        </section>
+  
+        <section class="form__type">
+          <label for="type">Tipo:</label>
+          <select name="type--edit" id="type--edit">
+            <option value="null">---</option>
+            <option value="hatch">Hatch</option>
+            <option value="sedan">Sedan</option>
+            <option value="suv">SUV</option>
+          </select>
+        </section>
+
+        <section class="form__availability">
+          <label for="availability">Disponibilidade:</label>
+          <select name="availability--edit" id="availability--edit">
+            <option value="null">---</option>
+            <option value="available">Disponível</option>
+            <option value="unavailable">Indisponível</option>
+          </select>
+        </section>
+
+        <section class="form__picture-file">
+          <label for="picture-file">Foto do Carro:</label>
+          <input type="file" name="picture-file--edit" id="picture-file--edit">
+        </section>
+
+        <section class="form__btns">
+          <button class="btn-close--edit-form">Cancelar</button>
+          <button type="submit">Editar</button>
+        </section>
+      </form>
+    </dialog>
+    <dialog class="modal__car-remove modal">
+      <header>
+        <h2>Remover um Carro do Catálogo</h2>
+        <p>Para remover um carro do catálogo basta digitar o número do chassi do veículo desejado.</p>
+      </header>
+
+      <form method="dialog" class="form" id="car-remove__form">
+        <section class="form__chassis-number">
+          <label for="chassis-number" class="required">Nº do Chassi:</label>
+          <input type="text" name="chassis-number--remove" id="chassis-number--remove" maxlength="17" required>
+        </section>
+
+        <section class="form__btns">
+          <button class="btn-close--remove-form">Cancelar</button>
+          <button type="submit">Remover</button>
+        </section>
+      </form>
+    </dialog>
+    
+    <section class="hero-section">
+      <section class="hero-section__data">
+        <h2>Carros, Carros e mais Carros!</h2>
+        <p>Escolha um dos botões abaixo para <em>Adicionar</em>, <em>Editar</em> ou <em>Remover</em> um carro específico do nosso catálogo de carros.</p>
+        <section class="hero-section__btns">
+          <button class="btn-open--add-form"><i class="fa-solid fa-plus"></i>Adicionar</button>
+          <button class="btn-open--edit-form"><i class="fa-solid fa-pen-to-square"></i></i>Editar</button>
+          <button class="btn-open--remove-form"><i class="fa-solid fa-trash"></i>Remover</button>
+        </section>
+      </section>
+  
+      <lottie-player class="hero-section__lottie" src="/assets/car-lottie.json"  background="transparent"  speed="1"  loop autoplay></lottie-player>
+    </section>
+    
+    <section class="container__car-catalog">
+      <section class="car-card" style="display: none;">
+        <img class="car-card__img" src="/assets/empty.jpg" alt="the car picture">
+        <ul class="car-card__data">
+          <li class="car-card__brand">Brand</li>
+          <li class="car-card__model">Model</li>
+          <li class="car-card__type">Type</li>
+          <li class="car-card__availability">Availability</li>
+          <!-- PS.: We are not going to show the car chassis number because it is only used for back-end purposes -->
+        </ul>
+      </section>
+    </section>
+  </main>
+
+  <footer class="page-footer">
+    <p>Feito com <i class="fa-solid fa-bolt-lightning"></i> por <a href="https://github.com/eduardochaves1" target="_blank">Eduardo Chaves</a></p>
+  </footer>
+</body>
+</html>
