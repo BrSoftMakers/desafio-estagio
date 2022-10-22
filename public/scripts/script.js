@@ -79,18 +79,6 @@ const deleteVehicle = async (id) => {
     }
 };
 
-/*
-let myVehicleLibrary = [];
-
-getAllVehicles().then( (vehiclesArray) => {
-    console.log(vehiclesArray);
-    for (let i = 0; i < vehiclesArray.length; i += 1) {
-        myVehicleLibrary.push(vehiclesArray[i]);
-    }
-    console.log("DONE");
-})
-*/
-
 class Vehicle {
     constructor(id, model, brand, type, availability) {
         this.id = id
@@ -104,8 +92,6 @@ class Vehicle {
 async function addVehicleToLibrary (model, brand, type, availability) {
     console.log("ADD VEHICLE")
     await createVehicle({ model, brand, type, availability });
-    //const newVehicle = new Vehicle(id, model, brand, type, availability);
-    //myVehicleLibrary.push(newVehicle);
 }
 
 async function editVehicleToLibrary (id, model, brand, type, availability) {
@@ -148,20 +134,16 @@ function createCard(vehicle) {
         document.getElementById("vehicle-brand").value = vehicle.brand;
         document.getElementById("vehicle-type").value = vehicle.type;
         document.getElementById("isAvailable").checked = vehicle.availability;
-        //myLibrary.splice(e.target.dataset.index, 1);
-        //await deleteVehicle(e.target.dataset.index);
-        //showVehicleLibrary();
-    })
+    });
 
     const deleteButton = document.createElement("button");
     deleteButton.className = "delete";
     deleteButton.dataset.index = vehicle.id;
     deleteButton.addEventListener('click', async (e) => {
         console.log("DELETE");
-        //myLibrary.splice(e.target.dataset.index, 1);
         await deleteVehicle(e.target.dataset.index);
         showVehicleLibrary();
-    })
+    });
 
     buttonsDiv.appendChild(editButton);
     buttonsDiv.appendChild(deleteButton);
@@ -172,7 +154,6 @@ function createCard(vehicle) {
     availableCheckbox.dataset.index = vehicle.id;
     availableCheckbox.addEventListener("change", async (e) => {
         console.log("CHANGE");
-        //myLibrary[e.target.dataset.index].wasBookRead = e.target.checked;
         await editVehicle(e.target.dataset.index, {
             model: vehicle.model,
             brand: vehicle.brand,
@@ -180,7 +161,7 @@ function createCard(vehicle) {
             availability: e.target.checked
         })
         showVehicleLibrary();
-    })
+    });
 
     vehicleAvailabilityDiv.appendChild(vehicleAvailabilityText);
     vehicleAvailabilityDiv.appendChild(availableCheckbox);
@@ -193,14 +174,14 @@ function createCard(vehicle) {
     cardContainer.appendChild(buttonsDiv);
 
     return cardContainer;
-}
+};
 
 function cleanInputs() {
     document.getElementById("vehicle-model").value = "";
     document.getElementById("vehicle-brand").value = "";
     document.getElementById("vehicle-type").value = "";
     document.getElementById("isAvailable").checked = false;
-}
+};
 
 async function showVehicleLibrary() {
     const myVehicleLibrary = await getAllVehicles();
@@ -215,7 +196,7 @@ async function showVehicleLibrary() {
         container.appendChild(createCard(myVehicleLibrary[i]));
     }
 
-}
+};
 
 showVehicleLibrary();
 
@@ -253,7 +234,7 @@ vehicleForm.addEventListener("submit", async () => {
         await editVehicleToLibrary(index, document.getElementById("vehicle-model").value,
         document.getElementById("vehicle-brand").value,
         document.getElementById("vehicle-type").value,
-        document.getElementById("isAvailable").checked)
+        document.getElementById("isAvailable").checked);
     }
     
     document.getElementById("modalOne").style.display = "none";

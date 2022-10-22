@@ -3,10 +3,8 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const database = require('./database/db.js');
 const Vehicle = require('./models/vehicle.js');
-//const { response, request } = require('express');
 
 const app = express();
-//const port = 3000;
 
 (async () => {
     try {
