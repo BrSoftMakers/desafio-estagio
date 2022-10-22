@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocaMAX Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="images/icons8-car-rental-48.png">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="scripts/script.js"></script>
+</head>
+<body>
+    <header>
+        <h2>LocaMAX</h2>
+        <button id="add-vehicle">Novo veículo</button>
+    </header>
+    <div class="container"></div>
+    <div id="modalOne" class="modal">
+        <div class="modal-content">
+          <form class="vehicle-form" onsubmit="return false">
+            <div class="modal-header">
+              <a class="close">&times;</a>
+              <h3 id="header-info">Informações do veículo</h2>
+            </div>
+            <input id="vehicle-model" type="text" name="model" placeholder="Modelo" required/>
+            <input id="vehicle-brand" type="text" name="brand" placeholder="Montadora" required/>
+            <input id="vehicle-type" type="text" name="type" placeholder="Tipo" required/>
+            <div class="availability-checkbox">
+              <label for="isAvailable">Veículo disponível para locação?</label>
+              <input id="isAvailable" type="checkbox" name="availability"/>
+            </div>
+            <button type="submit" id="confirm-button">Adicionar veículo</button>
+          </form>
+        </div>
+      </div>
+    <footer>
+        <p>Made by <a href="https://github.com/matheuspl92" target="_blank">matheuspl92</a></p>
+    </footer>
+</body>
+</html>
