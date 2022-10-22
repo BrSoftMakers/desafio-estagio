@@ -7,21 +7,8 @@ export const Container = styled.div`
   left: 0;
   top: 0;
   display: flex;
-  justify-content: space-between;
-  aside {
-    width: 25%;
-    border-left: 1px solid var(--Cyan-300);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: column;
-    div {
-      width: 85%;
-      height: 125px;
-      background-color: red;
-      margin: 0 auto;
-    }
-  }
+  justify-content: center;
+  align-items: center;
 `;
 
 export const Content = styled.div`

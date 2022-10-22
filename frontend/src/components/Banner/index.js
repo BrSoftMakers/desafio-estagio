@@ -16,11 +16,6 @@ function Banner({ image, description, titleContrast, title }) {
           <img src={image} />
         </Circle>
       </Content>
-      <aside>
-        <div></div>
-        <div></div>
-        <div></div>
-      </aside>
     </Container>
   );
 }

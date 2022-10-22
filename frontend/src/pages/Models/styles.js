@@ -10,7 +10,6 @@ export const HeaderComponent = styled.header`
 `;
 export const Main = styled.main`
   width: 95%;
-  /* height: 100vh; */
   margin: 0 auto;
   select {
     padding: 5px;

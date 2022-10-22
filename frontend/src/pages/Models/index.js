@@ -36,19 +36,19 @@ export const car = [
 ];
 
 function Models() {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState();
   const [cars, setCars] = useState([]);
   useEffect(() => {
     axios.get("http://localhost:8080/cars").then((response) => {
       setCars(response.data);
     });
-  }, []);
+  }, [cars]);
 
   // Função para filtrar lista; useMemo usado para não afetar na perfomace;
   // Memorizando a fução, sendo executada quando necessario(quando o valor de (search) for alterado).
-  // const ListFilter = useMemo(() => {
-  //   return cars.filter((valueState) => valueState.brand);
-  // }, [search]);
+  const ListFilter = useMemo(() => {
+    return cars.filter((valueState) => valueState.brand);
+  }, [search]);
   return (
     <Container>
       <HeaderComponent>
@@ -63,15 +63,24 @@ function Models() {
         </select>
         <Content>
           {cars.map((item) => (
-            <Card
-              key={item._id}
-              brand={item.brand}
-              image={item.image}
-              category={item.category}
-              price={item.price}
-              model={item.model}
-              situation={item.situation}
-            />
+            <>
+              <Card
+                key={item._id}
+                brand={item.brand}
+                image={item.image}
+                category={item.category}
+                price={item.price}
+                model={item.model}
+                situation={item.situation}
+              />
+              <button
+                onClick={() => {
+                  axios.delete(`http://localhost:8080/cars/${item._id}`);
+                }}
+              >
+                Excluir
+              </button>
+            </>
           ))}
         </Content>
       </Main>

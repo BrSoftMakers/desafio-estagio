@@ -16,17 +16,12 @@ export const Container = styled.div`
       margin: 0.5rem 0;
       margin-left: 5rem;
       font-size: 1.1rem;
-      color: var(--Gray-900);
-      @media screen and (max-width: 481px) {
-        margin: 0.5rem 0;
-        text-align: center;
-      }
+      color: var(--);
     }
     input {
       width: 75%;
       padding: 10px 25px;
       margin: 0 auto;
-      outline: none;
     }
     button {
       margin: 1rem auto;

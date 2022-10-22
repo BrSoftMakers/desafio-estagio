@@ -7,6 +7,7 @@ import Home from "../pages/Home";
 import Models from "../pages/Models";
 import AboutUs from "../pages/AboutUs";
 import AddModels from "../pages/AddModels";
+import EditModels from "../pages/EditModels";
 
 function AllRoutes() {
   return (
@@ -15,7 +16,8 @@ function AllRoutes() {
         <Route path="/" element={<Home />} />
         <Route path="/models" element={<Models />} />
         <Route path="/about" element={<AboutUs />} />
-        <Route path="/add-vehicles" element={<AddModels />} />
+        <Route path="/vehicles" element={<AddModels />} />
+        <Route path="/vehicles/:id" element={<EditModels />} />
       </Routes>
     </BrowserRouter>
   );
