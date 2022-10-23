@@ -19,12 +19,20 @@ button,
 .btn {
   border: 0;
   cursor: pointer;
+
+  font-family: Rubik, sans-serif;
+  font-size: .9rem;
   text-transform: uppercase;
-  font-weight: 500;
-  background-color: var(--color-2);
   color: white;
+  
+  background-color: var(--color-2);
   padding: .5em 1em;
   border-radius: .5em;
+  height: 2.5em;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 button:hover,
@@ -34,18 +42,22 @@ button:hover,
 
 .page-header {
   background-color: var(--color-1);
+  padding: 2.5em clamp(2em, 4vw, 3em);
   color: white;
-  padding: 1em clamp(2em, 4vw, 3em);
 
   display: flex;
   align-items: center;
 }
 
+.page-header h1 {
+  font-size: 2.8rem;
+}
+
 main {
-  padding: clamp(2em, 4vw, 3em) clamp(1em, 4vw, 3em);
+  padding: clamp(4em, 5vw, 5em) clamp(1em, 4vw, 3em);
   display: flex;
   flex-direction: column;
-  gap: 3em;
+  gap: 4.5em;
   margin: auto;
 }
 
@@ -54,21 +66,30 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1em;
-  --lottie-scale: 2;
+  gap: 5em;
+  --lottie-scale: 2.2;
   height: calc(var(--lottie-scale) * 100px);
 }
 
 .hero-section__data {
   display: flex;
   flex-direction: column;
-  gap: 1em;
-  max-width: 40%;
+  gap: 1.5em;
+  max-width: 60ch;
+}
+
+.hero-section__data h2 {
+  font-size: 2.5rem;
+}
+
+.hero-section__data p {
+  font-size: 1.2rem;
+  font-weight: lighter;
 }
 
 .hero-section__btns {
   display: flex;
-  gap: .5em;
+  gap: clamp(.5em, 2vw, 1em);
 }
 
 .hero-section button {
@@ -79,15 +100,25 @@ main {
 }
 
 .hero-section__lottie {
-  width: 400px;
   transform: scaleX(-1) translateY(1%);
+  width: 250px;
   scale: var(--lottie-scale);
-  clip-path: inset(30% 30% 30% 30%);
+  clip-path: inset(35% 20% 39% 10%);
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1250px) {
+  .hero-section {
+    margin: 4em auto;
+  }
+
   .hero-section__data {
-    max-width: none;
+    text-align: center;
+  }
+
+  .hero-section__btns {
+    flex-wrap: wrap;
+    margin: auto 2em;
+    gap: 1em;
   }
 
   .hero-section__lottie {
@@ -160,6 +191,7 @@ main {
   color: white;
 }
 
+.form input[type="url"],
 .form input[type="text"] {
   background-color: white;
   border: 0;
@@ -179,8 +211,7 @@ main {
 /* MODAL FORMS */
 
 /* CAR CATALOG */
-
-.container__car-catalog {
+.car-catalog {
   background-color: var(--color-1);
   padding: 2em;
   border-radius: 1em;
@@ -192,38 +223,48 @@ main {
   gap: 2em;
 }
 
+.car-card:first-of-type {
+  /* this selector is hidding the first post model we made for the javascript to clone and make the orther posts */
+  display: none;
+}
+
 .car-card {
   background-color: var(--color-2);
   color: white;
-  max-width: fit-content;
+  max-width: 13em;
   --card--border-radius: .5em;
   border-radius: var(--card--border-radius);
 }
 
+/* .container__car-card__img {
+  width: auto;
+} */
+
 .car-card__img {
-  width: 13em;
+  aspect-ratio: 4/3;
+  width: 100%;
+  object-fit: cover;
   border-radius: var(--card--border-radius) var(--card--border-radius) 0 0;
   margin-bottom: -5px;
 }
 
 .car-card__data {
+  list-style: none;
+  text-transform: capitalize;
   padding: .5em .7em;
+
   display: flex;
   flex-direction: column;
   gap: .5em;
 }
 
-.car-card ul {
-  list-style: none;
-}
-
 .car-card__brand {
-  font-weight: 500;
+  font-weight: bolder;
   font-size: 1.5rem;
 }
 
 .car-card__availability {
-  font-weight: 200;
+  font-weight: lighter;
   font-size: .9rem;
   color: hsl(0 0% 80%);
 }

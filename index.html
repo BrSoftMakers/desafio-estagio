@@ -7,7 +7,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="/style.css">
@@ -50,14 +50,19 @@
           <label for="chassis-code" class="required">Nº do Chassi:</label>
           <input type="text" name="chassis-code--add" id="chassis-code--add" minlength="17" maxlength="17" required>
         </section>
+
+        <section class="form__picture">
+          <label for="picture">Foto do Carro (link):</label>
+          <input type="url" name="picture--add" id="picture--add">
+        </section>
   
         <section class="form__type">
           <label for="type" class="required">Tipo:</label>
           <select name="type--add" id="type--add" required>
             <option value="null">---</option>
-            <option value="hatch">Hatch</option>
-            <option value="sedan">Sedan</option>
-            <option value="suv">SUV</option>
+            <option value="Hatch">Hatch</option>
+            <option value="Sedan">Sedan</option>
+            <option value="SUV">SUV</option>
           </select>
         </section>
 
@@ -65,18 +70,13 @@
           <label for="availability" class="required">Disponibilidade:</label>
           <select name="availability--add" id="availability--add" required>
             <option value="null">---</option>
-            <option value="available">Disponível</option>
-            <option value="unavailable">Indisponível</option>
+            <option value="Disponível">Disponível</option>
+            <option value="Indisponível">Indisponível</option>
           </select>
         </section>
 
-        <section class="form__picture-file">
-          <label for="picture-file">Foto do Carro:</label>
-          <input type="file" name="picture-file--add" id="picture-file--add">
-        </section>
-
         <section class="form__btns">
-          <button class="btn-close--add-form">Cancelar</button>
+          <button class="btn-close--add-form" type="reset">Cancelar</button>
           <button class="btn-submit--add-form" type="submit">Adicionar</button>
         </section>
       </form>
@@ -87,7 +87,7 @@
         <details>
           <summary><i class="fa-solid fa-circle-info"></i>Como Editar?</summary>
           <p>Para editar um carro do catálogo digite primeiramente o número de chassi do carro desejado e então preencha os campos que pretende editar do mesmo. Não é necessário preencher todos os campos!</p>
-          <p>Não é possível editar o número de chassi, caso tenha digitado o código erradamente no momento do cadastro, delete o anúncio do catálogo e cadastre novamente com o código correto!</p>
+          <p>Não é possível editar o número de chassi, caso tenha digitado o código erradamente no momento do cadastro, delete o anúncio do catálogo e cadastre novamente com o número de chassi correto!</p>
         </details>
       </header>
 
@@ -106,14 +106,19 @@
           <label for="model">Modelo:</label>
           <input type="text" name="model--edit" id="model--edit" maxlength="25" autocomplete="model">
         </section>
+
+        <section class="form__picture">
+          <label for="picture">Foto do Carro (link):</label>
+          <input type="url" name="picture--edit" id="picture--edit">
+        </section>
   
         <section class="form__type">
           <label for="type">Tipo:</label>
           <select name="type--edit" id="type--edit">
             <option value="null">---</option>
-            <option value="hatch">Hatch</option>
-            <option value="sedan">Sedan</option>
-            <option value="suv">SUV</option>
+            <option value="Hatch">Hatch</option>
+            <option value="Sedan">Sedan</option>
+            <option value="SUV">SUV</option>
           </select>
         </section>
 
@@ -121,19 +126,14 @@
           <label for="availability">Disponibilidade:</label>
           <select name="availability--edit" id="availability--edit">
             <option value="null">---</option>
-            <option value="available">Disponível</option>
-            <option value="unavailable">Indisponível</option>
+            <option value="Disponível">Disponível</option>
+            <option value="Indisponível">Indisponível</option>
           </select>
         </section>
 
-        <section class="form__picture-file">
-          <label for="picture-file">Foto do Carro:</label>
-          <input type="file" name="picture-file--edit" id="picture-file--edit">
-        </section>
-
         <section class="form__btns">
-          <button class="btn-close--edit-form">Cancelar</button>
-          <button type="submit">Editar</button>
+          <button class="btn-close--edit-form" type="reset">Cancelar</button>
+          <button class="btn-submit--edit-form" type="submit">Editar</button>
         </section>
       </form>
     </dialog>
@@ -153,8 +153,8 @@
         </section>
 
         <section class="form__btns">
-          <button class="btn-close--remove-form">Cancelar</button>
-          <button type="submit">Remover</button>
+          <button class="btn-close--remove-form" type="reset">Cancelar</button>
+          <button class="btn-submit--remove-form" type="submit">Remover</button>
         </section>
       </form>
     </dialog>
@@ -173,14 +173,14 @@
       <lottie-player class="hero-section__lottie" src="/assets/car-lottie.json"  background="transparent"  speed="1"  loop autoplay></lottie-player>
     </section>
     
-    <section class="container__car-catalog">
-      <section class="car-card" style="display: none;">
+    <section class="car-catalog">
+      <section class="car-card">
         <img class="car-card__img" src="/assets/empty.jpg" alt="the car picture">
         <ul class="car-card__data">
-          <li class="car-card__brand">Brand</li>
-          <li class="car-card__model">Model</li>
-          <li class="car-card__type">Type</li>
-          <li class="car-card__availability">Availability</li>
+          <li class="car-card__brand"></li>
+          <li class="car-card__model"></li>
+          <li class="car-card__type"></li>
+          <li class="car-card__availability"></li>
           <!-- PS.: We are not going to show the car chassis code because it is only used for back-end purposes -->
         </ul>
       </section>
