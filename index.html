@@ -47,8 +47,8 @@
         </section>
         
         <section class="form__chassis-number">
-          <label for="chassis-number" class="required">Nº do Chassi:</label>
-          <input type="text" name="chassis-number--add" id="chassis-number--add" minlength="17" maxlength="17" required>
+          <label for="chassis-code" class="required">Nº do Chassi:</label>
+          <input type="text" name="chassis-code--add" id="chassis-code--add" minlength="17" maxlength="17" required>
         </section>
   
         <section class="form__type">
@@ -77,7 +77,7 @@
 
         <section class="form__btns">
           <button class="btn-close--add-form">Cancelar</button>
-          <button type="submit">Adicionar</button>
+          <button class="btn-submit--add-form" type="submit">Adicionar</button>
         </section>
       </form>
     </dialog>
@@ -93,8 +93,8 @@
 
       <form method="dialog" class="form" id="car-edit__form">        
         <section class="form__chassis-number">
-          <label for="chassis-number" class="required">Nº do Chassi:</label>
-          <input type="text" name="chassis-number--edit" id="chassis-number--edit" minlength="17" maxlength="17" required>
+          <label for="chassis-code" class="required">Nº do Chassi:</label>
+          <input type="text" name="chassis-code--edit" id="chassis-code--edit" minlength="17" maxlength="17" required>
         </section>
         
         <section class="form__brand">
@@ -148,8 +148,8 @@
 
       <form method="dialog" class="form" id="car-remove__form">
         <section class="form__chassis-number">
-          <label for="chassis-number" class="required">Nº do Chassi:</label>
-          <input type="text" name="chassis-number--remove" id="chassis-number--remove" minlength="17" maxlength="17" required>
+          <label for="chassis-code" class="required">Nº do Chassi:</label>
+          <input type="text" name="chassis-code--remove" id="chassis-code--remove" minlength="17" maxlength="17" required>
         </section>
 
         <section class="form__btns">
@@ -181,7 +181,7 @@
           <li class="car-card__model">Model</li>
           <li class="car-card__type">Type</li>
           <li class="car-card__availability">Availability</li>
-          <!-- PS.: We are not going to show the car chassis number because it is only used for back-end purposes -->
+          <!-- PS.: We are not going to show the car chassis code because it is only used for back-end purposes -->
         </ul>
       </section>
     </section>
