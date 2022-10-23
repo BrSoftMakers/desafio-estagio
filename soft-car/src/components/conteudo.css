@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+
+.backG {
+    background: rgb(35, 35, 35);
+}
+
+.card-crud {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-crud-implement {
+    padding: 50px;
+}
+
+.card-crud-implement input {
+    height: 36px;
+    width: 225px;
+    border-radius: 10px;
+    border:none;
+    background-color: rgba(255, 255, 255, 0.63);
+    box-shadow:  0px 0px 7px rgba(0, 0, 0, 0.068);
+    padding-left: 18px;
+    outline: none;
+}
+
+.card-crud-implement button {
+    border-radius: 5px;
+    cursor: pointer;
+    height: 36px;
+    width: 150px;
+    background-color: #3c3c3c;
+    border:none;
+    color: white;
+    box-shadow:  0px 0px 10px rgba(0, 0, 0, 0.294);
+}
+
+.button-card {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-crud-implement p {
+    color: white;
+}
+
+.input-card {
+    padding-top: 10px;
+}
+
+.input-card p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+.backG h1 {
+    text-align: center;
+    color: white;
+    font-weight: 800;
+    font-size: 40px;
+}
+
+h1 {
+    margin-top: 50px;
+}
