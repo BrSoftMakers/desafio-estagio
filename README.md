@@ -28,19 +28,11 @@ O que me dei o trabalho de fazer foi de ao menos criar um **object map** no pró
 
 Onde o valor dessa chave seria um objeto contendo as chaves/valores a cerca dos dados do carro que foi captado do formulário de cadastro. Onde inclusive deixei de propósito alguns `console.log` no código para mostrar a mudança deste **object map** a medida que ele é modificado.
 
+Inclusive utilizei a chave deste **object map** como forma de verificação de erro para os formulários em caso de um usuário tentar editar/remover um carro que não foi cadastrado ainda, ou de adicionar um carro que já está cadastrado. Dando um alerta de erro ao usuário e impedindo qualquer ação indesejada na aplicação.
+
 Vale lembrar que dessa forma, sempre que o usuário atualizar a página, qualquer cadastro que ele fez no catálogo será perdido.
 
 ![console](https://i.imgur.com/6TFXVAq.png)
-
-A única coisa que não consegui fazer neste **object map** é na parte de edição de conteúdo (*update*), pois no formulário de edição que criei na página em forma de modal, deixei mais fácil para o usuário poder editar somente aquilo que ele pretende mudar.
-
-E com isso quando eu realizava um `.set` para o **object map**, os dados anteriores eram apagados, ao invés de substituir somente os que passei no método.
-
-Cheguei a pesquisar bastante, mas não consegui achar uma forma de fazer um `.set` em um **object map** somente com os dados alterados sem que apagasse todo o restante dos dados já presentes.
-
-Tirando isso, a parte de adicionar e remover um carro deste **object map** está funcionando perfeitamente.
-
-Inclusive utilizei a chave deste **object map** como forma de verificação de erro para os formulários em caso de um usuário tentar editar/remover um carro que não foi cadastrado ainda, ou de adicionar um carro que já está cadastrado. Dando um alerta de erro ao usuário e impedindo qualquer ação indesejada na aplicação.
 
 ## Sobre o Front-End
 
