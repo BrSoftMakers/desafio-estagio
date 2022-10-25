@@ -16,7 +16,7 @@
 
 - Versão mobile nesta foto: [https://i.imgur.com/Db5ziUH.png](https://i.imgur.com/Db5ziUH.png)
 
-- **OBS.:** Os carros que aparecem nessas imagens são apenas de exemplo, pois ao entrar no site não hávera carro algum até que sejam adicionados pelo usuário.
+- **OBS.:** Os carros que aparecem nessas imagens são apenas de exemplo, pois ao entrar no site não havera carro algum até que sejam adicionados pelo usuário.
 
 ---
 
