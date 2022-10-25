@@ -26,7 +26,7 @@ Neste projeto não cheguei a fazer um back-end por parte de servidor (com node.j
 
 O que me dei o trabalho de fazer foi de ao menos criar um **object map** no próprio `sript.js` onde guardei como chaves cada carro que fosse adicionado ao catálogo (usando o número de chassi do mesmo).
 
-Onde o valor dessa chave seria um objeto contendo as chaves/valores a cerca dos dados do carro que foi captado do formulário de cadastro. Onde inclusive deixei de propósito alguns `console.log` no código para mostrar a mudança deste **object map** a medida que ele é modificado.
+Onde o valor dessa chave seria um objeto contendo as chaves/valores a cerca dos dados do carro que foi captado do formulário de cadastro. Onde inclusive deixei de propósito alguns `console.log` no código para mostrar a mudança deste **object map** a medida que ele é modificado (ao adicionar, editar ou remover).
 
 Inclusive utilizei a chave deste **object map** como forma de verificação de erro para os formulários em caso de um usuário tentar editar/remover um carro que não foi cadastrado ainda, ou de adicionar um carro que já está cadastrado. Dando um alerta de erro ao usuário e impedindo qualquer ação indesejada na aplicação.
 
