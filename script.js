@@ -49,6 +49,7 @@ const $carAddForm = document.querySelector('#car-add__form');
 const $carEditForm = document.querySelector('#car-edit__form');
 const $carRemoveForm = document.querySelector('#car-remove__form');
 
+
 $carAddForm.addEventListener('submit', () => {
   let carAddFormData = new FormData($carAddForm);
   let chassisCode = carAddFormData.get('chassis-code--add');
@@ -90,32 +91,77 @@ $carAddForm.addEventListener('submit', () => {
   console.log(carCatalog);
 });
 
+
 $carEditForm.addEventListener('submit', () => {
   let carEditFormData = new FormData($carEditForm);
   let chassisCode = carEditFormData.get('chassis-code--edit');
-  let carCard = document.getElementById(chassisCode);
 
   if (carCatalog.has(chassisCode) === false) {
     alert('Este número de chassi não foi encontrado, digite outro!')
     return
   };
 
-  if (carEditFormData.get('picture--edit') !== '') {
-    carCard.querySelector('.car-card__img').src = carEditFormData.get('picture--edit');
+  let $carCard = document.getElementById(chassisCode);
+  let carData = carCatalog.get(chassisCode);
+
+  let picture = carEditFormData.get('picture--edit');
+  let brand = carEditFormData.get('brand--edit');
+  let model = carEditFormData.get('model--edit');
+  let type = carEditFormData.get('type--edit');
+  let availability = carEditFormData.get('availability--edit');
+
+  let pictureData;
+  let brandData;
+  let modelData;
+  let typeData;
+  let availabilityData;
+
+  if (picture !== '') {
+    $carCard.querySelector('.car-card__img').src = picture;
+    pictureData = picture;
+  } else {
+    pictureData = carData.picture;
   };
-  if (carEditFormData.get('brand--edit') !== '') {
-    carCard.querySelector('.car-card__brand').textContent = carEditFormData.get('brand--edit');
+
+  if (brand !== '') {
+    $carCard.querySelector('.car-card__brand').textContent = brand;
+    brandData = brand;
+  } else {
+    brandData = carData.brand;
   };
-  if (carEditFormData.get('model--edit') !== '') {
-    carCard.querySelector('.car-card__model').textContent = carEditFormData.get('model--edit');
+
+  if (model !== '') {
+    $carCard.querySelector('.car-card__model').textContent = model;
+    modelData = model;
+  } else {
+    modelData = carData.model;
   };
-  if (carEditFormData.get('type--edit') !== 'null') {
-    carCard.querySelector('.car-card__type').textContent = carEditFormData.get('type--edit');
+
+  if (type !== 'null') {
+    $carCard.querySelector('.car-card__type').textContent = type;
+    typeData = type;
+  } else {
+    typeData = carData.type;
   };
-  if (carEditFormData.get('availability--edit') !== 'null') {
-    carCard.querySelector('.car-card__availability').textContent = carEditFormData.get('availability--edit');
+
+  if (availability !== 'null') {
+    $carCard.querySelector('.car-card__availability').textContent = availability;
+    availabilityData = availability;
+  } else {
+    availabilityData = carData.availability;
   };
+
+  carCatalog.set(chassisCode, {
+    brand: brandData,
+    model: modelData,
+    type: typeData,
+    availability: availabilityData,
+    picture: pictureData,
+  });
+
+  console.log(carCatalog);
 });
+
 
 $carRemoveForm.addEventListener('submit', () => {
   let chassisCode = $carRemoveForm.querySelector('#chassis-code--remove').value;
