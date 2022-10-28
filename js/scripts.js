@@ -10,16 +10,16 @@ const filterTodos = (filterValue) => {
 
     case "chassi":
       todos.forEach((todo) =>
-        todo.classList.contains("done")
+        todo.classList.contains("chassi")
           ? (todo.style.display = "flex")
           : (todo.style.display = "none")
       );
 
       break;
 
-    case "todo":
+    case "modelo":
       todos.forEach((todo) =>
-        !todo.classList.contains("done")
+        !todo.classList.contains("modelo")
           ? (todo.style.display = "flex")
           : (todo.style.display = "none")
       );
@@ -31,5 +31,22 @@ const filterTodos = (filterValue) => {
   }
 };
 
-let adicionar = document.getElementById("add");
-window.document.write(adicionar.innerHTML);
+// LOGICA DO DOM
+
+// let adicionar = document.getElementById("add");
+// window.document.write(adicionar.innerHTML);
+
+// let editar = document.getElementById("edit")
+// window.document.write(editar.innerHTML)
+
+// let remover = document.getElementById("remove")
+// document.write(remover.innerHTML)
+
+// let sedan = document.getElementById("sedancarro")
+// document.write(sedan.outerHTML)
+
+// let suv = document.getElementById("suvcarro")
+// document.write(suv.outerHTML)
+
+// let hatch = document.getElementById("hatchcarro")
+// document.write(hatch.outerHTML)
