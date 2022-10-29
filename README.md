@@ -18,6 +18,17 @@ Tempo gasto: 5h
 
 # Como utilizar o BACKEND
 
+Crie um arquivo .env
+
+```bash
+PORT= 3000
+DATABASE_URL="postgresql://root:postgrespw@localhost:5432/softmakers_br"
+
+npx prisma migrate dev #Rodar as migrações
+```
+
+PORT
+
 - **OBS**: Docker é necessário para rodar
 
 ```bash
