@@ -1,24 +1,61 @@
- ![SoftMakers](https://www.softmakers.com.br/assets/img/logotipo14xxhdpi.png)
+# Sobre
 
-# Desafio - Desenvolvedor Fullstack - Estágio
-Seja bem-vindo! Este desafio foi projetado para avaliar a sua capacidade técnica como candidato ao cargo proposto.
+Tecnologias utilizadas
 
-## Instruções
-- Faça um fork deste repositório;
-- O conjunto mínimo de tecnologias a serem utilizadas são: HTML, CSS e JS;
-- Crie um passo a passo de como rodar a sua aplicação;
-- Após finalizar, submeta um pull request com um comentário informando o seu e-mail de contato e aguarde nossa avaliação.
+**FRONTEND**
 
-## Proposta
-Você deverá desenvolver um projeto com a finalidade de que seja possível listar, visualizar, criar, editar e excluir carros de uma locadora de automóvel.
+- React
+- Tailwindcss
 
-**Observações:**
-> - Cada carro precisa ter um identificador único, modelo, marca, tipo (hatch, sedan ou SUV) e situação (disponível ou indisponível). Todos os campos são do formulário são obrigatório.
+**BACKEND**
 
-## Diferenciais
-Serão considerados diferenciais:
+- Typescript
+- Prisma
+- Express
+- Docker
 
-- O uso de PHP ou Node.js como linguagem sendo utilizada no lado do servidor;
-- O uso de qualquer banco de dados para armazenar os dados da sua aplicação;
-- O uso de qualquer framework;
-- Boas práticas de escrita de código (código limpo, padrões de arquitetura, etc.).
+Tempo gasto: 5h
+
+# Como utilizar o BACKEND
+
+Crie um arquivo .env
+
+```bash
+PORT= 3000
+DATABASE_URL="postgresql://root:postgrespw@localhost:5432/softmakers_br"
+
+npx prisma migrate dev #Rodar as migrações
+```
+
+PORT
+
+- **OBS**: Docker é necessário para rodar
+
+```bash
+npm install # Instalar as dependências
+```
+
+```bash
+docker-compose up -d # Para rodar o driver de POSTGRESQL
+```
+
+```bash
+npm run dev # OBS: na pasta do backend
+```
+
+As rotas do backend são [POSTMAN](https://www.postman.com/bold-zodiac-125512/workspace/softmakers-br/collection/22507292-0dc88546-f5dc-44b6-9d65-5e63ffa817b5?action=share&creator=22507292)
+
+<img src="./examples/routes.png"/>
+
+# Como utilizar o FRONTEND
+
+Contém a parte visual do teste proposto.
+
+```bash
+npm install # Instalar as dependências
+```
+
+```bash
+cd client # Ir para o diretório client
+npm run dev # Rodar o frontend
+```
