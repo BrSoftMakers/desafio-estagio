@@ -22,9 +22,9 @@ logo depois iremos a este caminho: wamp64\bin\apache\apache2.4.51\conf\extra e e
 </VirtualHost>
 ...........................
 Abrimos então a pasta do wamp e vamos em www:
-![This is an image](../assets/www.png)
+![This is an image](https://github.com/MarcosDex/desafio-estagio/blob/main/assets/vh.png)
 logo apos iremos criar uma pasta:
-![This is an image](../assets/locadora.png)
+![This is an image](https://github.com/MarcosDex/desafio-estagio/blob/main/assets/www.png)
 
 depois de adicionado tudo basta abrir a localhost ou locadora.com(ou o link que voce criou no servername)
 ```
