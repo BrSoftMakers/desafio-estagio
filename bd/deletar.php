@@ -13,6 +13,7 @@
         <div id="container">
             <div class="row">
                 <?php 
+                //nessa area apenas o id e o chassi são pegos mas desta vez o id é  pego por um get e transformado em um post e dps são inseridos na query de deletar um dado
                 include "../bd/conexao.php";
                 $id = $_POST['id'];
                 $chassi = $_POST['chassi'];

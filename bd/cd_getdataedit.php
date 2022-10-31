@@ -13,6 +13,7 @@
         <div id="container">
             <div class="row">
                 <?php 
+                //nesse escopo os arquivos são pegos pelo POST do editar.php e armazenados em uma variavel post, o sql daqui manda os valores atualizados para a index.php que é onde esta a tabela
                 include "../bd/conexao.php";
                 $id = $_POST['id'];
                 $chassi = $_POST['chassi'];

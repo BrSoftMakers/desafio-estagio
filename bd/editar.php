@@ -12,6 +12,7 @@
 <body>
 <?php 
     include "conexao.php";
+    //o uso do get serve para pegar a pagina inteira e mandar para outro arquivo de forma "completa".
     $id = $_GET['id'] ?? '';
     $sql = "SELECT * FROM carros WHERE id = $id";
 

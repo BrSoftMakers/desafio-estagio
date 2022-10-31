@@ -13,7 +13,10 @@
 
 <body>
   <?php
-
+ //Essa parte é responsavel pela funcionaliadade do botão procurar, onde o php procura no banco de dados as cases de acordo com o que o usuario
+ //digitou, o double % pega tudo o que a pessoa digitar que tiver entre os parametros do banco por exemplo:
+ //se eu tenho uma dado chamado de fiat uno quando eu digito uno ou un vai aparecer todos os dados com os nomes uno ou un.
+ //contudo o disponivel recebeu apenas a variavel $pesquisa, logo ela só ira retorna se o usuario digitar certo entre "disponivel e indisponivel"
   $pesquisa = $_POST['buscar'] ?? '';
 
 
@@ -69,6 +72,7 @@
     </thead>
     <tbody>
       <?php
+      //como ja foi definido o include do banco do banco de dados com a tag include "conexao.php" (note que nesse caso não precisei especificar qual a hierarquia da pagina pq eles estão todos na pasta bd)
       while ($line = mysqli_fetch_assoc($dados)) {
         $id = $line['id'];
         $chassi = $line['chassi'];
@@ -76,7 +80,7 @@
         $marca = $line['marca'];
         $tipo = $line['tipo'];
         $situacao = $line['situacao'];
-
+//a tabela é criada pelo php e inseridos pelo msm
         echo "<tr>
       <th scope='row'>$chassi</th>
       <td>$modelo</td>

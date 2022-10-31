@@ -13,6 +13,7 @@
         <div id="container">
             <div class="row">
                 <?php 
+                //neste arquivo ele recebe as informações do post e transcreve para uma variavel pela variavel $_POST['name']. O insert into manda os arquivos para o banco de dados. O if query($conexao,$sql) verifica se ta tudo certo se tiver o header:location manda para a index.php que é main page
                 include "../bd/conexao.php";
                 $chassi = $_POST['chassi'];
                 $modelo = $_POST['modelo'];
@@ -29,7 +30,7 @@
                 }
                 
                 ?>
-                <a href="../index.php">Back</a>
+                <a href="../index.php">Back</a> <!-- esse back só esta aqui para inibir algum possivel erro de redirecionamento do header-->
             </div>
            </div> 
         

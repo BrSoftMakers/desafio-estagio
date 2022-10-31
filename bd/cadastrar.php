@@ -15,6 +15,7 @@
             <h1>Cadastro de Veiculos</h1>
             <br>
             <h2>Feliz Halloween</h2>
+            <!-- o action daqui coleta as informaçoes e manda pro arquivo cd_getdata pelo metodo POST que pega todas as informaçoes e transforma e um metodo de "leitura"-->
             <form action="../bd/cd_getdata.php" method="POST">
                 <div class="input-container">
                     <input type="text" id="chassi" name="chassi" class="text-input" placeholder="Chassi do Veiculo" autocomplete="off" required />
