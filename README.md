@@ -27,6 +27,12 @@ logo apos iremos criar uma pasta:
 (assets/vh.png)
 
 depois de adicionado tudo basta abrir a localhost ou locadora.com(ou o link que voce criou no servername)
+
+```
+# O que fazer depois?
+```
+Importe o banco de dados (locadora.sql) para seu SGBD de preferencia 
+
 ```
 # Linguagens Utilizadas 
 
