@@ -22,19 +22,22 @@ logo depois iremos a este caminho: wamp64\bin\apache\apache2.4.51\conf\extra e e
 </VirtualHost>
 ...........................
 Abrimos então a pasta do wamp e vamos em www:
-<img hight="300" width="700" alt="GIF" align="center" src="https://github.com/MarcosDex/desafio-estagio/blob/main/assets/vh.png">
+
 logo apos iremos criar uma pasta:
-![This is an image](https://github.com/MarcosDex/desafio-estagio/blob/main/assets/www.png)
+
 
 depois de adicionado tudo basta abrir a localhost ou locadora.com(ou o link que voce criou no servername)
 ```
 # Linguagens Utilizadas 
 
 *** 
-PHP
-JavaScript
-TypeScript
-MySQL
+- PHP
+- JavaScript
+- TypeScript
+- MySQL
 ***
 # Frameworks Utilizados
-*** Bootstrap ***
+*** 
+- Bootstrap 
+
+***
