@@ -6,7 +6,7 @@ git clone https://github.com/MarcosDex/desafio-estagio
 ```
 ## Apois isso podemos partir para a segunda parte que é a criação de um servidor virtual (famoso virtual host{vh}):
 
-WamppServer (particularmente eu o prefiro)
+```WamppServer (particularmente eu o prefiro)
 Primeiro vamos cria a vh, basta ir em Windows -> system32 -> drivers -> etc -> hosts (aconselho notepad ++ por ser mais organizado que o bloco de notas):
 Adicionamos isso ao arquivo da host 127.0.0.1 locadora.com (locadora é o nome da pasta que criarei mais pra frente)
 logo depois iremos a este caminho: wamp64\bin\apache\apache2.4.51\conf\extra e então ira adicionar esta linha de codigo ao escopo:
@@ -20,13 +20,14 @@ logo depois iremos a este caminho: wamp64\bin\apache\apache2.4.51\conf\extra e e
     Require local
   </Directory>
 </VirtualHost>
-
+```
 <img hight="300" width="700" alt="GIF" align="center" src="https://github.com/MarcosDex/desafio-estagio/blob/main/assets/vh.png">
 ...........................
-Abrimos então a pasta do wamp e vamos em www:
+```Abrimos então a pasta do wamp e vamos em www: ```
 
 <img hight="300" width="700" alt="GIF" align="center" src="https://github.com/MarcosDex/desafio-estagio/blob/main/assets/www.png">
-logo apos iremos criar uma pasta:
+
+```Logo apos iremos criar uma pasta:
 
 
 depois de adicionado tudo basta abrir a localhost ou locadora.com(ou o link que voce criou no servername)
@@ -34,7 +35,7 @@ depois de adicionado tudo basta abrir a localhost ou locadora.com(ou o link que 
 # O que fazer depois?
 
 Importe o banco de dados (locadora.sql) para seu SGBD de preferencia 
-
+```
 
 # Linguagens Utilizadas 
 
