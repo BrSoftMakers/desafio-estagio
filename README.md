@@ -35,8 +35,14 @@ logo depois iremos a este caminho: wamp64\bin\apache\apache2.4.51\conf\extra e e
 
 # O que fazer depois?
 
-```Importe o banco de dados (locadora.sql) para seu SGBD de preferencia ```
+```Importe o banco de dados (locadora.sql) para seu SGBD de preferencia {usei o mysqlworkbench}```
+<img hight="300" width="700" alt="GIF" align="center" src="https://github.com/MarcosDex/desafio-estagio/blob/main/assets/Screenshot_2.png">
 
+## Depois de ir no data import só procurar o local onde está o arquivo sql. ** É extremamente nescessario que selecione Self-Contained File **
+<img hight="300" width="700" alt="GIF" align="center" src="https://github.com/MarcosDex/desafio-estagio/blob/main/assets/daimport.png">
+
+### Por ultimo basta importar o arquivo para o SGBD
+<img hight="300" width="700" alt="GIF" align="center" src="https://github.com/MarcosDex/desafio-estagio/blob/main/assets/Screenshot_3.png">
 
 # Linguagens Utilizadas 
 
