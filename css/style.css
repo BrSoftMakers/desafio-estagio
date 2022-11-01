@@ -1,0 +1,100 @@
+* {
+  font-family: Verdana;
+  color: rgb(0, 0, 0);
+}
+.navbar.navbar-expand-lg.navbar-light.bg-ligh {
+  background-color: rgb(179, 188, 50);
+}
+.container-fluid > a {
+  color: white;
+}
+.container-fluid > a:hover {
+  color: rgb(0, 0, 0);
+}
+.nav-link.active2:hover {
+  color: crimson;
+}
+.navbar-nav.me-auto.mb-2.mb-lg-02 {
+  padding: -1%;
+  border-inline-color: green;
+  border-style: dashed;
+  border-width: -20px;
+}
+.navbar-nav.me-auto.mb-2.mb-lg-02:hover {
+  background-color: green;
+}
+#headertopo {
+  font-size: 2.5rem;
+  height: 50px;
+  width: 50%;
+  text-align: center;
+  white-space: nowrap;
+  display: contents;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  animation: flicar 5s 0s infinite;
+}
+
+@keyframes flicar {
+  0%,
+  6%,
+  12% {
+    text-shadow: none;
+    color: #111111;
+  }
+  16%,
+  9% {
+    text-shadow: 0 0 8px rgba(#fa6701, 0.6);
+    color: #ff0000;
+  }
+  60% {
+    text-shadow: 0 0 8px rgba(#0004ff, 0.6), 0 0 16px rgba(#fa6701, 0.4),
+      0 0 20px rgba(253, 0, 84, 0.2), 0 0 22px rgba(255, 0, 84, 0.1);
+    color: #1100ff;
+  }
+  100% {
+    text-shadow: 0 0 8px rgba(#fa6701, 0.6), 0 0 16px rgba(#fa6701, 0.4),
+      0 0 20px rgba(255, 0, 84, 0.2), 0 0 22px rgba(255, 0, 84, 0.1);
+    color: #0dff00;
+  }
+}
+
+body {
+  background-position: center;
+  background-size: cover;
+}
+
+.gradiant {
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  color: #fff;
+  background: linear-gradient(-70deg, orange, crimson, purple);
+  background-size: 400% 400%;
+  animation: Gradient 15s alternate-reverse infinite;
+}
+.navbar.navbar-light.bg-light {
+  background: linear-gradient(-70deg, orange, crimson, purple);
+  animation: Gradient 15s alternate-reverse infinite;
+}
+
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.container header {
+  text-align: center;
+}
+.fa-sharp.fa-solid.fa-magnifying-glass {
+  position: relative;
+  right: -8px;
+}
