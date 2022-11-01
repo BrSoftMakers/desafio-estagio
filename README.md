@@ -27,15 +27,16 @@ logo depois iremos a este caminho: wamp64\bin\apache\apache2.4.51\conf\extra e e
 
 <img hight="300" width="700" alt="GIF" align="center" src="https://github.com/MarcosDex/desafio-estagio/blob/main/assets/www.png">
 
-```Logo apos iremos criar uma pasta:
+```Logo apos iremos criar uma pasta:```
 
+<img hight="300" width="700" alt="GIF" align="center" src="https://github.com/MarcosDex/desafio-estagio/blob/main/assets/Screenshot_1.png">
 
-depois de adicionado tudo basta abrir a localhost ou locadora.com(ou o link que voce criou no servername)
+## Depois de adicionado tudo basta abrir a localhost ou locadora.com(ou o link que voce criou no servername)
 
 # O que fazer depois?
 
-Importe o banco de dados (locadora.sql) para seu SGBD de preferencia 
-```
+```Importe o banco de dados (locadora.sql) para seu SGBD de preferencia ```
+
 
 # Linguagens Utilizadas 
 
