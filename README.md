@@ -44,6 +44,18 @@ logo depois iremos a este caminho: wamp64\bin\apache\apache2.4.51\conf\extra e e
 ### Por ultimo basta importar o arquivo para o SGBD
 <img hight="300" width="700" alt="GIF" align="center" src="https://github.com/MarcosDex/desafio-estagio/blob/main/assets/Screenshot_3.png">
 
+```Relatorio rapido do que cada pasta faz: ```
+ 1. Bd (pasta onde estão os arquivos php relacionados ao banco de dados)
+   - Cadastrar.php (aqui é o arquivo de cadastro dos veiculos)
+     - cd_getdata.php (ele é o responsavel por pegar os dados inseridos no cadastra e manda-los pro banco de dados com o INSERT INTO)
+       - cd_getdataedit.php (este por sua vez é responsavel por pegar os dados do arquivo de edição dos veiculos e manda-los para o banco com o UPDATE SET)
+         - conexao.php (estabelece conexao com o banco de dados)
+           - deletar.php (é o responsavel por destruir um dado relacionado ao banco de dados pelo DELETE FROM)
+             - editar.php (é o arquivo de editar referente ao enviador dos dados para o getdataedit.php)
+  
+  2. Css e JS Não irei aprofundar muito por que como usei o Bootstrap ele foi responsavel pelo "js" e "css"             
+      - main.js e main.ts (foram os criados por mim para redirecionar e fazer funcionar o modal de excluir um dado)     
+
 # Linguagens Utilizadas 
 
 *** 
