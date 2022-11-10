@@ -34,7 +34,7 @@ const Carro = sequelize.define(
     situacao: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
-      defaultValue: false,
+      defaultValue: true,
     },
   },
   {

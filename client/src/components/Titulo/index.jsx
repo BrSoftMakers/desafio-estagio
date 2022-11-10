@@ -1,5 +1,0 @@
-function Titulo() {
-  return;
-
-  <></>;
-}
