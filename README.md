@@ -60,7 +60,11 @@ Instalar as dependências necessárias e criar pasta node_modules
 npm install
 ```
 
-Agora volte para a pasta desafio-estagio-softmakers
+Agora volte para a pasta desafio-estagio-softmakers usando
+
+```
+cd ..
+```
 
 Para configurar o frontend: Acessar a pasta client com
 
