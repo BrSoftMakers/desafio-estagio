@@ -91,7 +91,7 @@ Para iniciar o frontend, acesse a pasta client com outro terminal e utilize o co
 npm start
 ```
 
-Após isso, uma página deve abrir no seu navegador e a aplicação estará pronta pra ser utilizada!
+Após isso, uma página deve abrir no seu navegador e a aplicação estará pronta pra ser utilizada. Caso a página não abra, a aplicação estará disponível em http://localhost:3000
 
 ## Dependências
 
