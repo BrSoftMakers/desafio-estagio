@@ -74,6 +74,25 @@ Dentro da pasta client, instalar as dependências necessárias e criar a pasta n
 npm install
 ```
 
+## Iniciar a aplicação
+
+Para iniciar a aplicação através do terminal, primeiro inicialize o backend entrando na pasta server e utilizando esse comando abaixo:
+
+```
+npm start
+```
+
+A seguinte mensagem aparecerá no terminal após a inicialização: "Todos os modelos foram sincronizados! Banco de dados pronto!
+Servidor rodando em http://localhost:8080"
+
+Para iniciar o frontend, acesse a pasta client com outro terminal e utilize o comando abaixo:
+
+```
+npm start
+```
+
+Após isso, uma página deve abrir no seu navegador e a aplicação estará pronta pra ser utilizada!
+
 ## Dependências
 
 As dependências necessárias instaladas para o backend deste projeto foram a Express, SQLite3, Sequelize e CORS, que devem ser visualizadas no arquivo package.json da pasta server.
@@ -106,25 +125,6 @@ Já para o frontend, as dependências necessárias instalas foram React, React-R
   "web-vitals": "^2.1.4"
 }
 ```
-
-## Iniciar a aplicação
-
-Para iniciar a aplicação através do terminal, primeiro inicialize o backend entrando na pasta server e utilizando esse comando abaixo:
-
-```
-npm start
-```
-
-A seguinte mensagem aparecerá no terminal após a inicialização: "Todos os modelos foram sincronizados! Banco de dados pronto!
-Servidor rodando em http://localhost:8080"
-
-Para iniciar o frontend, acesse a pasta client com outro terminal e utilize o comando abaixo:
-
-```
-npm start
-```
-
-Após isso, uma página deve abrir no seu navegador e a aplicação estará pronta pra ser utilizada!
 
 ## Entidades
 
