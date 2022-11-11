@@ -39,7 +39,7 @@ Cada carro precisa ter um identificador único, modelo, marca, tipo (hatch, seda
 Primeiro, deve-se clonar este repositório a partir do terminal com o comando abaixo:
 
 ```
-https://github.com/GuiSilveira/desafio-estagio-softmakers.git
+git clone https://github.com/GuiSilveira/desafio-estagio-softmakers.git
 ```
 
 Acessar a pasta da aplicação, caso não esteja nela
