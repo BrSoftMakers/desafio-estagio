@@ -1,47 +1,49 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { useState } from "react";
 import Formulario from "../../components/Formulário";
 import axios from "axios";
+import {
+  BotaoVoltar,
+  StyledContainer,
+  StyledDiv,
+  StyledSection,
+  StyledTitle,
+} from "./Editar.style";
 
 function Editar() {
   const navigate = useNavigate();
   const location = useLocation();
   const carro = location.state;
-  const [modelo, setModelo] = useState();
-  const [marca, setMarca] = useState();
-  const [tipo, setTipo] = useState();
-  const [situacao, setSituacao] = useState();
 
-  function editarCarro() {
-    axios.put(`http://localhost:8080/carro/${carro.id}`, {
-      modelo: modelo,
-      marca: marca,
-      tipo: tipo,
-      situacao: situacao,
+  async function editarCarro(data) {
+    console.log(data);
+    await axios.put(`http://localhost:8080/carro/${carro.id}`, {
+      modelo: data.modelo,
+      marca: data.marca,
+      tipo: data.tipo,
+      situacao: data.situacao,
     });
     navigate("/");
   }
 
   console.log(carro);
   return (
-    <>
-      <button onClick={() => navigate("/")}>Voltar</button>
-      <div>
-        <h2>Dados do Carro:</h2>
-        <p>{carro.modelo}</p>
-        <p>{carro.marca}</p>
-        <p>{carro.tipo}</p>
-        <p>{carro.situacao ? "disponível" : "indisponível"}</p>
-      </div>
-      <Formulario
-        submitCarro={editarCarro}
-        setModelo={setModelo}
-        setMarca={setMarca}
-        setTipo={setTipo}
-        setSituacao={setSituacao}
-        botaoTexto="Alterar Carro"
-      />
-    </>
+    <StyledSection>
+      <BotaoVoltar onClick={() => navigate("/")}>Voltar</BotaoVoltar>
+      <StyledContainer>
+        <StyledTitle>Dados do Carro:</StyledTitle>
+        <StyledDiv>
+          <div>
+            <p>Modelo: {carro.modelo}</p>
+            <p>Marca: {carro.marca}</p>
+          </div>
+          <div>
+            <p>Tipo: {carro.tipo}</p>
+            <p>Situação: {carro.situacao ? "disponível" : "indisponível"}</p>
+          </div>
+        </StyledDiv>
+      </StyledContainer>
+      <Formulario submitCarro={editarCarro} botaoTexto="Alterar Carro" />
+    </StyledSection>
   );
 }
 

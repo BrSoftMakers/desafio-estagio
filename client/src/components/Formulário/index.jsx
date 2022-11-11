@@ -1,48 +1,74 @@
+import { useForm } from "react-hook-form";
+import {
+  StyledButton,
+  StyledForm,
+  StyledInput,
+  StyledLabel,
+  StyledSelect,
+} from "./Formulario.style";
+
 function Formulario(props) {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
   return (
-    <form
-      onSubmit={(event) => {
-        event.preventDefault();
-        props.submitCarro();
-      }}
-    >
-      <label htmlFor="modelo">Modelo</label>
-      <input
-        type="text"
-        name="modelo"
-        id="modelo"
-        onChange={(e) => props.setModelo(e.target.value)}
-      />
-      <label htmlFor="marca">Marca</label>
-      <input
-        type="text"
-        name="marca"
-        id="marca"
-        onChange={(e) => props.setMarca(e.target.value)}
-      />
-      <label htmlFor="tipo">Tipo</label>
-      <select
-        name="tipo"
-        id="tipo"
-        onChange={(e) => props.setTipo(e.target.value)}
-      >
-        <option value="hatch">Hatch</option>
-        <option value="sedan">Sedan</option>
-        <option value="SUV">SUV</option>
-      </select>
-      <label htmlFor="situacao">Situação</label>
-      <select
-        name="situacao"
-        id="situacao"
-        onChange={(e) => {
-          props.setSituacao(e.target.value);
-        }}
-      >
-        <option value={true}>Disponível</option>
-        <option value={false}>Indisponível</option>
-      </select>
-      <button type="submit">{props.botaoTexto}</button>
-    </form>
+    <StyledForm onSubmit={handleSubmit(props.submitCarro)}>
+      <StyledLabel htmlFor="modelo">
+        Modelo
+        <StyledInput
+          type="text"
+          name="modelo"
+          {...register("modelo", { required: true })}
+          placeholder="Digite o modelo"
+          id="modelo"
+        />
+      </StyledLabel>
+      {errors.modelo?.type === "required" && (
+        <p>Modelo é um campo obrigatório</p>
+      )}
+      <StyledLabel htmlFor="marca">
+        Marca
+        <StyledInput
+          type="text"
+          name="marca"
+          {...register("marca", { required: true })}
+          placeholder="Digite a marca"
+          id="marca"
+        />
+      </StyledLabel>
+      {errors.marca?.type === "required" && <p>Marca é um campo obrigatório</p>}
+      <StyledLabel htmlFor="tipo">
+        Tipo
+        <StyledSelect
+          name="tipo"
+          {...register("tipo", { required: true })}
+          id="tipo"
+        >
+          <option value="hatch">Hatch</option>
+          <option value="sedan">Sedan</option>
+          <option value="SUV">SUV</option>
+        </StyledSelect>
+      </StyledLabel>
+      {errors.tipo?.type === "required" && <p>Tipo é um campo obrigatório</p>}
+      <StyledLabel htmlFor="situacao">
+        Situação
+        <StyledSelect
+          name="situacao"
+          id="situacao"
+          {...register("situacao", { required: true })}
+        >
+          <option value={true}>Disponível</option>
+          <option value={false}>Indisponível</option>
+        </StyledSelect>
+      </StyledLabel>
+      {errors.situacao?.type === "required" && (
+        <p>Situação é um campo obrigatório</p>
+      )}
+      <StyledButton type="submit">{props.botaoTexto}</StyledButton>
+    </StyledForm>
   );
 }
 

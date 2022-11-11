@@ -4,6 +4,15 @@ import AdicionarCarro from "./adicionarCarro";
 import axios from "axios";
 import lodash from "lodash";
 import { useNavigate } from "react-router-dom";
+import {
+  StyledMain,
+  StyledUl,
+  StyledLi,
+  StyledInfoDiv,
+  StyledButtonDiv,
+  BotaoExcluir,
+  BotaoEditar,
+} from "./Home.style";
 
 function Home() {
   const [carrosList, setCarrosList] = useState([]);
@@ -25,23 +34,37 @@ function Home() {
   }
 
   return (
-    <main>
+    <StyledMain>
       <AdicionarCarro setCarrosList={setCarrosList} carrosList={carrosList} />
-      <ul>
+      <StyledUl>
         {carrosList.map((carro) => (
-          <li key={carro.id}>
-            <p>{carro.modelo}</p>
-            <p>{carro.marca}</p>
-            <p>{carro.tipo}</p>
-            <p>{carro.situacao ? "disponível" : "indisponível"}</p>
-            <button onClick={() => navigate("/editar", { state: carro })}>
-              Editar
-            </button>
-            <button onClick={() => deleteCarro(carro.id)}>Excluir</button>
-          </li>
+          <StyledLi key={carro.id}>
+            <StyledInfoDiv>
+              <div>
+                <p>Modelo: {carro.modelo}</p>
+                <p>Marca: {carro.marca}</p>
+              </div>
+              <div>
+                <p>Tipo: {carro.tipo}</p>
+                <p>
+                  Situação: {carro.situacao ? "disponível" : "indisponível"}
+                </p>
+              </div>
+            </StyledInfoDiv>
+            <StyledButtonDiv>
+              <BotaoEditar
+                onClick={() => navigate("/editar", { state: carro })}
+              >
+                Editar
+              </BotaoEditar>
+              <BotaoExcluir onClick={() => deleteCarro(carro.id)}>
+                Excluir
+              </BotaoExcluir>
+            </StyledButtonDiv>
+          </StyledLi>
         ))}
-      </ul>
-    </main>
+      </StyledUl>
+    </StyledMain>
   );
 }
 

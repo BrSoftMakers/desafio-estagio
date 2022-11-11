@@ -1,10 +1,13 @@
 import { AppRouter } from "./routes/routes";
-import "./App.css";
+import { GlobalStyles } from "./styles/App.style";
+import { Reset } from "./styles/Reset.style";
 
 function App() {
   return (
     <>
       <AppRouter />
+      <Reset />
+      <GlobalStyles />
     </>
   );
 }

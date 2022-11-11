@@ -1,25 +1,15 @@
-import { useEffect } from "react";
-import { useState } from "react";
 import axios from "axios";
 import Formulario from "../../../components/Formulário";
+import { StyledDiv, StyledHeader } from "../Home.style";
 
 function AdicionarCarro(props) {
-  const [modelo, setModelo] = useState();
-  const [marca, setMarca] = useState();
-  const [tipo, setTipo] = useState();
-  const [situacao, setSituacao] = useState();
-
-  useEffect(() => {
-    setTipo("hatch");
-    setSituacao(true);
-  }, []);
-
-  const submitCarro = () => {
+  const submitCarro = (data) => {
+    console.log(data);
     axios.post("http://localhost:8080/carro", {
-      modelo: modelo,
-      marca: marca,
-      tipo: tipo,
-      situacao: situacao,
+      modelo: data.modelo,
+      marca: data.marca,
+      tipo: data.tipo,
+      situacao: data.situacao,
     });
     axios
       .get("http://localhost:8080/carro")
@@ -27,14 +17,10 @@ function AdicionarCarro(props) {
   };
 
   return (
-    <Formulario
-      submitCarro={submitCarro}
-      setModelo={setModelo}
-      setMarca={setMarca}
-      setTipo={setTipo}
-      setSituacao={setSituacao}
-      botaoTexto="Adicionar Carro"
-    />
+    <StyledDiv>
+      <StyledHeader>Adicionar Carro</StyledHeader>
+      <Formulario submitCarro={submitCarro} botaoTexto="Adicionar Carro" />
+    </StyledDiv>
   );
 }
 
