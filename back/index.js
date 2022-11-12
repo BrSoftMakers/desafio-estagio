@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const carRouter = require('./routes/carRouter.js')
 const app = express()
 const PORT = 8080
-const mongoPass = '7ihGaR7lejcmtTMM'
+const mongoPass = '4lhpY2Xm9ykneBhZ'
 
 mongoose.connect(
     `mongodb+srv://vinicius-rocha:${mongoPass}@desafio-estagio.lnswuhd.mongodb.net/?retryWrites=true&w=majority`,
