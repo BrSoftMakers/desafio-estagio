@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="/style.css">
   <link rel="shortcut icon" href="/assets/eduardochaves-favicon.svg" type="image/x-icon">
-  <script defer src="/script.js"></script>
+  <script type="module" src="/main.js"></script>
   <script defer src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
   <meta property="og:type" content="website">
@@ -59,7 +59,7 @@
         <section class="form__type">
           <label for="type" class="required">Tipo:</label>
           <select name="type--add" id="type--add" required>
-            <option value="null">---</option>
+            <option value="">---</option>
             <option value="Hatch">Hatch</option>
             <option value="Sedan">Sedan</option>
             <option value="SUV">SUV</option>
@@ -69,7 +69,7 @@
         <section class="form__availability">
           <label for="availability" class="required">Disponibilidade:</label>
           <select name="availability--add" id="availability--add" required>
-            <option value="null">---</option>
+            <option value="">---</option>
             <option value="Disponível">Disponível</option>
             <option value="Indisponível">Indisponível</option>
           </select>
@@ -115,7 +115,7 @@
         <section class="form__type">
           <label for="type">Tipo:</label>
           <select name="type--edit" id="type--edit">
-            <option value="null">---</option>
+            <option value="">---</option>
             <option value="Hatch">Hatch</option>
             <option value="Sedan">Sedan</option>
             <option value="SUV">SUV</option>
@@ -125,7 +125,7 @@
         <section class="form__availability">
           <label for="availability">Disponibilidade:</label>
           <select name="availability--edit" id="availability--edit">
-            <option value="null">---</option>
+            <option value="">---</option>
             <option value="Disponível">Disponível</option>
             <option value="Indisponível">Indisponível</option>
           </select>
