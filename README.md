@@ -14,6 +14,6 @@ Seja bem-vindo! Este desafio foi projetado para avaliar a sua capacidade técnic
 # Clone o projeto
 
   ``` git clone
-  git clone
+  git clone git@github.com:larissaassilva/desafio-estagio.git
   ```
  
