@@ -16,4 +16,10 @@ Clone o projeto
   ``` git clone
   git clone git@github.com:larissaassilva/desafio-estagio.git
   ```
- 
+  
+  Entre no diretório do projeto
+  
+  
+  ```
+  cd desafio-estagio
+  ```
