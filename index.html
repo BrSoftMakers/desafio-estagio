@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Locadora de Carros</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>Locadora de Carros</header>
+    <h2>Adicionar carro</h2>
+    <div>
+      <form>
+        <input placeholder="Identificador único" id="id" class="id" name="id" type="text">
+
+        <input placeholder="Modelo" id="model" name="model" class="model" type="text">
+
+        <input placeholder="Marca" id="mark" name="mark" class="mark" type="text">
+
+        <span>Tipo: </span>
+        <select id="type" name="type" class="type">
+          <option value="Hatch">Hatch</option>
+          <option value="Sedan">Sedan</option>
+          <option value="SUV">SUV</option>
+        </select>
+
+        <span>Situação: </span>
+        <select id="situation" name="situation" class="situation">
+          <option value="Disponível">Disponível</option>
+          <option value="Indisponível">Indisponível</option>
+        </select>
+
+        <button type="submit" id="buttonSubmit" disabled>Salvar</button>
+      </form>
+
+    </div>
+    <script src="./src/main.js" type="module"></script>
+</body>
+</html>
