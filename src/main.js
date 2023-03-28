@@ -1,6 +1,6 @@
 import { handleListCards } from './helpers/cardsFunctions';
-import { handleButtonSubmitAdd } from './helpers/addInfFunctions';
-import { handleFormSalve } from './helpers/addInfFunctions';
+import { handleButtonSubmitAdd } from './helpers/InfFunctions';
+import { handleFormSalve } from './helpers/InfFunctions';
 
 const inputId = document.getElementById('id');
 const inputModel = document.getElementById('model');

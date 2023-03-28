@@ -1,7 +1,7 @@
 import iconeX from '../images/IconeX.png';
-import { handleButtonSubmitEditLocal } from './addInfFunctions';
+import { handleButtonEditLocal } from './InfFunctions';
 import { createForm } from './EditFunctions';
-import { handleFormSalve } from './addInfFunctions';
+import { handleFormSalve, handleButtonDelete } from './InfFunctions';
 
 export const handleListCards = (divCards) => {
 
@@ -82,25 +82,31 @@ export const handleListCards = (divCards) => {
 const handleOptionsCards = (divUlOptionsCard, index, card) => {
     const viewLi = document.createElement('li');
     viewLi.innerText = 'Visualizar';
-    viewLi.id = 'view';
-    viewLi.className = `view ${index}`;
+    viewLi.className = 'view';
+    viewLi.id = `view ${index}`;
 
     const editLi = document.createElement('li');
     editLi.innerText = 'Editar';
-    editLi.id = 'edit';
-    editLi.className = `edit ${index}`;
+    editLi.className = 'edit';
+    editLi.id = `edit ${index}`;
+
+    const deleteLi = document.createElement('li');
+    deleteLi.innerText = 'Excluir';
+    deleteLi.className = 'delete';
+    deleteLi.id = `delete ${index}`;
 
     const view = document.getElementsByClassName(`view ${index}`);
     
     viewLi.addEventListener('click', () => handleView(card, divUlOptionsCard));
     editLi.addEventListener('click', () => handleEdit(index));
-
+    deleteLi.addEventListener('click', () => handleDelete(index));
 
     if (view.length === 1) {
         return;
     } else {
         divUlOptionsCard.appendChild(viewLi);
         divUlOptionsCard.appendChild(editLi);
+        divUlOptionsCard.appendChild(deleteLi);
     }
 };
 
@@ -184,7 +190,17 @@ const handleEdit = (index) => {
     typeSelect.addEventListener('click', ({ target }) => handleFormSalve(target, buttonSubmit));
     situationSelect.addEventListener('click', ({ target }) => handleFormSalve(target, buttonSubmit));
     imgX.addEventListener('click', () => handleIconeX());
-    buttonSubmit.addEventListener('click', () => handleButtonSubmitEditLocal(index));
+    buttonSubmit.addEventListener('click', () => handleButtonEditLocal(index));
+};
+
+const handleDelete = (index) => {
+    handleButtonDelete(index);
+
+    const divCards = document.getElementById('cards');
+    const divIndex = document.getElementById(index);
+
+    divCards.removeChild(divIndex);
+    handleListCards(divCards);
 };
 
 const handleIconeX = () => {

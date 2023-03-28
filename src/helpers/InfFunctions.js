@@ -35,7 +35,7 @@ export const handleFormSalve = (target, buttonSubmit) => {
     handleButtonSubmitSituation(valuesForm, buttonSubmit);
 };
 
-export const handleButtonSubmitEditLocal = (index) => {
+export const handleButtonEditLocal = (index) => {
     const storageCars = JSON.parse(localStorage.getItem('cars'));
 
     const newStorageCars = storageCars;
@@ -44,4 +44,14 @@ export const handleButtonSubmitEditLocal = (index) => {
     
     localStorage.setItem('cars', JSON.stringify(newStorageCars));
     
+};
+
+export const handleButtonDelete = (index) => {
+    const storageCars = JSON.parse(localStorage.getItem('cars'));
+
+    const id = storageCars[index];
+
+    const newStorageCars = storageCars.filter((car) => car !== id);
+
+    localStorage.setItem('cars', JSON.stringify(newStorageCars));
 };
