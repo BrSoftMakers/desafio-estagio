@@ -34,3 +34,14 @@ export const handleFormSalve = (target, buttonSubmit) => {
     valuesForm[name] = value;
     handleButtonSubmitSituation(valuesForm, buttonSubmit);
 };
+
+export const handleButtonSubmitEditLocal = (index) => {
+    const storageCars = JSON.parse(localStorage.getItem('cars'));
+
+    const newStorageCars = storageCars;
+
+    newStorageCars[index] = valuesForm;
+    
+    localStorage.setItem('cars', JSON.stringify(newStorageCars));
+    
+};

@@ -1,4 +1,7 @@
 import iconeX from '../images/IconeX.png';
+import { handleButtonSubmitEditLocal } from './addInfFunctions';
+import { createForm } from './EditFunctions';
+import { handleFormSalve } from './addInfFunctions';
 
 export const handleListCards = (divCards) => {
 
@@ -82,14 +85,22 @@ const handleOptionsCards = (divUlOptionsCard, index, card) => {
     viewLi.id = 'view';
     viewLi.className = `view ${index}`;
 
+    const editLi = document.createElement('li');
+    editLi.innerText = 'Editar';
+    editLi.id = 'edit';
+    editLi.className = `edit ${index}`;
+
     const view = document.getElementsByClassName(`view ${index}`);
     
     viewLi.addEventListener('click', () => handleView(card, divUlOptionsCard));
+    editLi.addEventListener('click', () => handleEdit(index));
+
 
     if (view.length === 1) {
         return;
     } else {
         divUlOptionsCard.appendChild(viewLi);
+        divUlOptionsCard.appendChild(editLi);
     }
 };
 
@@ -145,6 +156,35 @@ const handleView = (card) => {
     iconeXImg.addEventListener('click', () => handleIconeX());
     
 
+};
+
+const handleEdit = (index) => {
+    const car = document.getElementById('car');
+    const divCar = document.getElementById('divCar');
+
+    if (divCar) {
+        car.removeChild(divCar);
+    }
+
+    const {
+        idInput,
+        modelInput,
+        markInput,
+        typeSelect,
+        situationSelect,
+        buttonSubmit,
+        imgX,
+    } = createForm();
+
+
+    
+    idInput.addEventListener('keyup', ({ target }) => handleFormSalve(target, buttonSubmit));
+    modelInput.addEventListener('keyup', ({ target }) => handleFormSalve(target, buttonSubmit));
+    markInput.addEventListener('keyup', ({ target }) => handleFormSalve(target, buttonSubmit));
+    typeSelect.addEventListener('click', ({ target }) => handleFormSalve(target, buttonSubmit));
+    situationSelect.addEventListener('click', ({ target }) => handleFormSalve(target, buttonSubmit));
+    imgX.addEventListener('click', () => handleIconeX());
+    buttonSubmit.addEventListener('click', () => handleButtonSubmitEditLocal(index));
 };
 
 const handleIconeX = () => {
