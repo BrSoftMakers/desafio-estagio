@@ -1,0 +1,158 @@
+body {
+  background-image: url('./src/images/img.jpg');
+}
+
+input[type=text], select {
+    width: 33%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  .imgOptionsCard {
+    width: 14px;
+  }
+
+
+  .divCar {
+    display: flex;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin-top: 3%;
+    margin-left: 7%;
+    margin-right: 7%;
+    height: 70px;
+    margin-bottom: 5%;
+  }
+
+  .div-card-index {
+    display: flex;
+    justify-content: space-evenly;
+    width: 90%;
+  }
+
+  .cards {
+    width: 100%;
+    display: inline-block;
+    justify-items: center;
+  }
+
+  .div-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+
+  .formCreate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .button-save, .section-form-1, .section-form-2 {
+    margin-top: 15px;
+  }
+
+  .section-form-1, .section-form-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+  }
+
+  label {
+    margin-left: 20px;
+    margin-right: 7px;
+    width: auto;
+  }
+
+  .button-save {
+    width: 80%;
+  }
+
+  .divUlOptionsCard {
+    display: flex;
+    flex-direction: row-reverse;
+    height: auto;
+  }
+  
+  .liOptions {
+    font-size: 12px;
+  }
+  
+  .divCarView {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+    }
+    
+    .iconeXView {
+        margin-right: 40%;
+        width: 30px;
+        right: 10%;
+    }
+    
+    .iconeXEdit {
+        width: 30px;
+        right: 10%;
+    }
+    
+    .cardView {
+      position: fixed;
+      background-color: #f2f2f2;
+      top: 20%;
+      left: 24%;
+      width: 50%;
+      height: 50%;
+      border-radius: 5px;
+      padding: 20px;
+      overflow-y: scroll;
+      scroll-behavior: auto;
+    }
+
+  .cardEdit {
+    position: fixed;
+    background-color: #f2f2f2;
+    margin-left: 2%;
+    margin-right: 2%;
+    border-radius: 5px;
+    padding: 20px;
+    overflow-y: scroll;
+    scroll-behavior: auto;
+    width: 96%;
+    height: 290px;
+    top: 14%;
+  }
+
+  .button-save, .section-form-edit-1, .section-form-edit-2 {
+    margin-top: 15px;
+  }
+
+  .section-form-edit-1, .section-form-edit-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+  }
+
+  .formEdit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pView {
+    font-size: 25px;
+    font-style: oblique;
+  }
