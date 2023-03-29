@@ -28,7 +28,7 @@ Clone o projeto
   npm install
   ```
 
-  Para ver a aplicação no navegador
+  Para ver a aplicação no navegador 
 
   ```
   npx vite --open
