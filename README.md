@@ -1,24 +1,43 @@
- ![SoftMakers](https://www.softmakers.com.br/assets/img/logotipo14xxhdpi.png)
-
 # Desafio - Desenvolvedor Fullstack - Estágio
-Seja bem-vindo! Este desafio foi projetado para avaliar a sua capacidade técnica como candidato ao cargo proposto.
 
-## Instruções
-- Faça um fork deste repositório;
-- O conjunto mínimo de tecnologias a serem utilizadas são: HTML, CSS e JS;
-- Crie um passo a passo de como rodar a sua aplicação;
-- Após finalizar, submeta um pull request com um comentário informando o seu e-mail de contato e aguarde nossa avaliação.
+---
 
-## Proposta
-Você deverá desenvolver um projeto com a finalidade de que seja possível listar, visualizar, criar, editar e excluir carros de uma locadora de automóvel.
+- **Nome:** Eduardo Henrique Santos Chaves
 
-**Observações:**
-> - Cada carro precisa ter um identificador único, modelo, marca, tipo (hatch, sedan ou SUV) e situação (disponível ou indisponível). Todos os campos são do formulário são obrigatório.
+- **Email:** [henriqueduardo2002@gmail.com](mailto:henriqueduardo2002@gmail.com)
 
-## Diferenciais
-Serão considerados diferenciais:
+- **Nome do Projeto:** Loca Auto (crud-locadora)
 
-- O uso de PHP ou Node.js como linguagem sendo utilizada no lado do servidor;
-- O uso de qualquer banco de dados para armazenar os dados da sua aplicação;
-- O uso de qualquer framework;
-- Boas práticas de escrita de código (código limpo, padrões de arquitetura, etc.).
+- **Link para o Deploy:** [https://crud-locadora.eduardochaves.me](https://crud-locadora.eduardochaves.me)
+
+- Link Secundário: [https://crud-locadora.pages.dev/](https://crud-locadora.pages.dev/)
+
+![desktop](https://i.imgur.com/NcEKReR.png)
+
+- Versão mobile nesta foto: [https://i.imgur.com/Db5ziUH.png](https://i.imgur.com/Db5ziUH.png)
+
+- **OBS.:** Os carros que aparecem nessas imagens são apenas de exemplo, pois ao entrar no site não havera carro algum até que sejam adicionados pelo usuário.
+
+---
+
+## Sobre o Back-End
+
+Neste projeto não cheguei a fazer um back-end por parte de servidor (com node.js ou php) pois neste exato momento, ainda estou finalizando meus estudos fundamentares a cerca de front-end para adentrar nesses conteúdos.
+
+O que me dei o trabalho de fazer foi de ao menos criar um **object map** no próprio `sript.js` onde guardei como chaves cada carro que fosse adicionado ao catálogo (usando o número de chassi do mesmo).
+
+Onde o valor dessa chave seria um objeto contendo as chaves/valores a cerca dos dados do carro que foi captado do formulário de cadastro. Onde inclusive deixei de propósito alguns `console.log` no código para mostrar a mudança deste **object map** a medida que ele é modificado (ao adicionar, editar ou remover).
+
+Inclusive utilizei a chave deste **object map** como forma de verificação de erro para os formulários em caso de um usuário tentar editar/remover um carro que não foi cadastrado ainda, ou de adicionar um carro que já está cadastrado. Dando um alerta de erro ao usuário e impedindo qualquer ação indesejada na aplicação.
+
+Vale lembrar que dessa forma, sempre que o usuário atualizar a página, qualquer cadastro que ele fez no catálogo será perdido.
+
+![console](https://i.imgur.com/6TFXVAq.png)
+
+## Sobre o Front-End
+
+Sobre o Front-End não há muito o que falar, é simplesmente entrar na página e testar os formulários e ir adicionando, removendo e editando os posts para ver como tudo ficou.
+
+Quanto aos formulários eu poderia ter colocado atributos `pattern` em alguns dos *inputs* para validar o valor colocado, principalmente no caso do número do chassi e do link para a foto do carro. Mas não coloquei para facilitar os testes das funcionalidades, se isto fosse um probjeto real eu teria colocado.
+
+Também fiz um pouco de estilização para garantir que tudo funcionasse adequadamente em diferentes tamanhos de tela e de resto é o que vocês verão na página mesmo.

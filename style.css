@@ -1,0 +1,288 @@
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  --color-1: hsl(4, 76%, 31%);
+  --color-2: #202020;
+  --color-3: hsl(0, 0%, 20%);
+}
+
+body {
+  font-family: Rubik, sans-serif;
+  height: 100vh;
+
+  display: grid;
+  grid-template-rows: 70px 1fr 60px;
+}
+
+button,
+.btn {
+  border: 0;
+  cursor: pointer;
+
+  font-family: Rubik, sans-serif;
+  font-size: .9rem;
+  text-transform: uppercase;
+  color: white;
+  
+  background-color: var(--color-2);
+  padding: .5em 1em;
+  border-radius: .5em;
+  height: 2.5em;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button:hover,
+.btn:hover {
+  background-color: var(--color-3);
+}
+
+.page-header {
+  background-color: var(--color-1);
+  padding: 2.5em clamp(2em, 4vw, 3em);
+  color: white;
+
+  display: flex;
+  align-items: center;
+}
+
+.page-header h1 {
+  font-size: 2.8rem;
+}
+
+main {
+  padding: clamp(4em, 5vw, 5em) clamp(1em, 4vw, 3em);
+  display: flex;
+  flex-direction: column;
+  gap: 4.5em;
+  margin: auto;
+}
+
+/* HERO SECTION */
+.hero-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5em;
+  --lottie-scale: 2.2;
+  height: calc(var(--lottie-scale) * 100px);
+}
+
+.hero-section__data {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  max-width: 60ch;
+}
+
+.hero-section__data h2 {
+  font-size: 2.5rem;
+}
+
+.hero-section__data p {
+  font-size: 1.2rem;
+  font-weight: lighter;
+}
+
+.hero-section__btns {
+  display: flex;
+  gap: clamp(.5em, 2vw, 1em);
+}
+
+.hero-section button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: .5em;
+}
+
+.hero-section__lottie {
+  transform: scaleX(-1) translateY(1%);
+  width: 250px;
+  scale: var(--lottie-scale);
+  clip-path: inset(35% 20% 39% 10%);
+}
+
+@media (max-width: 1250px) {
+  .hero-section {
+    margin: 4em auto;
+  }
+
+  .hero-section__data {
+    text-align: center;
+  }
+
+  .hero-section__btns {
+    flex-wrap: wrap;
+    margin: auto 2em;
+    gap: 1em;
+  }
+
+  .hero-section__lottie {
+    display: none;
+  }
+}
+/* HERO SECTION */
+
+/* MODAL FORMS */
+.modal {
+  border: 0;
+  margin: auto;
+  border-radius: .7em;
+  max-width: 50ch;
+  box-shadow: 0 0 10px hsl(0 0% 0% / .5);
+  background-color: var(--color-1);
+  
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.modal::backdrop {
+  background-color: hsl(0 0% 0% / .5);
+}
+
+.modal header {
+  border-radius: .7em .7em 0 0;
+  background-color: var(--color-2);
+  padding: 1.5em;
+}
+
+.modal header details {
+  background-color: var(--color-3);
+  margin-top: 1em;
+  padding: .5em;
+  border-radius: .5em;
+}
+
+.modal header details summary {
+  cursor: pointer;
+}
+
+.modal header details i {
+  margin-right: .5em;
+}
+
+.modal header p {
+  margin-top: .5em;
+  text-transform: none;
+}
+
+.form {
+  padding: 1.5em;
+  max-width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.form > section {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+}
+
+.form .required::after {
+  content: "*";
+  color: white;
+}
+
+.form input[type="url"],
+.form input[type="text"] {
+  background-color: white;
+  border: 0;
+  border-radius: .5em;
+  padding: .3em .5em;
+  width: 100%;
+}
+
+.form select,
+.form input[type="file"] {
+  cursor: pointer;
+}
+
+.form button {
+  width: 100%;
+}
+/* MODAL FORMS */
+
+/* CAR CATALOG */
+.car-catalog {
+  background-color: var(--color-1);
+  padding: 2em;
+  border-radius: 1em;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+}
+
+.car-card:first-of-type {
+  /* this selector is hidding the first post model we made for the javascript to clone and make the orther posts */
+  display: none;
+}
+
+.car-card {
+  color: white;
+  width: 13em;
+  --card--border-radius: .5em;
+  border-radius: var(--card--border-radius);
+  overflow: hidden;
+}
+
+/* .car-catalog:has(*:only-child) */
+
+.car-card__img {
+  aspect-ratio: 4/3;
+  width: 100%;
+  object-fit: cover;
+  border-radius: var(--card--border-radius) var(--card--border-radius) 0 0;
+  margin-bottom: -5px;
+}
+
+.car-card__data {
+  list-style: none;
+  text-transform: capitalize;
+  padding: .5em .7em;
+  background-color: var(--color-2);
+
+  display: flex;
+  flex-direction: column;
+  gap: .5em;
+}
+
+.car-card__brand {
+  font-weight: bolder;
+  font-size: 1.5rem;
+}
+
+.car-card__availability {
+  font-weight: lighter;
+  font-size: .9rem;
+  color: hsl(0 0% 80%);
+}
+/* CAR CATALOG */
+
+.page-footer {
+  background-color: var(--color-1);
+  color: white;
+  padding: 1.5em 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-footer p {
+  text-align: center;
+}
+
+.page-footer a {
+  color: currentColor;
+}
