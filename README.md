@@ -10,15 +10,11 @@ Seja bem-vindo! Este desafio foi projetado para avaliar a sua capacidade técnic
 - Após finalizar, submeta um pull request com um comentário informando o seu e-mail de contato e aguarde nossa avaliação.
 
 ## Proposta
-Você deverá desenvolver um projeto com a finalidade de que seja possível listar, visualizar, criar, editar e excluir carros de uma locadora de automóvel.
-
-**Observações:**
-> - Cada carro precisa ter um identificador único, modelo, marca, tipo (hatch, sedan ou SUV) e situação (disponível ou indisponível). Todos os campos são do formulário são obrigatório.
+O teste consiste em desenvolver um projeto utilizando NextJS no front-end e Nest.js no back-end, com o objetivo de criar uma aplicação que permita listar, visualizar, criar, editar e excluir animais de estimação em uma petshop. Utilize o Protótipo Figma fornecido como referência https://www.figma.com/file/z0zYWFHb7OK6TUXDBBw5my/SoftMakers-Challenges%3A-Dev-Jr.?type=design&node-id=0%3A1&mode=design&t=vAPkbzL97wUL9qma-1
 
 ## Diferenciais
 Serão considerados diferenciais:
 
-- O uso de PHP ou Node.js como linguagem sendo utilizada no lado do servidor;
 - O uso de qualquer banco de dados para armazenar os dados da sua aplicação;
 - O uso de qualquer framework;
 - Boas práticas de escrita de código (código limpo, padrões de arquitetura, etc.).
