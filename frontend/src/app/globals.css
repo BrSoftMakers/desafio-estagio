@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Ubuntu';
+  line-height: 18px;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 34px;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+}
