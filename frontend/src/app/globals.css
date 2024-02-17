@@ -5,6 +5,8 @@
 body {
   font-family: 'Ubuntu';
   line-height: 18px;
+  color: white;
+  background-color: #00060F;
 }
 
 h1 {
