@@ -7,6 +7,9 @@ body {
   line-height: 18px;
   color: white;
   background-color: #00060F;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 h1 {
