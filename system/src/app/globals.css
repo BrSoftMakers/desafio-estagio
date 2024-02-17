@@ -4,9 +4,11 @@
  
 @layer base {
   :root {
+    --dark-blue: 217, 100%, 15%;
+    --grey: 219, 18%, 31%;
     --background: 216, 100%, 3%;
     --foreground: 0, 0%, 100%;
-    --border: 214.3 31.8% 91.4%;
+    --border: 219, 18%, 31%;
   }
 }
  
@@ -15,6 +17,9 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground h-full;
+  }
+  html{
+    @apply h-full
   }
 }
