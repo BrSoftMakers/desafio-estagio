@@ -11,18 +11,13 @@ import UserIcon from "../../public/assets/img/icons/user.svg"
 import PetCardModal from "./PetCardModal"
 import PetLogo from "./PetLogo"
 
-type PetCardProps = {
-  pet: "dog" | "cat"
-  className?: string
-}
-
-export default function PetCard({ pet }: PetCardProps) {
+export default function PetCard() {
   const [isOpen, setIsOpen] = useState(false)
 
   const handleToggle = () => setIsOpen((prev) => !prev)
 
   return (
-    <>
+    <div className="relative">
       <div
         className={twMerge(
           `flex h-24 w-[300px] cursor-pointer items-center justify-start rounded-[10px] bg-gradient-to-r from-dark to-dark_blue p-[3px] hover:from-light_blue hover:to-default_blue`,
@@ -53,6 +48,6 @@ export default function PetCard({ pet }: PetCardProps) {
         </div>
       </div>
       {isOpen && <PetCardModal />}
-    </>
+    </div>
   )
 }

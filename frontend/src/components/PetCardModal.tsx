@@ -9,7 +9,7 @@ import DeleteIcon from "../../public/assets/img/icons/trash.svg"
 
 export default function PetCardModal() {
   return (
-    <div className="mt-3.5 flex w-[300px] items-center justify-start rounded-[10px] bg-gradient-to-r from-light_blue to-default_blue p-[3px]">
+    <div className="absolute top-full z-10 mt-3.5 flex w-[300px] items-center justify-start rounded-[10px] bg-gradient-to-r from-light_blue to-default_blue p-[3px]">
       <div className="flex size-full items-center rounded-[10px] bg-gradient-to-r from-dark to-dark_blue p-4">
         <div className="w-full">
           <div className="m-2 flex max-w-full flex-col items-start gap-2">
