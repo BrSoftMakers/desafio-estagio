@@ -12,7 +12,8 @@ const config: Config = {
         dark: "#000814",
         dark_blue: "#001E4D",
         default_blue: "#0056E2",
-        light_blue: "#00CAFC"
+        light_blue: "#00CAFC",
+        grey: "#404A5C"
       }
     }
   },
