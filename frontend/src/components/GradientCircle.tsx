@@ -13,7 +13,7 @@ export default function GradientCircle({
   return (
     <div
       className={twMerge(
-        "from-light_blue to-default_blue flex size-full items-center justify-center rounded-full bg-gradient-to-r",
+        "flex size-full items-center justify-center rounded-full bg-gradient-to-r from-light_blue to-default_blue",
         className
       )}
     >
