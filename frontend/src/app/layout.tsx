@@ -1,5 +1,8 @@
 import type { Metadata } from "next"
+import { Ubuntu } from "next/font/google"
 import "./globals.css"
+
+const ubuntu = Ubuntu({ weight: ["700", "400"], subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "SoftPets",
@@ -13,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body>{children}</body>
+      <body className={ubuntu.className}>{children}</body>
     </html>
   )
 }
