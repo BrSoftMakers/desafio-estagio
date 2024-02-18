@@ -23,6 +23,22 @@ export class OwnerService {
     }
   }
 
+  async findOne(id: string): Promise<CreateOwnerDTO> {
+    try {
+      const findOwner: CreateOwnerDTO =
+        await this.prisma.owner.findUniqueOrThrow({
+          where: { id },
+        });
+
+      return findOwner;
+    } catch (error) {
+      console.error('Erro ao buscar o usuário:', error);
+      throw new Error(
+        'Falha ao buscar o usuário. Detalhes do erro: ' + error.message,
+      );
+    }
+  }
+
   async editOneById(
     id: string,
     updateBody: UpdatePutOwnerDTO,
@@ -48,12 +64,12 @@ export class OwnerService {
     updateBody: UpdatePatchOwnerDTO,
   ): Promise<UpdatePatchOwnerDTO> {
     try {
-      const updatePet: UpdatePatchOwnerDTO = await this.prisma.owner.update({
+      const updateOwner: UpdatePatchOwnerDTO = await this.prisma.owner.update({
         where: { id },
         data: updateBody,
       });
 
-      return updatePet;
+      return updateOwner;
     } catch (error) {
       console.error('Erro ao editar as informações do usuário:', error);
       throw new Error(

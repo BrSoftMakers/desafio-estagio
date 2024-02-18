@@ -2,6 +2,7 @@ import {
   Body,
   Controller,
   Delete,
+  Get,
   HttpCode,
   Param,
   Patch,
@@ -22,6 +23,12 @@ export class OwnerController {
   @HttpCode(201)
   async create(@Body() body: CreateOwnerDTO): Promise<CreateOwnerDTO> {
     return this.ownerService.create(body);
+  }
+
+  @Get(':id')
+  @HttpCode(200)
+  async findOne(@Param() param): Promise<CreateOwnerDTO> {
+    return this.ownerService.findOne(param);
   }
 
   @Put(':id')
