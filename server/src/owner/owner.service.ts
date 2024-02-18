@@ -23,6 +23,25 @@ export class OwnerService {
     }
   }
 
+  async findAll(page: number, pageSize: number): Promise<CreateOwnerDTO[]> {
+    try {
+      const skip: number = (page - 1) * pageSize;
+      const take: number = pageSize;
+
+      const findAllOwner: CreateOwnerDTO[] = await this.prisma.owner.findMany({
+        skip,
+        take,
+      });
+
+      return findAllOwner;
+    } catch (error) {
+      console.error('Erro ao buscar o usuário:', error);
+      throw new Error(
+        'Falha ao buscar o usuário. Detalhes do erro: ' + error.message,
+      );
+    }
+  }
+
   async findOne(id: string): Promise<CreateOwnerDTO> {
     try {
       const findOwner: CreateOwnerDTO =

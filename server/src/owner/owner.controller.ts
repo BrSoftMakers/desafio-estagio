@@ -8,6 +8,7 @@ import {
   Patch,
   Post,
   Put,
+  Query,
 } from '@nestjs/common';
 import { OwnerService } from './owner.service';
 import { CreateOwnerDTO } from './dto/create-owner.dto';
@@ -23,6 +24,15 @@ export class OwnerController {
   @HttpCode(201)
   async create(@Body() body: CreateOwnerDTO): Promise<CreateOwnerDTO> {
     return this.ownerService.create(body);
+  }
+
+  @Get()
+  @HttpCode(200)
+  async findAll(
+    @Query('page') page: number = 1,
+    @Query('pageSize') pageSize: number = 10,
+  ): Promise<CreateOwnerDTO[]> {
+    return this.ownerService.findAll(Number(page), Number(pageSize));
   }
 
   @Get(':id')
