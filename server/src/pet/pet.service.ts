@@ -3,6 +3,7 @@ import { CreatePetDTO } from './dto/create-pet.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { UpdatePutPetDTO } from './dto/update-put-pet.dto';
 import { UpdatePatchPetDTO } from './dto/update-patch-pet.dto';
+import { DeletePetDTO } from './dto/delete-pet.dto';
 
 @Injectable()
 export class PetService {
@@ -97,6 +98,19 @@ export class PetService {
       console.error('Erro ao editar o pet:', error);
       throw new Error(
         'Falha ao editar o pet. Detalhes do erro: ' + error.message,
+      );
+    }
+  }
+
+  async deleteOneById(id: string): Promise<DeletePetDTO> {
+    try {
+      return await this.prisma.pet.delete({
+        where: { id },
+      });
+    } catch (error) {
+      console.error('Erro ao deletar o pet:', error);
+      throw new Error(
+        'Falha ao deletar o pet. Detalhes do erro: ' + error.message,
       );
     }
   }

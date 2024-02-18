@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   HttpCode,
   Param,
@@ -14,6 +15,7 @@ import { CreatePetDTO } from './dto/create-pet.dto';
 import { PetService } from './pet.service';
 import { UpdatePutPetDTO } from './dto/update-put-pet.dto';
 import { UpdatePatchPetDTO } from './dto/update-patch-pet.dto';
+import { DeletePetDTO } from './dto/delete-pet.dto';
 
 @Controller('/pets')
 export class PetController {
@@ -56,5 +58,11 @@ export class PetController {
     @Body() body: UpdatePatchPetDTO,
   ): Promise<UpdatePatchPetDTO> {
     return this.petService.editOneById(param, body);
+  }
+
+  @Delete(':id')
+  @HttpCode(200)
+  async deleteById(@Param('id') param): Promise<DeletePetDTO> {
+    return this.petService.deleteOneById(param);
   }
 }
