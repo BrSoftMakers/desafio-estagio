@@ -26,4 +26,23 @@ export class PetService {
       );
     }
   }
+
+  async findAll(page: number, pageSize: number): Promise<CreatePetDTO[]> {
+    try {
+      const skip: number = (page - 1) * pageSize;
+      const take: number = pageSize;
+
+      const findPets = await this.prisma.pet.findMany({
+        skip,
+        take,
+      });
+
+      return findPets;
+    } catch (error) {
+      console.error('Erro ao buscar os pets:', error);
+      throw new Error(
+        'Falha ao buscar os pets. Detalhes do erro: ' + error.message,
+      );
+    }
+  }
 }
