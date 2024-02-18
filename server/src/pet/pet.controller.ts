@@ -4,6 +4,7 @@ import {
   Get,
   HttpCode,
   Param,
+  Patch,
   Post,
   Put,
   Query,
@@ -12,6 +13,7 @@ import { CreatePetDTO } from './dto/create-pet.dto';
 
 import { PetService } from './pet.service';
 import { UpdatePutPetDTO } from './dto/update-put-pet.dto';
+import { UpdatePatchPetDTO } from './dto/update-patch-pet.dto';
 
 @Controller('/pets')
 export class PetController {
@@ -45,5 +47,14 @@ export class PetController {
     @Body() body: UpdatePutPetDTO,
   ): Promise<UpdatePutPetDTO> {
     return this.petService.updateOneById(param, body);
+  }
+
+  @Patch(':id')
+  @HttpCode(200)
+  async editById(
+    @Param('id') param,
+    @Body() body: UpdatePatchPetDTO,
+  ): Promise<UpdatePatchPetDTO> {
+    return this.petService.editOneById(param, body);
   }
 }
