@@ -1,9 +1,17 @@
-import { Body, Controller, Get, HttpCode, Post, Query } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  HttpCode,
+  Param,
+  Post,
+  Query,
+} from '@nestjs/common';
 import { CreatePetDTO } from './dto/create-pet.dto';
 
 import { PetService } from './pet.service';
 
-@Controller('/pet')
+@Controller('/pets')
 export class PetController {
   constructor(private readonly petService: PetService) {}
 
@@ -20,5 +28,11 @@ export class PetController {
     @Query('pageSize') pageSize: number = 10,
   ): Promise<CreatePetDTO[]> {
     return this.petService.findAll(Number(page), Number(pageSize));
+  }
+
+  @Get(':id')
+  @HttpCode(200)
+  async findOne(@Param('id') param): Promise<CreatePetDTO> {
+    return this.petService.findOne(param);
   }
 }

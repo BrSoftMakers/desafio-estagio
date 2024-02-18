@@ -15,7 +15,7 @@ export class PetService {
     race,
   }: CreatePetDTO): Promise<CreatePetDTO> {
     try {
-      const createdPet = await this.prisma.pet.create({
+      const createdPet: CreatePetDTO = await this.prisma.pet.create({
         data: { animal, birth, name, ownerId, phone, race },
       });
       return createdPet;
@@ -32,7 +32,7 @@ export class PetService {
       const skip: number = (page - 1) * pageSize;
       const take: number = pageSize;
 
-      const findPets = await this.prisma.pet.findMany({
+      const findPets: CreatePetDTO[] = await this.prisma.pet.findMany({
         skip,
         take,
       });
@@ -42,6 +42,21 @@ export class PetService {
       console.error('Erro ao buscar os pets:', error);
       throw new Error(
         'Falha ao buscar os pets. Detalhes do erro: ' + error.message,
+      );
+    }
+  }
+
+  async findOne(id: string): Promise<CreatePetDTO> {
+    try {
+      const findPet: CreatePetDTO = await this.prisma.pet.findUniqueOrThrow({
+        where: { id },
+      });
+
+      return findPet;
+    } catch (error) {
+      console.error('Erro ao buscar o pet:', error);
+      throw new Error(
+        'Falha ao buscar o pet. Detalhes do erro: ' + error.message,
       );
     }
   }
