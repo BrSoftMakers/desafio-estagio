@@ -1,7 +1,16 @@
-import { Body, Controller, HttpCode, Param, Post, Put } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  HttpCode,
+  Param,
+  Patch,
+  Post,
+  Put,
+} from '@nestjs/common';
 import { OwnerService } from './owner.service';
 import { CreateOwnerDTO } from './dto/create-owner.dto';
 import { UpdatePutOwnerDTO } from './dto/update-put-owner.dto';
+import { UpdatePatchOwnerDTO } from './dto/update-patch-pet.dto';
 
 @Controller('owner')
 export class OwnerController {
@@ -13,9 +22,15 @@ export class OwnerController {
     return this.ownerService.create(body);
   }
 
-  @Put()
+  @Put(':id')
   @HttpCode(200)
   async edit(@Body() body, @Param('id') param): Promise<UpdatePutOwnerDTO> {
     return this.ownerService.editOneById(param, body);
+  }
+
+  @Patch(':id')
+  @HttpCode(200)
+  async update(@Body() body, @Param('id') param): Promise<UpdatePatchOwnerDTO> {
+    return this.ownerService.updateOneById(param, body);
   }
 }
