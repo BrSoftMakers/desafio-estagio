@@ -1,5 +1,4 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { pet } from '@prisma/client';
 import { Pet } from 'src/models/pet.model';
 import { PrismaService } from 'src/prisma.service';
 
@@ -25,7 +24,7 @@ export class PetService {
     });
   }
 
-  async updatePet(id: number, data: pet): Promise<Pet> {
+  async updatePet(id: number, data: Pet): Promise<Pet> {
     try {
       return this.prisma.pet.update({
         where: { id: Number(id) },
