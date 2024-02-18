@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   HttpCode,
   Param,
   Patch,
@@ -11,6 +12,7 @@ import { OwnerService } from './owner.service';
 import { CreateOwnerDTO } from './dto/create-owner.dto';
 import { UpdatePutOwnerDTO } from './dto/update-put-owner.dto';
 import { UpdatePatchOwnerDTO } from './dto/update-patch-pet.dto';
+import { DeleteOwnerDTO } from './dto/delete-pet.dto';
 
 @Controller('owner')
 export class OwnerController {
@@ -32,5 +34,11 @@ export class OwnerController {
   @HttpCode(200)
   async update(@Body() body, @Param('id') param): Promise<UpdatePatchOwnerDTO> {
     return this.ownerService.updateOneById(param, body);
+  }
+
+  @Delete(':id')
+  @HttpCode(200)
+  async delete(@Param('id') param): Promise<DeleteOwnerDTO> {
+    return this.ownerService.deleteOneById(param);
   }
 }

@@ -3,6 +3,7 @@ import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateOwnerDTO } from './dto/create-owner.dto';
 import { UpdatePutOwnerDTO } from './dto/update-put-owner.dto';
 import { UpdatePatchOwnerDTO } from './dto/update-patch-pet.dto';
+import { DeleteOwnerDTO } from './dto/delete-pet.dto';
 
 @Injectable()
 export class OwnerService {
@@ -58,6 +59,19 @@ export class OwnerService {
       throw new Error(
         'Falha ao editar as informações do usuário. Detalhes do erro: ' +
           error.message,
+      );
+    }
+  }
+
+  async deleteOneById(id: string): Promise<DeleteOwnerDTO> {
+    try {
+      return await this.prisma.pet.delete({
+        where: { id },
+      });
+    } catch (error) {
+      console.error('Erro ao deletar o usuário:', error);
+      throw new Error(
+        'Falha ao deletar o usuário. Detalhes do erro: ' + error.message,
       );
     }
   }
