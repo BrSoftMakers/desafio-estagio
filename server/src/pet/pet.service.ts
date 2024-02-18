@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { CreatePetDTO } from './dto/create-pet.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
+import { UpdatePutPetDTO } from './dto/update-put-pet.dto';
 
 @Injectable()
 export class PetService {
@@ -57,6 +58,25 @@ export class PetService {
       console.error('Erro ao buscar o pet:', error);
       throw new Error(
         'Falha ao buscar o pet. Detalhes do erro: ' + error.message,
+      );
+    }
+  }
+
+  async updateOneById(
+    id: string,
+    updateBody: UpdatePutPetDTO,
+  ): Promise<UpdatePutPetDTO> {
+    try {
+      const updatePet: UpdatePutPetDTO = await this.prisma.pet.update({
+        where: { id },
+        data: updateBody,
+      });
+
+      return updatePet;
+    } catch (error) {
+      console.error('Erro ao editar o pet:', error);
+      throw new Error(
+        'Falha ao editar o pet. Detalhes do erro: ' + error.message,
       );
     }
   }

@@ -5,11 +5,13 @@ import {
   HttpCode,
   Param,
   Post,
+  Put,
   Query,
 } from '@nestjs/common';
 import { CreatePetDTO } from './dto/create-pet.dto';
 
 import { PetService } from './pet.service';
+import { UpdatePutPetDTO } from './dto/update-put-pet.dto';
 
 @Controller('/pets')
 export class PetController {
@@ -34,5 +36,14 @@ export class PetController {
   @HttpCode(200)
   async findOne(@Param('id') param): Promise<CreatePetDTO> {
     return this.petService.findOne(param);
+  }
+
+  @Put(':id')
+  @HttpCode(200)
+  async updateById(
+    @Param('id') param,
+    @Body() body: UpdatePutPetDTO,
+  ): Promise<UpdatePutPetDTO> {
+    return this.petService.updateOneById(param, body);
   }
 }
