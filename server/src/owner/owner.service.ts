@@ -102,7 +102,7 @@ export class OwnerService {
 
   async deleteOneById(id: string): Promise<DeleteOwnerDTO> {
     try {
-      return await this.prisma.pet.delete({
+      return await this.prisma.owner.delete({
         where: { id },
       });
     } catch (error) {
