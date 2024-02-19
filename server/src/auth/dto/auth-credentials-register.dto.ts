@@ -1,13 +1,11 @@
-import { PartialType } from '@nestjs/mapped-types';
-import { IsString } from 'class-validator';
-import { AuthCredentialLoginDTO } from './auth-credentials-login.dto';
+import { IsOptional, IsString } from 'class-validator';
+import { CreateUserDTO } from 'src/user/dto/create-user.dto';
 
-export class AuthCredentialRegisterDTO extends PartialType(
-  AuthCredentialLoginDTO,
-) {
+export class AuthCredentialRegisterDTO extends CreateUserDTO {
   @IsString()
   name: string;
 
   @IsString()
-  permission: string;
+  @IsOptional()
+  image: string;
 }
