@@ -43,6 +43,16 @@ export class UserController {
     return this.userService.findOne(param);
   }
 
+  @Get(':name')
+  @HttpCode(200)
+  async findAllByName(
+    @Query('page') page: number = 1,
+    @Query('pageSize') pageSize: number = 10,
+    @Param('name') name,
+  ): Promise<FindUserDTO[]> {
+    return this.userService.findAllByName(Number(page), Number(pageSize), name);
+  }
+
   @Put(':id')
   @HttpCode(200)
   async edit(@Body() body, @Param('id') param): Promise<UpdatePutUserDTO> {

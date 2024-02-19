@@ -62,6 +62,31 @@ export class UserService {
     }
   }
 
+  async findAllByName(
+    page: number,
+    pageSize: number,
+    name: string,
+  ): Promise<FindUserDTO[]> {
+    try {
+      const skip: number = (page - 1) * pageSize;
+      const take: number = pageSize;
+
+      const findAllByName: FindUserDTO[] = await this.prisma.user.findMany({
+        skip,
+        take,
+        where: { name },
+      });
+
+      return findAllByName;
+    } catch (error) {
+      console.log(error);
+      throw new HttpException(
+        `Erro interno do servidor`,
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
+  }
+
   async editOneById(
     id: string,
     updateBody: UpdatePutUserDTO,
