@@ -2,6 +2,7 @@ import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 
 import { CreateUserDTO } from './dto/create-user.dto';
+import { FindUserDTO } from './dto/find-user.dto';
 
 @Injectable()
 export class UserService {
@@ -14,6 +15,26 @@ export class UserService {
         data: { email, image, name, permission },
       });
       return createUser;
+    } catch (error) {
+      console.log(error);
+      throw new HttpException(
+        `Erro interno do servidor`,
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
+  }
+
+  async findAll(page: number, pageSize: number): Promise<FindUserDTO[]> {
+    try {
+      const skip: number = (page - 1) * pageSize;
+      const take: number = pageSize;
+
+      const findAllUser: FindUserDTO[] = await this.prisma.user.findMany({
+        skip,
+        take,
+      });
+
+      return findAllUser;
     } catch (error) {
       console.log(error);
       throw new HttpException(
