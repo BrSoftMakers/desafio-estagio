@@ -3,6 +3,7 @@ import { PrismaService } from 'src/prisma/prisma.service';
 
 import { CreateUserDTO } from './dto/create-user.dto';
 import { FindUserDTO } from './dto/find-user.dto';
+import { UpdatePatchUserDTO } from './dto/update-patch-user.dto';
 
 @Injectable()
 export class UserService {
@@ -55,6 +56,26 @@ export class UserService {
       throw new HttpException(
         `Proprietário não encontrado.`,
         HttpStatus.NOT_FOUND,
+      );
+    }
+  }
+
+  async updateOneById(
+    id: string,
+    updateBody: UpdatePatchUserDTO,
+  ): Promise<UpdatePatchUserDTO> {
+    try {
+      const updateUser: UpdatePatchUserDTO = await this.prisma.user.update({
+        where: { id },
+        data: updateBody,
+      });
+
+      return updateUser;
+    } catch (error) {
+      console.log(error);
+      throw new HttpException(
+        `Erro interno do servidor`,
+        HttpStatus.INTERNAL_SERVER_ERROR,
       );
     }
   }
