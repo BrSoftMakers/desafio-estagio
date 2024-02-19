@@ -15,11 +15,12 @@ export class PetService {
       const createdPet: CreatePetDTO = await this.prisma.pet.create({
         data: body,
       });
+
       return createdPet;
     } catch (error) {
-      console.log(error);
+      console.error(error);
       throw new HttpException(
-        `Erro interno do servidor`,
+        'Erro interno do servidor',
         HttpStatus.INTERNAL_SERVER_ERROR,
       );
     }
@@ -58,6 +59,19 @@ export class PetService {
         `Erro interno do servidor`,
         HttpStatus.INTERNAL_SERVER_ERROR,
       );
+    }
+  }
+
+  async findByName(name: string): Promise<FindPetDTO> {
+    try {
+      const findByName: FindPetDTO = await this.prisma.pet.findFirstOrThrow({
+        where: { name },
+      });
+
+      return findByName;
+    } catch (error) {
+      console.log(error);
+      throw new HttpException(`Não encontrado`, HttpStatus.NOT_FOUND);
     }
   }
 

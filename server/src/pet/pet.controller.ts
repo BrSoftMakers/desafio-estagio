@@ -16,6 +16,7 @@ import { PetService } from './pet.service';
 import { UpdatePutPetDTO } from './dto/update-put-pet.dto';
 import { UpdatePatchPetDTO } from './dto/update-patch-pet.dto';
 import { DeletePetDTO } from './dto/delete-pet.dto';
+import { FindPetDTO } from './dto/find-pet.dto';
 
 @Controller('/pets')
 export class PetController {
@@ -36,9 +37,15 @@ export class PetController {
     return this.petService.findAll(Number(page), Number(pageSize));
   }
 
+  @Get('find/:name')
+  @HttpCode(200)
+  async findByName(@Param('name') name): Promise<FindPetDTO> {
+    return this.petService.findByName(name);
+  }
+
   @Get(':id')
   @HttpCode(200)
-  async findOne(@Param('id') param): Promise<CreatePetDTO> {
+  async findOne(@Param('id') param): Promise<FindPetDTO> {
     return this.petService.findOne(param);
   }
 
