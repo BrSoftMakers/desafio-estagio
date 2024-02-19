@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateOwnerDTO } from './dto/create-owner.dto';
 import { UpdatePutOwnerDTO } from './dto/update-put-owner.dto';
@@ -17,9 +17,10 @@ export class OwnerService {
       });
       return createdOwner;
     } catch (error) {
-      console.error('Erro ao criar usuário:', error);
-      throw new Error(
-        'Falha ao criar um usuário. Detalhes do erro: ' + error.message,
+      console.log(error);
+      throw new HttpException(
+        `Erro interno do servidor`,
+        HttpStatus.INTERNAL_SERVER_ERROR,
       );
     }
   }
@@ -36,26 +37,25 @@ export class OwnerService {
 
       return findAllOwner;
     } catch (error) {
-      console.error('Erro ao buscar o usuário:', error);
-      throw new Error(
-        'Falha ao buscar o usuário. Detalhes do erro: ' + error.message,
+      console.log(error);
+      throw new HttpException(
+        `Erro interno do servidor`,
+        HttpStatus.INTERNAL_SERVER_ERROR,
       );
     }
   }
 
   async findOne(id: string): Promise<FindOwnerDTO> {
     try {
-      const findOwner: FindOwnerDTO = await this.prisma.owner.findUniqueOrThrow(
-        {
-          where: { id },
-        },
-      );
-
+      const findOwner: FindOwnerDTO = await this.prisma.owner.findUnique({
+        where: { id },
+      });
       return findOwner;
     } catch (error) {
-      console.error('Erro ao buscar o usuário:', error);
-      throw new Error(
-        'Falha ao buscar o usuário. Detalhes do erro: ' + error.message,
+      console.log(error);
+      throw new HttpException(
+        `Proprietário não encontrado.`,
+        HttpStatus.NOT_FOUND,
       );
     }
   }
@@ -72,10 +72,10 @@ export class OwnerService {
 
       return updateOwner;
     } catch (error) {
-      console.error('Erro ao editar as informações do usuário:', error);
-      throw new Error(
-        'Falha ao editar as informações do usuário. Detalhes do erro: ' +
-          error.message,
+      console.log(error);
+      throw new HttpException(
+        `Erro interno do servidor`,
+        HttpStatus.INTERNAL_SERVER_ERROR,
       );
     }
   }
@@ -92,10 +92,10 @@ export class OwnerService {
 
       return updateOwner;
     } catch (error) {
-      console.error('Erro ao editar as informações do usuário:', error);
-      throw new Error(
-        'Falha ao editar as informações do usuário. Detalhes do erro: ' +
-          error.message,
+      console.log(error);
+      throw new HttpException(
+        `Erro interno do servidor`,
+        HttpStatus.INTERNAL_SERVER_ERROR,
       );
     }
   }
@@ -106,9 +106,10 @@ export class OwnerService {
         where: { id },
       });
     } catch (error) {
-      console.error('Erro ao deletar o usuário:', error);
-      throw new Error(
-        'Falha ao deletar o usuário. Detalhes do erro: ' + error.message,
+      console.log(error);
+      throw new HttpException(
+        `Erro interno do servidor`,
+        HttpStatus.INTERNAL_SERVER_ERROR,
       );
     }
   }
