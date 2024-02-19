@@ -43,4 +43,19 @@ export class UserService {
       );
     }
   }
+
+  async findOne(id: string): Promise<FindUserDTO> {
+    try {
+      const findUser: FindUserDTO = await this.prisma.user.findUnique({
+        where: { id },
+      });
+      return findUser;
+    } catch (error) {
+      console.log(error);
+      throw new HttpException(
+        `Proprietário não encontrado.`,
+        HttpStatus.NOT_FOUND,
+      );
+    }
+  }
 }
