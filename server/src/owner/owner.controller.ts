@@ -13,8 +13,9 @@ import {
 import { OwnerService } from './owner.service';
 import { CreateOwnerDTO } from './dto/create-owner.dto';
 import { UpdatePutOwnerDTO } from './dto/update-put-owner.dto';
-import { UpdatePatchOwnerDTO } from './dto/update-patch-pet.dto';
+import { UpdatePatchOwnerDTO } from './dto/update-patch-owner.dto';
 import { DeleteOwnerDTO } from './dto/delete-pet.dto';
+import { FindOwnerDTO } from './dto/find-owner.dto';
 
 @Controller('owner')
 export class OwnerController {
@@ -31,13 +32,13 @@ export class OwnerController {
   async findAll(
     @Query('page') page: number = 1,
     @Query('pageSize') pageSize: number = 10,
-  ): Promise<CreateOwnerDTO[]> {
+  ): Promise<FindOwnerDTO[]> {
     return this.ownerService.findAll(Number(page), Number(pageSize));
   }
 
   @Get(':id')
   @HttpCode(200)
-  async findOne(@Param() param): Promise<CreateOwnerDTO> {
+  async findOne(@Param() param): Promise<FindOwnerDTO> {
     return this.ownerService.findOne(param);
   }
 

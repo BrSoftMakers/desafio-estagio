@@ -2,8 +2,9 @@ import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateOwnerDTO } from './dto/create-owner.dto';
 import { UpdatePutOwnerDTO } from './dto/update-put-owner.dto';
-import { UpdatePatchOwnerDTO } from './dto/update-patch-pet.dto';
+import { UpdatePatchOwnerDTO } from './dto/update-patch-owner.dto';
 import { DeleteOwnerDTO } from './dto/delete-pet.dto';
+import { FindOwnerDTO } from './dto/find-owner.dto';
 
 @Injectable()
 export class OwnerService {
@@ -23,12 +24,12 @@ export class OwnerService {
     }
   }
 
-  async findAll(page: number, pageSize: number): Promise<CreateOwnerDTO[]> {
+  async findAll(page: number, pageSize: number): Promise<FindOwnerDTO[]> {
     try {
       const skip: number = (page - 1) * pageSize;
       const take: number = pageSize;
 
-      const findAllOwner: CreateOwnerDTO[] = await this.prisma.owner.findMany({
+      const findAllOwner: FindOwnerDTO[] = await this.prisma.owner.findMany({
         skip,
         take,
       });
@@ -42,12 +43,13 @@ export class OwnerService {
     }
   }
 
-  async findOne(id: string): Promise<CreateOwnerDTO> {
+  async findOne(id: string): Promise<FindOwnerDTO> {
     try {
-      const findOwner: CreateOwnerDTO =
-        await this.prisma.owner.findUniqueOrThrow({
+      const findOwner: FindOwnerDTO = await this.prisma.owner.findUniqueOrThrow(
+        {
           where: { id },
-        });
+        },
+      );
 
       return findOwner;
     } catch (error) {
