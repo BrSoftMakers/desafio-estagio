@@ -7,15 +7,14 @@ import { UserService } from 'src/user/user.service';
 
 @Controller('auth')
 export class AuthController {
-
-  constructor(private readonly userService: UserService)
+  constructor(private readonly userService: UserService) {}
 
   @Post('login')
   async login(@Body() body: AuthCredentialLoginDTO) {}
 
   @Post('register')
   async register(@Body() body: AuthCredentialRegisterDTO) {
-    return this.userService.create(body)
+    return this.userService.create(body);
   }
 
   @Post('forget')
