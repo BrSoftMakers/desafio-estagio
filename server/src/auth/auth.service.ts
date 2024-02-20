@@ -19,7 +19,7 @@ export class AuthService {
 
   private async createToken(user: IUser): Promise<string> {
     const payload = {
-      sub: user.id,
+      id: user.id,
       permission: user.permission,
       imageUrl: user.image,
     };

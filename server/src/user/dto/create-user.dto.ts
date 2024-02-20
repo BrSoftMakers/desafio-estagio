@@ -8,6 +8,7 @@ import {
   IsStrongPassword,
 } from 'class-validator';
 export class CreateUserDTO {
+  @IsOptional()
   @IsString()
   id: string;
 
@@ -17,6 +18,7 @@ export class CreateUserDTO {
   @IsEmail()
   email: string;
 
+  @IsOptional()
   @IsDateString()
   emailVerified: Date;
 

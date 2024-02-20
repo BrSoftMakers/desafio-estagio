@@ -39,18 +39,21 @@ export class PetController {
   ): Promise<CreatePetDTO[]> {
     return this.petService.findAll(Number(page), Number(pageSize));
   }
+
   @UseGuards(AuthGuard)
   @Get('find/:name')
   @HttpCode(200)
   async findByName(@Param('name') name): Promise<FindPetDTO> {
     return this.petService.findByName(name);
   }
+
   @UseGuards(AuthGuard)
   @Get(':id')
   @HttpCode(200)
   async findOne(@Param('id') param): Promise<FindPetDTO> {
     return this.petService.findOne(param);
   }
+
   @UseGuards(AuthGuard)
   @Put(':id')
   @HttpCode(200)
@@ -60,6 +63,7 @@ export class PetController {
   ): Promise<UpdatePutPetDTO> {
     return this.petService.updateOneById(param, body);
   }
+
   @UseGuards(AuthGuard)
   @Patch(':id')
   @HttpCode(200)
@@ -69,6 +73,7 @@ export class PetController {
   ): Promise<UpdatePatchPetDTO> {
     return this.petService.editOneById(param, body);
   }
+
   @UseGuards(AuthGuard)
   @Delete(':id')
   @HttpCode(200)
