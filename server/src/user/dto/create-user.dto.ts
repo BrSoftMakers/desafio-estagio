@@ -1,9 +1,11 @@
 import {
-  IsEmail,
-  IsEnum,
-  IsOptional,
   IsString,
+  IsEmail,
+  IsDateString,
+  IsEnum,
+  IsArray,
   IsStrongPassword,
+  IsOptional,
 } from 'class-validator';
 
 export class CreateUserDTO {
@@ -12,6 +14,10 @@ export class CreateUserDTO {
 
   @IsEmail()
   email: string;
+
+  @IsDateString()
+  @IsOptional()
+  emailVerified?: Date;
 
   @IsStrongPassword({
     minLength: 6,
@@ -22,8 +28,20 @@ export class CreateUserDTO {
   })
   @IsString()
   @IsOptional()
+  password?: string;
+
+  @IsString()
+  @IsOptional()
   image: string;
 
   @IsEnum(['boss', 'employee', 'client'])
   permission: 'boss' | 'employee' | 'client';
+
+  @IsArray()
+  @IsOptional()
+  accounts?: [];
+
+  @IsArray()
+  @IsOptional()
+  sessions?: [];
 }
