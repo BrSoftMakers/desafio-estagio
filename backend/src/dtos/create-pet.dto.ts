@@ -1,7 +1,14 @@
 import { Type } from "class-transformer"
-import { IsEnum, IsMobilePhone, IsNotEmpty, IsString, MaxDate, MaxLength, MinLength } from "class-validator"
+import {
+  IsEnum,
+  IsMobilePhone,
+  IsNotEmpty,
+  IsString,
+  MaxDate,
+  MaxLength,
+  MinLength,
+} from "class-validator"
 import { PetRole } from "src/enums/PetRole"
-
 
 export class CreatePetDto {
   @IsString()
@@ -32,6 +39,8 @@ export class CreatePetDto {
   animal: string
 
   @Type(() => Date)
-  @MaxDate(() => new Date(), {message: `maximal allowed date for dateOfBirth is ${new Date().toISOString()}`})
+  @MaxDate(() => new Date(), {
+    message: `maximal allowed date for dateOfBirth is ${new Date().toISOString()}`,
+  })
   dateOfBirth: Date
 }
