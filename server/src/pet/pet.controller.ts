@@ -9,6 +9,7 @@ import {
   Post,
   Put,
   Query,
+  UseGuards,
 } from '@nestjs/common';
 import { CreatePetDTO } from './dto/create-pet.dto';
 
@@ -17,11 +18,13 @@ import { UpdatePutPetDTO } from './dto/update-put-pet.dto';
 import { UpdatePatchPetDTO } from './dto/update-patch-pet.dto';
 import { DeletePetDTO } from './dto/delete-pet.dto';
 import { FindPetDTO } from './dto/find-pet.dto';
+import { AuthGuard } from 'src/guards/auth.guards';
 
 @Controller('/pets')
 export class PetController {
   constructor(private readonly petService: PetService) {}
 
+  @UseGuards(AuthGuard)
   @Post()
   @HttpCode(201)
   async create(@Body() body: CreatePetDTO): Promise<CreatePetDTO> {
