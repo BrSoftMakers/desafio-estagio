@@ -9,18 +9,8 @@ export default function Home() {
         <Logo />
         <NavBar />
       </header>
-      <main className="mx-14 flex max-w-7xl flex-wrap items-center gap-5">
-        <PetCard />
-        <PetCard />
-        <PetCard />
-        <PetCard />
-        <PetCard />
-        <PetCard />
-        <PetCard />
-        <PetCard />
-        <PetCard />
-        <PetCard />
-        <PetCard />
+      <main className="mx-14 max-w-7xl">
+        <Cards />
       </main>
     </>
   )
