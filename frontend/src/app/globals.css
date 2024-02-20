@@ -27,3 +27,16 @@ h2 {
 img {
   user-select: none;
 }
+/* 
+.bg-gradient-1 {
+  @apply from-light_blue to-default_blue;
+}
+
+.bg-gradient-2 {
+  @apply from-dark to-dark_blue;
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent;
+} 
+*/
