@@ -1,14 +1,16 @@
 import {
-  IsString,
-  IsEmail,
-  IsDateString,
-  IsEnum,
   IsArray,
-  IsStrongPassword,
+  IsDateString,
+  IsEmail,
+  IsEnum,
   IsOptional,
+  IsString,
+  IsStrongPassword,
 } from 'class-validator';
-
 export class CreateUserDTO {
+  @IsString()
+  id: string;
+
   @IsString()
   name: string;
 
@@ -16,19 +18,7 @@ export class CreateUserDTO {
   email: string;
 
   @IsDateString()
-  @IsOptional()
-  emailVerified?: Date;
-
-  @IsStrongPassword({
-    minLength: 6,
-    minLowercase: 1,
-    minNumbers: 1,
-    minSymbols: 1,
-    minUppercase: 1,
-  })
-  @IsString()
-  @IsOptional()
-  password?: string;
+  emailVerified: Date;
 
   @IsString()
   @IsOptional()
@@ -37,11 +27,21 @@ export class CreateUserDTO {
   @IsEnum(['boss', 'employee', 'client'])
   permission: 'boss' | 'employee' | 'client';
 
-  @IsArray()
   @IsOptional()
-  accounts?: [];
+  @IsStrongPassword({
+    minLength: 6,
+    minLowercase: 1,
+    minNumbers: 1,
+    minSymbols: 1,
+    minUppercase: 1,
+  })
+  password: string;
 
-  @IsArray()
   @IsOptional()
-  sessions?: [];
+  @IsArray()
+  sessions: [];
+
+  @IsOptional()
+  @IsArray()
+  accounts: [];
 }

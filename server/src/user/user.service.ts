@@ -1,6 +1,5 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
-
 import * as bcrypt from 'bcrypt';
 
 import { CreateUserDTO } from './dto/create-user.dto';
@@ -9,33 +8,39 @@ import { UpdatePatchUserDTO } from './dto/update-patch-user.dto';
 import { DeleteUserDTO } from './dto/delete-user.dto';
 import { UpdatePutUserDTO } from './dto/update-put-user.dto';
 
+export interface IUser {
+  id: string;
+  name: string;
+  email: string;
+  emailVerified: Date;
+  image: string;
+  permission: 'boss' | 'employee' | 'client';
+}
+
 @Injectable()
 export class UserService {
   constructor(private readonly prisma: PrismaService) {}
 
-  async create(body: CreateUserDTO): Promise<CreateUserDTO> {
+  private async hashPassword(password: string): Promise<string> {
+    const saltRounds = 10;
+    return await bcrypt.hash(password, saltRounds);
+  }
+
+  private handleServerError(
+    error: any,
+    message: string = 'Erro interno do servidor',
+  ): void {
+    console.error(error);
+    throw new HttpException(message, HttpStatus.INTERNAL_SERVER_ERROR);
+  }
+
+  async create(body: CreateUserDTO): Promise<IUser> {
     try {
-      const {
-        email,
-        image,
-        name,
-        permission,
-        accounts = [],
-        sessions = [],
-        emailVerified,
-        password,
-      } = body;
-
-      const saltRounds = 10;
-      const hashedPassword = await bcrypt.hash(password, saltRounds);
-
-      const createUser: CreateUserDTO = await this.prisma.user.create({
+      const hashedPassword = await this.hashPassword(body.password);
+      const { accounts = [], sessions = [], ...restUserDetails } = body;
+      const createdUser = await this.prisma.user.create({
         data: {
-          email,
-          image,
-          name,
-          permission,
-          emailVerified,
+          ...restUserDetails,
           password: hashedPassword,
           accounts: { create: accounts },
           sessions: { create: sessions },
@@ -50,13 +55,9 @@ export class UserService {
         },
       });
 
-      return createUser;
+      return createdUser;
     } catch (error) {
-      console.log(error);
-      throw new HttpException(
-        `Erro interno do servidor`,
-        HttpStatus.INTERNAL_SERVER_ERROR,
-      );
+      this.handleServerError(error);
     }
   }
 
@@ -65,33 +66,22 @@ export class UserService {
       const skip: number = (page - 1) * pageSize;
       const take: number = pageSize;
 
-      const findAllUser: FindUserDTO[] = await this.prisma.user.findMany({
+      return await this.prisma.user.findMany({
         skip,
         take,
       });
-
-      return findAllUser;
     } catch (error) {
-      console.log(error);
-      throw new HttpException(
-        `Erro interno do servidor`,
-        HttpStatus.INTERNAL_SERVER_ERROR,
-      );
+      this.handleServerError(error);
     }
   }
 
   async findOne(id: string): Promise<FindUserDTO> {
     try {
-      const findUser: FindUserDTO = await this.prisma.user.findUnique({
+      return await this.prisma.user.findUnique({
         where: { id },
       });
-      return findUser;
     } catch (error) {
-      console.log(error);
-      throw new HttpException(
-        `Proprietário não encontrado.`,
-        HttpStatus.NOT_FOUND,
-      );
+      this.handleServerError(error, 'Proprietário não encontrado.');
     }
   }
 
@@ -104,19 +94,13 @@ export class UserService {
       const skip: number = (page - 1) * pageSize;
       const take: number = pageSize;
 
-      const findAllByName: FindUserDTO[] = await this.prisma.user.findMany({
+      return await this.prisma.user.findMany({
         skip,
         take,
         where: { name },
       });
-
-      return findAllByName;
     } catch (error) {
-      console.log(error);
-      throw new HttpException(
-        `Erro interno do servidor`,
-        HttpStatus.INTERNAL_SERVER_ERROR,
-      );
+      this.handleServerError(error);
     }
   }
 
@@ -125,18 +109,12 @@ export class UserService {
     updateBody: UpdatePutUserDTO,
   ): Promise<UpdatePutUserDTO> {
     try {
-      const updateUser: UpdatePutUserDTO = await this.prisma.user.update({
+      return await this.prisma.user.update({
         where: { id },
         data: updateBody,
       });
-
-      return updateUser;
     } catch (error) {
-      console.log(error);
-      throw new HttpException(
-        `Erro interno do servidor`,
-        HttpStatus.INTERNAL_SERVER_ERROR,
-      );
+      this.handleServerError(error);
     }
   }
 
@@ -145,18 +123,12 @@ export class UserService {
     updateBody: UpdatePatchUserDTO,
   ): Promise<UpdatePatchUserDTO> {
     try {
-      const updateUser: UpdatePatchUserDTO = await this.prisma.user.update({
+      return await this.prisma.user.update({
         where: { id },
         data: updateBody,
       });
-
-      return updateUser;
     } catch (error) {
-      console.log(error);
-      throw new HttpException(
-        `Erro interno do servidor`,
-        HttpStatus.INTERNAL_SERVER_ERROR,
-      );
+      this.handleServerError(error);
     }
   }
 
@@ -166,11 +138,7 @@ export class UserService {
         where: { id },
       });
     } catch (error) {
-      console.log(error);
-      throw new HttpException(
-        `Erro interno do servidor`,
-        HttpStatus.INTERNAL_SERVER_ERROR,
-      );
+      this.handleServerError(error);
     }
   }
 }
