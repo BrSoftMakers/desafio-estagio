@@ -23,19 +23,11 @@ export class AuthService {
       permission: user.permission,
       imageUrl: user.image,
     };
-    const options = {
+
+    return this.jwtService.sign(payload, {
       expiresIn: '7 days',
-    };
-
-    return this.jwtService.sign(payload, options);
-  }
-
-  private async checkToken(token: string): Promise<object> {
-    try {
-      return await this.jwtService.verify(token);
-    } catch (error) {
-      throw new BadRequestException('Token inválido ou expirado.');
-    }
+      secret: process.env.SECRET_KEY,
+    });
   }
 
   private async comparePasswords(
@@ -43,6 +35,17 @@ export class AuthService {
     hashedPassword: string,
   ): Promise<boolean> {
     return await bcrypt.compare(providedPassword, hashedPassword);
+  }
+
+  async checkToken(token: string): Promise<object> {
+    try {
+      return await this.jwtService.verify(token, {
+        secret: process.env.SECRET_KEY,
+      });
+    } catch (error) {
+      console.log(error);
+      throw new BadRequestException('Token inválido ou expirado.');
+    }
   }
 
   async login(email: string, password: string): Promise<string> {
