@@ -28,13 +28,18 @@ export class PetsController {
 
   @Get()
   async findAll(): Promise<{ data: Pet[] }> {
-    const list = await this.db.pet.findMany()
+    const list = await this.db.pet.findMany({
+      orderBy: {
+        name: "asc",
+      },
+    })
     return { data: list }
   }
 
   @Get(":id")
-  async findOne(@Param("id", ParseIntPipe) id: number): Promise<{ data: Pet }> {
-    const pet = await this.db.pet.findUnique({ where: { id: id } })
+  async findOne(@Param("id", ParseIntPipe) id: string): Promise<{ data: Pet }> {
+    const idNumber = parseInt(id)
+    const pet = await this.db.pet.findUnique({ where: { id: idNumber } })
     if (!pet) {
       throw new NotFoundException(`The pet with id ${id} was not found`)
     }
@@ -43,17 +48,18 @@ export class PetsController {
 
   @Put(":id")
   async update(
-    @Param("id", ParseIntPipe) id: number,
+    @Param("id", ParseIntPipe) id: string,
     @Body() body: UpdatePetDto,
   ): Promise<{ data: Pet }> {
-    const pet = await this.db.pet.findUnique({ where: { id: id } })
+    const idNumber = parseInt(id)
+    const pet = await this.db.pet.findUnique({ where: { id: idNumber } })
 
     if (!pet) {
       throw new NotFoundException(`The pet with id ${id} was not found`)
     }
 
     const petUpdated = await this.db.pet.update({
-      where: { id: id },
+      where: { id: idNumber },
       data: body,
     })
 
@@ -61,8 +67,13 @@ export class PetsController {
   }
 
   @Delete(":id")
-  async remove(@Param("id") id: number): Promise<{ data: Pet }> {
-    const petRemoved = await this.db.pet.delete({ where: { id: Number(id) } })
+  async remove(@Param("id") id: string): Promise<{ data: Pet }> {
+    const idNumber = parseInt(id)
+    const pet = await this.db.pet.findUnique({ where: { id: idNumber } })
+    if (!pet) {
+      throw new NotFoundException(`The pet with id ${id} was not found`)
+    }
+    const petRemoved = await this.db.pet.delete({ where: { id: idNumber } })
     return { data: petRemoved }
   }
 }
