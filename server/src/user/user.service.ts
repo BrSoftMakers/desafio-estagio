@@ -1,6 +1,8 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 
+import * as bcrypt from 'bcrypt';
+
 import { CreateUserDTO } from './dto/create-user.dto';
 import { FindUserDTO } from './dto/find-user.dto';
 import { UpdatePatchUserDTO } from './dto/update-patch-user.dto';
@@ -13,10 +15,41 @@ export class UserService {
 
   async create(body: CreateUserDTO): Promise<CreateUserDTO> {
     try {
-      const { email, image, name, permission } = body;
+      const {
+        email,
+        image,
+        name,
+        permission,
+        accounts = [],
+        sessions = [],
+        emailVerified,
+        password,
+      } = body;
+
+      const saltRounds = 10;
+      const hashedPassword = await bcrypt.hash(password, saltRounds);
+
       const createUser: CreateUserDTO = await this.prisma.user.create({
-        data: { email, image, name, permission },
+        data: {
+          email,
+          image,
+          name,
+          permission,
+          emailVerified,
+          password: hashedPassword,
+          accounts: { create: accounts },
+          sessions: { create: sessions },
+        },
+        select: {
+          id: true,
+          name: true,
+          email: true,
+          emailVerified: true,
+          image: true,
+          permission: true,
+        },
       });
+
       return createUser;
     } catch (error) {
       console.log(error);
