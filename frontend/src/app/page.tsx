@@ -1,14 +1,10 @@
-import Logo from "@/components/Logo"
-import NavBar from "@/components/NavBar"
-import PetCard from "@/components/PetCard"
+import Cards from "@/components/Cards"
+import Header from "./(components)/Header"
 
 export default function Home() {
   return (
     <>
-      <header className="m-14 flex w-full max-w-7xl flex-col gap-14">
-        <Logo />
-        <NavBar />
-      </header>
+      <Header />
       <main className="mx-14 max-w-7xl">
         <Cards />
       </main>
