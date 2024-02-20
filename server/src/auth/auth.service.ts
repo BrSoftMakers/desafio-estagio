@@ -1,5 +1,9 @@
 import * as bcrypt from 'bcrypt';
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import {
+  Injectable,
+  UnauthorizedException,
+  BadRequestException,
+} from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { IUser, UserService } from 'src/user/user.service';
@@ -26,44 +30,29 @@ export class AuthService {
     return this.jwtService.sign(payload, options);
   }
 
+  private async checkToken(token: string): Promise<object> {
+    try {
+      return await this.jwtService.verify(token);
+    } catch (error) {
+      throw new BadRequestException('Token inválido ou expirado.');
+    }
+  }
+
   private async comparePasswords(
     providedPassword: string,
     hashedPassword: string,
   ): Promise<boolean> {
-    return bcrypt.compare(providedPassword, hashedPassword);
+    return await bcrypt.compare(providedPassword, hashedPassword);
   }
 
   async login(email: string, password: string): Promise<string> {
-    try {
-      const user = await this.prisma.user.findFirst({ where: { email } });
+    const user = await this.prisma.user.findFirst({ where: { email } });
 
-      if (!user) {
-        throw new HttpException(
-          'E-mail e/ou senha incorreto(s).',
-          HttpStatus.UNAUTHORIZED,
-        );
-      }
-
-      const passwordMatch = await this.comparePasswords(
-        password,
-        user.password,
-      );
-
-      if (!passwordMatch) {
-        throw new HttpException(
-          'E-mail e/ou senha incorreto(s).',
-          HttpStatus.UNAUTHORIZED,
-        );
-      }
-
-      return this.createToken(user);
-    } catch (error) {
-      console.error(error);
-      throw new HttpException(
-        'Erro interno do servidor',
-        HttpStatus.INTERNAL_SERVER_ERROR,
-      );
+    if (!user || !(await this.comparePasswords(password, user.password))) {
+      throw new UnauthorizedException('E-mail e/ou senha incorreto(s).');
     }
+
+    return this.createToken(user);
   }
 
   async register(data: AuthCredentialRegisterDTO): Promise<string> {
