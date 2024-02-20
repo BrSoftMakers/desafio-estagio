@@ -1,4 +1,4 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import * as bcrypt from 'bcrypt';
 
@@ -30,8 +30,7 @@ export class UserService {
     error: any,
     message: string = 'Erro interno do servidor',
   ): void {
-    console.error(error);
-    throw new HttpException(message, HttpStatus.INTERNAL_SERVER_ERROR);
+    throw new BadRequestException({ error, message });
   }
 
   async create(body: CreateUserDTO): Promise<IUser> {

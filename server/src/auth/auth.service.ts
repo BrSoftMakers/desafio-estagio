@@ -43,7 +43,6 @@ export class AuthService {
         secret: process.env.SECRET_KEY,
       });
     } catch (error) {
-      console.log(error);
       throw new BadRequestException('Token inválido ou expirado.');
     }
   }
