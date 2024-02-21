@@ -39,6 +39,25 @@ export class AuthService {
     return await bcrypt.compare(providedPassword, hashedPassword);
   }
 
+  async resetPassword(password: string, token: string) {
+    try {
+      const data = this.jwtService.verify(token, {
+        secret: process.env.SECRET_KEY,
+      });
+
+      const { id } = data;
+
+      const user = await this.prisma.user.update({
+        where: { id },
+        data: { password },
+      });
+
+      return user;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   async checkToken(token: string): Promise<object> {
     try {
       return await this.jwtService.verify(token, {
@@ -74,7 +93,7 @@ export class AuthService {
         throw new UnauthorizedException('E-mail incorreto!');
       }
 
-      const forgetToken = await this.jwtService.sign(
+      const forgetToken = this.jwtService.sign(
         { id: user.id, permission: user.permission, imageUrl: user.image },
         {
           expiresIn: '15min',
@@ -84,7 +103,7 @@ export class AuthService {
 
       await this.mailer.sendMail({
         subject: 'Recuperar senha',
-        to: 'alexsandro.martiins@gmail.com',
+        to: user.email,
         html: `
         <p>Recuperação de Senha</p>
             <p>Olá ${user.name},</p>
