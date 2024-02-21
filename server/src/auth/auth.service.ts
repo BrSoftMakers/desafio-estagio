@@ -8,6 +8,7 @@ import { JwtService } from '@nestjs/jwt';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { IUser, UserService } from 'src/user/user.service';
 import { AuthCredentialRegisterDTO } from './dto/auth-credentials-register.dto';
+import { MailerService } from '@nestjs-modules/mailer';
 
 @Injectable()
 export class AuthService {
@@ -15,6 +16,7 @@ export class AuthService {
     private readonly jwtService: JwtService,
     private readonly prisma: PrismaService,
     private readonly userService: UserService,
+    private readonly mailer: MailerService,
   ) {}
 
   private async createToken(user: IUser): Promise<string> {
@@ -60,5 +62,57 @@ export class AuthService {
   async register(data: AuthCredentialRegisterDTO): Promise<string> {
     const user: IUser = await this.userService.create(data);
     return this.createToken(user);
+  }
+
+  async forget(email: string): Promise<boolean> {
+    try {
+      const user = await this.prisma.user.findFirst({
+        where: { email },
+      });
+
+      if (!user) {
+        throw new UnauthorizedException('E-mail incorreto!');
+      }
+
+      const forgetToken = await this.jwtService.sign(
+        { id: user.id, permission: user.permission, imageUrl: user.image },
+        {
+          expiresIn: '15min',
+          secret: process.env.SECRET_KEY,
+        },
+      );
+
+      await this.mailer.sendMail({
+        subject: 'Recuperar senha',
+        to: 'alexsandro.martiins@gmail.com',
+        html: `
+        <p>Recuperação de Senha</p>
+            <p>Olá ${user.name},</p>
+            <p>
+              Recebemos uma solicitação para redefinir a senha associada à sua conta. Se
+              você não fez essa solicitação, por favor, ignore este e-mail.
+            </p>
+            <p>Para redefinir sua senha, clique no link abaixo:</p>
+            <p><a href="http://localhost:3000/${forgetToken}">LINK</a></p>
+            <p>
+              Este link é válido por 7 dias, após o qual expirará por motivos de segurança.
+            </p>
+            <p>
+              Por favor, ignore este e-mail se você não solicitou uma redefinição de senha.
+              Caso contrário, acesse o link o mais rápido possível para garantir a segurança
+              de sua conta.
+            </p>
+            <p>Se precisar de ajuda ou tiver alguma dúvida, entre em contato conosco.</p>
+            <p>Atenciosamente,</p>
+            <br />
+            <p>Alexsandro Martins</p>
+            <p>Desenvolvedor FullStack</p>
+        `,
+      });
+
+      return true;
+    } catch (error) {
+      throw new UnauthorizedException(error);
+    }
   }
 }
