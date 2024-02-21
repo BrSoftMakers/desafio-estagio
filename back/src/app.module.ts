@@ -2,7 +2,8 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { Pet } from './pets/pet.entity';
+import { Pet } from './pets/entities/pet.entity';
+import { PetsModule } from './pets/pets.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { Pet } from './pets/pet.entity';
       entities: [Pet],
       synchronize: true,
     }),
+    PetsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
