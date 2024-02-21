@@ -19,12 +19,16 @@ import { UpdatePatchPetDTO } from './dto/update-patch-pet.dto';
 import { DeletePetDTO } from './dto/delete-pet.dto';
 import { FindPetDTO } from './dto/find-pet.dto';
 import { AuthGuard } from 'src/guards/auth.guards';
+import { Permissions } from 'src/decorators/permissions.decorator';
+import { Permission } from '../enum/permissions.enum';
+import { PermissionGuard } from 'src/guards/permission.guard';
 
+@UseGuards(AuthGuard, PermissionGuard)
+@Permissions(Permission.boss, Permission.employee)
 @Controller('/pets')
 export class PetController {
   constructor(private readonly petService: PetService) {}
 
-  @UseGuards(AuthGuard)
   @Post()
   @HttpCode(201)
   async create(@Body() body: CreatePetDTO): Promise<CreatePetDTO> {
@@ -40,21 +44,18 @@ export class PetController {
     return this.petService.findAll(Number(page), Number(pageSize));
   }
 
-  @UseGuards(AuthGuard)
   @Get('find/:name')
   @HttpCode(200)
   async findByName(@Param('name') name): Promise<FindPetDTO> {
     return this.petService.findByName(name);
   }
 
-  @UseGuards(AuthGuard)
   @Get(':id')
   @HttpCode(200)
   async findOne(@Param('id') param): Promise<FindPetDTO> {
     return this.petService.findOne(param);
   }
 
-  @UseGuards(AuthGuard)
   @Put(':id')
   @HttpCode(200)
   async updateById(
@@ -64,7 +65,6 @@ export class PetController {
     return this.petService.updateOneById(param, body);
   }
 
-  @UseGuards(AuthGuard)
   @Patch(':id')
   @HttpCode(200)
   async editById(
@@ -74,7 +74,6 @@ export class PetController {
     return this.petService.editOneById(param, body);
   }
 
-  @UseGuards(AuthGuard)
   @Delete(':id')
   @HttpCode(200)
   async deleteById(@Param('id') param): Promise<DeletePetDTO> {
