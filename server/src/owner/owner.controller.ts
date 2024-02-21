@@ -9,14 +9,23 @@ import {
   Post,
   Put,
   Query,
+  UseGuards,
 } from '@nestjs/common';
 import { OwnerService } from './owner.service';
+
 import { CreateOwnerDTO } from './dto/create-owner.dto';
 import { UpdatePutOwnerDTO } from './dto/update-put-owner.dto';
 import { UpdatePatchOwnerDTO } from './dto/update-patch-owner.dto';
 import { DeleteOwnerDTO } from './dto/delete-pet.dto';
 import { FindOwnerDTO } from './dto/find-owner.dto';
 
+import { AuthGuard } from 'src/guards/auth.guards';
+import { PermissionGuard } from 'src/guards/permission.guard';
+import { Permissions } from 'src/decorators/permissions.decorator';
+import { Permission } from 'src/enum/permissions.enum';
+
+@UseGuards(AuthGuard, PermissionGuard)
+@Permissions(Permission.boss, Permission.employee)
 @Controller('owner')
 export class OwnerController {
   constructor(private readonly ownerService: OwnerService) {}
