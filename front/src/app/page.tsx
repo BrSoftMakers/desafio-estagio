@@ -15,7 +15,8 @@ export default async function Home({
 }) {
   const currentPage = searchParams.page ? parseInt(searchParams.page) : 1;
 
-  const totalPages = await getPagesNumber();
+  const fetchedPages = await getPagesNumber();
+  const totalPages = fetchedPages === 0 ? 1 : fetchedPages;
   const pets: Pet[] = await getPets(currentPage);
 
   return (
@@ -40,7 +41,7 @@ export default async function Home({
             <Image src="/nav-arrow.svg" alt="" height={22} width={22} />
           </Link>
           <span className="text-white">
-            {currentPage} de {totalPages === 0 ? 1 : totalPages}
+            {currentPage} de {totalPages}
           </span>
           <Link
             href={`?page=${currentPage + 1}`}
