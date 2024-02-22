@@ -4,11 +4,14 @@ import PetCard from "@/components/PetCard"
 import { usePaginationContext } from "@/context/paginationContext"
 import { usePetsContext } from "@/context/petsContext"
 import CARD_LIMIT from "@/enums/eCardLimit"
-import PetService from "@/services/pet"
 import iPet from "@/types/iPet"
 import { useEffect } from "react"
 
-export default function Cards() {
+type CardsProps = {
+  data: iPet[]
+}
+
+export default function Cards({ data }: CardsProps) {
   const [pets, setPets, setAllPets] = usePetsContext((s) => [
     s.pets,
     s.setPets,
@@ -18,8 +21,6 @@ export default function Cards() {
 
   useEffect(() => {
     const fetchPets = async () => {
-      const data = (await PetService.getAll()).data
-
       setAllPets(data)
       setPets(
         data.slice(
@@ -29,7 +30,7 @@ export default function Cards() {
       )
     }
     fetchPets()
-  }, [setAllPets, setPets, currentPage])
+  }, [data, setAllPets, setPets, currentPage])
 
   return (
     <div className="inset-0 flex flex-wrap items-center justify-start gap-5 transition-all">

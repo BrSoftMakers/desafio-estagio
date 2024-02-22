@@ -17,16 +17,13 @@ export default function EditModal() {
     s.editModalIsOpen,
     s.closeEditModal
   ])
-  const { id, ...pet } = currentPet
 
   const onSubmit = async (form: PetSchema) => {
-    const res = await PetService.edit(id, form)
+    const res = await PetService.edit(currentPet.id, form)
     if (res) {
       revalidateFetch("get-all-pets")
       closeEditModal()
     }
-    console.log(res)
-    console.log({ ...pet })
   }
 
   return (
