@@ -2,7 +2,6 @@
 
 import clsx from "clsx";
 import Image from "next/image";
-import Link from "next/link";
 
 export const Pagination = ({
   totalPages,
@@ -13,7 +12,7 @@ export const Pagination = ({
 }) => {
   return (
     <div className="absolute bottom-16 right-16 flex justify-center items-center gap-4">
-      <Link
+      <a
         href={`?page=${currentPage - 1}`}
         aria-disabled={currentPage === 1}
         className={clsx({
@@ -26,11 +25,11 @@ export const Pagination = ({
         }}
       >
         <Image src="/nav-arrow.svg" alt="" height={22} width={22} />
-      </Link>
+      </a>
       <span className="text-white">
         {currentPage} de {totalPages}
       </span>
-      <Link
+      <a
         href={`?page=${currentPage + 1}`}
         className={clsx({
           "opacity-50 cursor-not-allowed":
@@ -50,7 +49,7 @@ export const Pagination = ({
           width={22}
           className="rotate-180"
         />
-      </Link>
+      </a>
     </div>
   );
 };
