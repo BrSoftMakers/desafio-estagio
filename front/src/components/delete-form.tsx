@@ -27,16 +27,21 @@ import { Input } from "./ui/input";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 
 const formSchema = z.object({
-  name: z.string().min(1, "Nome do pet é obrigatório"),
-  type: z.enum(["cat", "dog"]),
-  owner: z.string().min(1, "Nome do dono é obrigatório"),
-  breed: z.string().min(1, "Raça do pet é obrigatória"),
-  birthdate: z.date({
-    required_error: "Informe uma data de nascimento",
-  }),
-  phone: z.string().regex(/^\(\d{2}\)\s9\s\d{4}-\d{4}$/, {
-    message: "Telefone inválido (insira no formato (00) 0 0000-0000)",
-  }),
+  name: z.string().min(1, "Nome do pet é obrigatório").optional(),
+  type: z.enum(["cat", "dog"]).optional(),
+  owner: z.string().min(1, "Nome do dono é obrigatório").optional(),
+  breed: z.string().min(1, "Raça do pet é obrigatória").optional(),
+  birthdate: z
+    .date({
+      required_error: "Informe uma data de nascimento",
+    })
+    .optional(),
+  phone: z
+    .string()
+    .regex(/^\(\d{2}\)\s9\s\d{4}-\d{4}$/, {
+      message: "Telefone inválido (insira no formato (00) 0 0000-0000)",
+    })
+    .optional(),
 });
 
 export const DeleteForm = ({
@@ -56,8 +61,7 @@ export const DeleteForm = ({
     },
   });
 
-  const onSubmit = async (value: z.infer<typeof formSchema>) => {
-    form.reset();
+  const onSubmit = async () => {
     setDialogOpen(false);
     if (id === undefined) throw new Error("Id do pet não foi providenciado");
     const wasDeleted = deletePet(id);
@@ -137,6 +141,7 @@ export const DeleteForm = ({
                   >
                     <FormControl>
                       <RadioGroupItem
+                        onClick={(e) => e.preventDefault()}
                         value="dog"
                         className={clsx("border-white text-white", {
                           "bg-white": field.value === "dog",
@@ -267,7 +272,7 @@ export const DeleteForm = ({
             </FormItem>
           )}
         />
-        <h2 className="cols-span-2 text-lg text-center text-white">
+        <h2 className="col-span-2 p-4 text-lg text-center text-white">
           Tem certeza que deseja remover esse pet?
         </h2>
         {children}

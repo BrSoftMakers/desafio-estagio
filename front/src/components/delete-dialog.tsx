@@ -3,6 +3,7 @@
 import { Pet } from "@/types";
 import Image from "next/image";
 import { useState } from "react";
+import { DeleteForm } from "./delete-form";
 import { Button } from "./ui/button";
 import {
   Dialog,
@@ -12,7 +13,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "./ui/dialog";
-import { UpdateForm } from "./update-form";
 
 export const DeleteDialog = ({ petData }: { petData: Pet }) => {
   const [open, setOpen] = useState(false);
@@ -43,7 +43,7 @@ export const DeleteDialog = ({ petData }: { petData: Pet }) => {
               </Button>
             </DialogClose>
           </DialogHeader>
-          <UpdateForm setDialogOpen={setOpen} petData={petData}>
+          <DeleteForm setDialogOpen={setOpen} petData={petData}>
             <DialogClose asChild>
               <Button className="bg-white flex items-center gap-1 space-y-0">
                 <Image src="/back-sign.svg" alt="" width={16} height={16} />
@@ -52,7 +52,7 @@ export const DeleteDialog = ({ petData }: { petData: Pet }) => {
                 </span>
               </Button>
             </DialogClose>
-          </UpdateForm>
+          </DeleteForm>
         </div>
       </DialogContent>
     </Dialog>
