@@ -5,17 +5,21 @@ import { usePaginationContext } from "@/context/paginationContext"
 import { usePetsContext } from "@/context/petsContext"
 import CARD_LIMIT from "@/enums/eCardLimit"
 import iPet from "@/types/iPet"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import CardSkeleton from "./CardSkeleton"
+import SearchNotFound from "./SearchNotFound"
 
 type CardsProps = {
   data: iPet[]
 }
 
 export default function Cards({ data }: CardsProps) {
-  const [pets, setPets, setAllPets] = usePetsContext((s) => [
+  const [isLoading, setIsLoading] = useState(true)
+
+  const [pets, setPets, allPets, setAllPets] = usePetsContext((s) => [
     s.pets,
     s.setPets,
+    s.allPets,
     s.setAllPets
   ])
   const currentPage = usePaginationContext((s) => s.page)
@@ -28,9 +32,10 @@ export default function Cards({ data }: CardsProps) {
         CARD_LIMIT.DESKTOP * currentPage
       )
     )
+    setIsLoading(false)
   }, [data, setAllPets, setPets, currentPage])
 
-  if (pets.length === 0) {
+  if (isLoading) {
     return (
       <div className="inset-0 flex flex-wrap items-center justify-start gap-5 transition-all">
         {data.slice(0, CARD_LIMIT.DESKTOP).map(({ id }) => (
@@ -38,6 +43,8 @@ export default function Cards({ data }: CardsProps) {
         ))}
       </div>
     )
+  } else if (pets.length === 0 && allPets.length !== 0) {
+    return <SearchNotFound />
   }
 
   return (

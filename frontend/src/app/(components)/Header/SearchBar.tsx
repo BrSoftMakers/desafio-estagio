@@ -45,6 +45,7 @@ export default function SearchBar() {
         id="search"
         className="size-full bg-transparent p-2 text-2xl outline-none"
         onChange={handleSearch}
+        autoComplete="off"
       />
       <Button
         width="sm"

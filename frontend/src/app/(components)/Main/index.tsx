@@ -5,7 +5,7 @@ import Pagination from "./Pagination"
 export default async function Main() {
   const data = (await PetService.getAll()).data
   return (
-    <main className="relative mx-14 max-w-7xl">
+    <main className="relative max-w-7xl">
       <Cards data={data} />
       <Pagination />
     </main>

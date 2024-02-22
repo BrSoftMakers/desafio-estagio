@@ -3,7 +3,7 @@ import NavBar from "@/app/(components)/Header/NavBar"
 
 export default function Header() {
   return (
-    <header className="m-14 flex w-full max-w-7xl flex-col gap-14">
+    <header className="my-14 flex w-full max-w-7xl flex-col gap-14">
       <Logo />
       <NavBar />
     </header>
