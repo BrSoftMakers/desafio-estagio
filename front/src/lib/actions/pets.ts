@@ -39,3 +39,15 @@ export const updatePet = async (pet: Pet, id: number) => {
   revalidatePath("/");
   return true;
 };
+
+export const deletePet = async (id: number) => {
+  const response = await fetch(`http://back:3000/pets/${id}`, {
+    method: "DELETE",
+  });
+  if (!response.ok) {
+    const errorMessage = await response.json();
+    throw new Error("Erro ao deletar pet: " + errorMessage);
+  }
+  revalidatePath("/");
+  return true;
+};
