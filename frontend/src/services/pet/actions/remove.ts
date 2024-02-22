@@ -7,7 +7,7 @@ export default async function remove(id: number) {
     const res = await fetchData(`${process.env.BASE_URL_API}/pets/${id}`, {
       method: "DELETE"
     })
-    return await res.json()
+    return res.json()
   } catch (error) {
     return error
   }

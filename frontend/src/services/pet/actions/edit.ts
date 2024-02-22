@@ -10,7 +10,7 @@ export default async function edit(id: number, pet: PetSchema) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(pet)
     })
-    return await res.json()
+    return res.json()
   } catch (error) {
     return error
   }

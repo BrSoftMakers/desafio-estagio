@@ -20,9 +20,11 @@ export default function EditModal() {
 
   const onSubmit = async (form: PetSchema) => {
     const res = await PetService.edit(currentPet.id, form)
-    if (res) {
+    if (res.data) {
       revalidateFetch("get-all-pets")
       closeEditModal()
+    } else {
+      window.alert(res.message)
     }
   }
 

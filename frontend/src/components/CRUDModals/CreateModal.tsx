@@ -19,9 +19,11 @@ export default function CreateModal() {
 
   const onSubmit = async (form: PetSchema) => {
     const res = await PetService.create(form)
-    if (res) {
+    if (res.data) {
       revalidateFetch("get-all-pets")
       closeCreateModal()
+    } else {
+      window.alert(res.message)
     }
   }
 

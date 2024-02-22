@@ -17,9 +17,11 @@ export default function DeleteModal() {
 
   const onSubmit = async () => {
     const res = await PetService.remove(currentPet.id)
-    if (res) {
+    if (res.data) {
       revalidateFetch("get-all-pets")
       closeDeleteModal()
+    } else {
+      window.alert(res.message)
     }
   }
 
@@ -33,7 +35,10 @@ export default function DeleteModal() {
         Remover
       </Modal.Header>
       <Form onSubmit={onSubmit} defaultValues={currentPet} disabled>
-        <div className="mt-[66px] flex items-center justify-between">
+        <h2 className="mb-7 mt-6 flex h-14 items-center justify-center text-center">
+          Tem certeza que deseja remover esse pet?
+        </h2>
+        <div className="flex items-center justify-between">
           <Button height="md" width="lg">
             <Image src={ArrowLeftIcon} alt="arrow left icon" />
             <span className="bg-gradient-to-r from-light_blue to-default_blue bg-clip-text font-bold text-transparent">
