@@ -26,8 +26,9 @@ export default function SearchBar() {
       const results = await fuse
         .search(searchTerm, { limit: CARD_LIMIT.DESKTOP })
         .map((result) => result.item)
-      console.log(results)
       setPets(results)
+    } else {
+      setPets(allPets)
     }
   }
   return (
@@ -50,7 +51,9 @@ export default function SearchBar() {
         height="sm"
         variant="mono"
         className="m-[3px]"
-        onClick={handleSearch}
+        onClick={() => {
+          if (inputRef.current?.value) handleSearch()
+        }}
       >
         Pesquisar
       </Button>
