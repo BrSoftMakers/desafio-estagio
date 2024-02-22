@@ -3,9 +3,8 @@ import { PetsContextProvider } from "@/components/pets-provider";
 import { RegisterDialog } from "@/components/register-dialog";
 import { getPagesNumber, getPets } from "@/lib/data";
 import { Pet } from "@/types";
-import clsx from "clsx";
 import Image from "next/image";
-import Link from "next/link";
+import { Pagination } from "../components/pagination";
 import { SearchBar } from "../components/search-bar";
 
 export default async function Home({
@@ -30,35 +29,7 @@ export default async function Home({
           </div>
         </header>
         <PetsGrid />
-        <div className="absolute bottom-16 right-16 flex justify-center items-center gap-4">
-          <Link
-            href={`?page=${currentPage - 1}`}
-            aria-disabled={currentPage === 1}
-            className={clsx({
-              "opacity-50 cursor-not-allowed": currentPage === 1,
-            })}
-          >
-            <Image src="/nav-arrow.svg" alt="" height={22} width={22} />
-          </Link>
-          <span className="text-white">
-            {currentPage} de {totalPages}
-          </span>
-          <Link
-            href={`?page=${currentPage + 1}`}
-            className={clsx({
-              "opacity-50 cursor-not-allowed": currentPage === totalPages,
-            })}
-            aria-disabled={currentPage === totalPages}
-          >
-            <Image
-              src="/nav-arrow.svg"
-              alt=""
-              height={22}
-              width={22}
-              className="rotate-180"
-            />
-          </Link>
-        </div>
+        <Pagination totalPages={totalPages} currentPage={currentPage} />
       </PetsContextProvider>
     </div>
   );
