@@ -3,7 +3,10 @@ import Cards from "./Cards"
 import Pagination from "./Pagination"
 
 export default async function Main() {
-  const data = (await PetService.getAll()).data
+  const res = await PetService.getAll()
+
+  const data = res?.data || []
+
   return (
     <main className="relative max-w-7xl">
       <Cards data={data} />
