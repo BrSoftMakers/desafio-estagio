@@ -1,5 +1,5 @@
-import Cards from "../Cards"
-import Pagination from "../Pagination"
+import Cards from "./Cards"
+import Pagination from "./Pagination"
 
 export default function Main() {
   return (
