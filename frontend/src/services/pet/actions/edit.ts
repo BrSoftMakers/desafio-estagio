@@ -5,7 +5,7 @@ import fetchData from "@/utils/fetchData"
 
 export default async function edit(id: number, pet: PetSchema) {
   try {
-    const res = await fetchData("http://localhost:8000/api/v1/pets/" + id, {
+    const res = await fetchData(`${process.env.BASE_URL_API}/pets/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(pet)
