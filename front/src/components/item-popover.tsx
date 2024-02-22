@@ -1,19 +1,21 @@
 import { ubuntu } from "@/fonts/ubuntu";
-import { PetDTO } from "@/types";
+import { Pet } from "@/types";
 import clsx from "clsx";
 import Image from "next/image";
 import { useState } from "react";
 import { Button } from "./ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
+import { UpdateDialog } from "./update-dialog";
 
 export const ItemPopover = ({
+  id,
   name,
   type,
   owner,
   breed,
   birthdate,
   phone,
-}: PetDTO) => {
+}: Pet) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const calculateAge = () => {
@@ -84,12 +86,17 @@ export const ItemPopover = ({
             <Image src="/callendar.svg" alt="" width={14.4} height={16} />
             <span>Idade: {calculateAge()}</span>
           </div>
-          <Button className="flex justify-center gap-1 w-full bg-white">
-            <Image src="/pen.svg" alt="" width={16} height={16} />
-            <span className="font-bold bg-gradient-to-r from-[#00CAFC] to-[#0056E2] text-transparent bg-clip-text">
-              Editar
-            </span>
-          </Button>
+          <UpdateDialog
+            petData={{
+              id,
+              name,
+              type,
+              owner,
+              breed,
+              birthdate,
+              phone,
+            }}
+          />
           <Button className="flex justify-center gap-1 w-full bg-gradient-to-r from-[#00CAFC] to-[#0056E2] text-white">
             <Image src="/trash-icon.svg" alt="" width={14.55} height={16} />
             <span className="font-bold">Remover</span>
