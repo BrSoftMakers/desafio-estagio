@@ -1,11 +1,11 @@
-import { PetDTO } from "@/types";
+import { Pet } from "@/types";
 import { Dispatch, SetStateAction, createContext } from "react";
 
 export const PetsContext = createContext<{
-  pets: PetDTO[];
-  setPets: Dispatch<SetStateAction<PetDTO[]>>;
-  filteredPets: PetDTO[];
-  setFilteredPets: Dispatch<SetStateAction<PetDTO[]>>;
+  pets: Pet[];
+  setPets: Dispatch<SetStateAction<Pet[]>>;
+  filteredPets: Pet[];
+  setFilteredPets: Dispatch<SetStateAction<Pet[]>>;
 }>({
   pets: [],
   setPets: () => {},
