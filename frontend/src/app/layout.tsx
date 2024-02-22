@@ -1,8 +1,13 @@
 import type { Metadata } from "next"
-import { Ubuntu } from "next/font/google"
+import { Ubuntu as FontSans } from "next/font/google"
+import { twMerge } from "tailwind-merge"
 import "./globals.css"
 
-const ubuntu = Ubuntu({ weight: ["700", "500", "400"], subsets: ["latin"] })
+const fontSans = FontSans({
+  weight: ["700", "500", "400"],
+  subsets: ["latin"],
+  variable: "--font-sans"
+})
 
 export const metadata: Metadata = {
   title: "SoftPet",
@@ -16,7 +21,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className={ubuntu.className}>{children}</body>
+      <body
+        className={twMerge(
+          "bg-background min-h-screen px-14 font-sans antialiased",
+          fontSans.variable
+        )}
+      >
+        {children}
+      </body>
     </html>
   )
 }

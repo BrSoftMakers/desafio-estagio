@@ -3,10 +3,9 @@
 @tailwind utilities;
 
 body {
-  font-family: 'Ubuntu';
+  background-color: #00060F;
   line-height: 18px;
   color: white;
-  background-color: #00060F;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -45,8 +44,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 input[type="date"]::placeholder {
   @apply text-grey
 }
-/* 
-.bg-gradient-1 {
+
+
+/* .bg-gradient-1 {
   @apply from-light_blue to-default_blue;
 }
 
@@ -56,5 +56,4 @@ input[type="date"]::placeholder {
 
 .text-gradient {
   @apply bg-clip-text text-transparent;
-} 
-*/
+}  */
