@@ -10,11 +10,20 @@ git (2.35.1.windows.2)
 
 - Crie uma pasta onde irá ser instalado o projeto
 - No terminal da pasta criada digite o comando abaixo:
+
 git clone https://github.com/ViniciusLeviVL/desafio-estagio.git
+
 - Após o repositório ser clonado abra o terminal na pasta "backend" e instale os pacotes necessário com o comando:
+
 npm install
+
 - Faça o mesmo no terminal na pasta "frontend"
+- Para gerar as configurações necessárias para o prisma use o seguinte comando no terminal diretório "backend":
+
+npx prisma generate
+
 - Após instalar todos os pacotes necessários basta rodar os seguintes comandos no terminal dos diretórios "backend" e "frontend", respectivamente:
+
 npm run start
 npm run dev
 
