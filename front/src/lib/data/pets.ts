@@ -11,7 +11,9 @@ export const getPagesNumber = async () => {
 };
 
 export const getPets = async (page: number) => {
-  const response = await fetch(`http://back:3000/pets?page=${page}`);
+  const response = await fetch(`http://back:3000/pets?page=${page}`, {
+    cache: "no-store",
+  });
   if (!response.ok && response.body) {
     throw new Error("Erro ao buscar pets: " + response.body.toString());
   }
