@@ -261,8 +261,8 @@ export const RegisterForm = ({
           type="submit"
           className="flex items-center gap-1 font-bold bg-gradient-to-r from-[#00CAFC] to-[#0056E2]"
         >
-          <Image src="/white-pen.svg" alt="" width={16.36} height={16.36} />
-          <span className="font-bold text-white">Salvar</span>
+          <Image src="/add-icon.svg" alt="" width={16.36} height={16.36} />
+          <span className="font-bold text-white">Cadastrar</span>
         </Button>
       </form>
     </Form>

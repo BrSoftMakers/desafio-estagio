@@ -37,7 +37,7 @@ export const UpdateDialog = ({ petData }: { petData: Pet }) => {
               <div className="p-3 rounded-full bg-gradient-to-r from-[#00CAFC] to-[#0056E2]">
                 <Image src="/white-pen.svg" alt="" width={40} height={40} />
               </div>
-              <h3 className="text-3xl">Editar</h3>
+              <span className="text-3xl">Editar</span>
             </DialogTitle>
             <DialogClose asChild>
               <Button className="w-fit bg-transparent">

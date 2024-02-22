@@ -41,7 +41,7 @@ export const RegisterDialog = () => {
               <div className="p-3 rounded-full bg-gradient-to-r from-[#00CAFC] to-[#0056E2]">
                 <Image src="/add-icon.svg" alt="" width={40} height={40} />
               </div>
-              <h3 className="text-3xl">Cadastrar</h3>
+              <span className="text-3xl">Cadastrar</span>
             </DialogTitle>
             <DialogClose asChild>
               <Button className="w-fit bg-transparent">
