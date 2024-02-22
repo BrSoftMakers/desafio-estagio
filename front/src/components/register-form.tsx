@@ -11,13 +11,14 @@ import {
 } from "@/components/ui/form";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { createPet } from "@/lib/actions";
+import { PetsContext } from "@/lib/contexts";
 import { cn } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import clsx from "clsx";
 import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
 import Image from "next/image";
-import { Dispatch, PropsWithChildren, SetStateAction } from "react";
+import { Dispatch, PropsWithChildren, SetStateAction, useContext } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Button } from "./ui/button";
@@ -43,6 +44,7 @@ export const RegisterForm = ({
 }: PropsWithChildren<{
   setDialogOpen: Dispatch<SetStateAction<boolean>>;
 }>) => {
+  const { setPets } = useContext(PetsContext);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -55,10 +57,11 @@ export const RegisterForm = ({
     },
   });
 
-  const onSubmit = (value: z.infer<typeof formSchema>) => {
+  const onSubmit = async (value: z.infer<typeof formSchema>) => {
     form.reset();
     setDialogOpen(false);
-    createPet(value);
+    const createdPet = await createPet(value);
+    setPets((prev) => [...prev, createdPet]);
   };
   return (
     <Form {...form}>
