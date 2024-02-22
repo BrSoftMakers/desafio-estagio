@@ -18,7 +18,9 @@ export default function Root({ children, isOpen, onClose }: RootProps) {
     >
       {/* Content */}
       <div
-        className="size-full max-h-[571px] max-w-[618px] rounded bg-gradient-to-r from-light_blue to-default_blue p-[3px] transition-all"
+        className={
+          "shadow-blur w-full max-w-[618px] rounded bg-gradient-to-r from-light_blue to-default_blue p-[3px] shadow-default_blue transition-all"
+        }
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex size-full flex-col justify-between rounded bg-gradient-to-br from-dark_blue to-dark p-14 transition-all">

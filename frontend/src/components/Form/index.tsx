@@ -9,6 +9,7 @@ import iPet from "@/types/iPet"
 import { PetSchema } from "@/types/zod/PetSchema"
 import phoneMask from "@/utils/phoneMask"
 import { FormEvent, ReactNode, useState } from "react"
+import { DatePicker } from "./components/DatePicker"
 import FormField from "./components/FormField"
 import Input from "./components/Input"
 import LabelWithIcon from "./components/LabelWithIcon"
@@ -34,12 +35,17 @@ export default function Form({
   )
   const [breed, setBreed] = useState(defaultValues?.breed || "")
   const [animal, setAnimal] = useState(defaultValues?.animal || PetRole.CAT)
-  const [dateOfBirth, setDateOfBirth] = useState(
-    defaultValues?.dateOfBirth?.toString().substring(0, 10) || ""
+  const [dateOfBirth, setDateOfBirth] = useState<Date | undefined>(
+    defaultValues && new Date(defaultValues.dateOfBirth)
   )
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
+
+    if (!dateOfBirth) {
+      window.alert("Por favor, selecione a data de nascimento do pet")
+      return
+    }
 
     const formFields: PetSchema = {
       name,
@@ -49,6 +55,7 @@ export default function Form({
       breed,
       dateOfBirth: new Date(dateOfBirth).toISOString()
     }
+
     onSubmit(formFields)
   }
   return (
@@ -98,7 +105,7 @@ export default function Form({
                 onChange={(e) => setOwnerPhone(e.target.value)}
                 name="ownerPhone"
                 placeholder="(00) 0 0000-0000"
-                pattern="^(\(\d{2}\) [9] [0-9]{4}-[0-9]{4})"
+                pattern="^(\(\d{2}\) [9] [1-9]{1}[0-9]{3}-[0-9]{4})"
                 minLength={16}
                 maxLength={16}
                 disabled={disabled}
@@ -112,6 +119,7 @@ export default function Form({
               </LabelWithIcon>
               <PetRadios
                 disabled={disabled}
+                defaultValue={defaultValues?.animal}
                 onChange={(e) =>
                   setAnimal(
                     e.target.value === PetRole.DOG ? PetRole.DOG : PetRole.CAT
@@ -131,7 +139,7 @@ export default function Form({
                 disabled={disabled}
               />
             </div>
-            <div className="text-grey">
+            <div>
               <LabelWithIcon
                 htmlFor="dateOfBirth"
                 src={CalendarIcon}
@@ -139,13 +147,9 @@ export default function Form({
               >
                 Nascimento <span className="m-0 text-grey">(Aproximado)</span>
               </LabelWithIcon>
-              <Input
-                type="date"
+              <DatePicker
                 value={dateOfBirth}
-                onChange={(e) => {
-                  setDateOfBirth(e.target.value)
-                }}
-                placeholder="2020-08-22"
+                setValue={setDateOfBirth}
                 disabled={disabled}
               />
             </div>

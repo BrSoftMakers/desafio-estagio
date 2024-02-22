@@ -6,7 +6,11 @@ type PetRadiosProps = {
   disabled: boolean | undefined
 } & InputHTMLAttributes<HTMLInputElement>
 
-export default function PetRadios({ disabled, ...rest }: PetRadiosProps) {
+export default function PetRadios({
+  disabled,
+  defaultValue,
+  ...rest
+}: PetRadiosProps) {
   return (
     <div className="flex items-center justify-between">
       <RadioInputGroup.Label disabled={disabled}>
@@ -14,7 +18,7 @@ export default function PetRadios({ disabled, ...rest }: PetRadiosProps) {
           name="animal"
           value={PetRole.DOG}
           disabled={disabled}
-          defaultChecked
+          defaultChecked={defaultValue === PetRole.DOG}
           {...rest}
         />
         Cachorro
@@ -24,6 +28,7 @@ export default function PetRadios({ disabled, ...rest }: PetRadiosProps) {
           name="animal"
           value={PetRole.CAT}
           disabled={disabled}
+          defaultChecked={defaultValue === PetRole.CAT}
           {...rest}
         />
         Gato
