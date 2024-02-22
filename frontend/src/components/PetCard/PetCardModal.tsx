@@ -47,7 +47,7 @@ export default function PetCardModal({ pet }: PetCardModalProps) {
                 alt="calendar icon"
                 className="mr-2.5"
               />
-              Idade: {age} Anos (
+              Idade: {age === 1 ? `${age} Ano` : `${age} Anos`} (
               {new Date(pet.dateOfBirth).toLocaleDateString()})
             </p>
           </div>

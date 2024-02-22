@@ -33,7 +33,7 @@ export default function Form({
     defaultValues?.ownerPhone.substring(3) || ""
   )
   const [breed, setBreed] = useState(defaultValues?.breed || "")
-  const [animal, setAnimal] = useState(defaultValues?.animal || PetRole.DOG)
+  const [animal, setAnimal] = useState(defaultValues?.animal || PetRole.CAT)
   const [dateOfBirth, setDateOfBirth] = useState(
     defaultValues?.dateOfBirth?.toString().substring(0, 10) || ""
   )
@@ -112,7 +112,6 @@ export default function Form({
               </LabelWithIcon>
               <PetRadios
                 disabled={disabled}
-                value={animal}
                 onChange={(e) =>
                   setAnimal(
                     e.target.value === PetRole.DOG ? PetRole.DOG : PetRole.CAT

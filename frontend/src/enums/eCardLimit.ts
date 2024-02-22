@@ -1,3 +1,4 @@
+// To make responsive layouts
 enum CARD_LIMIT {
   DESKTOP = 16
 }
