@@ -35,7 +35,7 @@ export default function Cards({ data }: CardsProps) {
     setIsLoading(false)
   }, [data, setAllPets, setPets, currentPage])
 
-  if (isLoading) {
+  if (isLoading && data.length !== 0) {
     return (
       <div className="inset-0 flex flex-wrap items-center justify-start gap-5 transition-all">
         {data.slice(0, CARD_LIMIT.DESKTOP).map(({ id }) => (
