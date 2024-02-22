@@ -6,6 +6,7 @@ import { usePetsContext } from "@/context/petsContext"
 import CARD_LIMIT from "@/enums/eCardLimit"
 import iPet from "@/types/iPet"
 import { useEffect } from "react"
+import CardSkeleton from "./CardSkeleton"
 
 type CardsProps = {
   data: iPet[]
@@ -20,17 +21,24 @@ export default function Cards({ data }: CardsProps) {
   const currentPage = usePaginationContext((s) => s.page)
 
   useEffect(() => {
-    const fetchPets = async () => {
-      setAllPets(data)
-      setPets(
-        data.slice(
-          (currentPage - 1) * CARD_LIMIT.DESKTOP,
-          CARD_LIMIT.DESKTOP * currentPage
-        )
+    setAllPets(data)
+    setPets(
+      data.slice(
+        (currentPage - 1) * CARD_LIMIT.DESKTOP,
+        CARD_LIMIT.DESKTOP * currentPage
       )
-    }
-    fetchPets()
+    )
   }, [data, setAllPets, setPets, currentPage])
+
+  if (pets.length === 0) {
+    return (
+      <div className="inset-0 flex flex-wrap items-center justify-start gap-5 transition-all">
+        {data.slice(0, CARD_LIMIT.DESKTOP).map(({ id }) => (
+          <CardSkeleton key={id} />
+        ))}
+      </div>
+    )
+  }
 
   return (
     <div className="inset-0 flex flex-wrap items-center justify-start gap-5 transition-all">

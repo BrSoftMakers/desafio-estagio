@@ -12,10 +12,15 @@ export default function Pagination() {
     s.inc,
     s.dec
   ])
+
   const allPets = usePetsContext((s) => s.allPets)
   const pageLimit = Math.ceil(allPets.length / CARD_LIMIT.DESKTOP)
   const hasNextPage = page < pageLimit
   const hasPrevPage = page > 1
+
+  if (pageLimit === 0) {
+    return null
+  }
 
   const handleDecreasePage = () => {
     if (hasPrevPage) {
