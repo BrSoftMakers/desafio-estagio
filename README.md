@@ -18,3 +18,33 @@ Serão considerados diferenciais:
 - O uso de qualquer banco de dados para armazenar os dados da sua aplicação;
 - O uso de qualquer framework;
 - Boas práticas de escrita de código (código limpo, padrões de arquitetura, etc.).
+
+## Instruções de execução
+
+### Pré-requisitos
+- [WSL](https://docs.microsoft.com/pt-br/windows/wsl/install) (ou qualquer outro terminal Linux)
+- [Docker](https://www.docker.com/products/docker-desktop) (CLI ou Extensão do Docker no VSCode)
+- [Git](https://git-scm.com/downloads)
+
+### Clonar o repositório
+```bash
+git clone https://github.com/vinicivs-rocha/desafio-estagio
+```
+
+### Executar o projeto
+```bash
+cd desafio-estagio
+docker compose up --build
+```
+
+### Notas
+- Caso o comando `docker compose up --build` não funcione, tente `docker-compose up --build`
+- **Fique atento aos logs**, pois o front-end e o back-end só estarão prontos quando aparecerem mensagens como as seguintes (não necessariamente nessa ordem):
+```bash
+front-1  |  ✓ Ready in 6.3s
+
+db-1     | 2024-02-22 17:39:46.067 UTC [1] LOG:  database system is ready to accept connections
+
+back-1   | [Nest] 29  - 02/22/2024, 5:39:54 PM     LOG [NestApplication] Nest application successfully started +1ms
+```
+- Caso o serviço db não fique pronto a tempo, o back-end não conseguirá se conectar a ele e isso exibirá um erro no console. Nesse caso, espere o serviço do db ficar pronto e reinicie o back-end com `docker compose up --build back`
