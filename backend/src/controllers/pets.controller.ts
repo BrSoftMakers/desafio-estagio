@@ -28,11 +28,7 @@ export class PetsController {
 
   @Get()
   async findAll(): Promise<{ data: Pet[] }> {
-    const list = await this.db.pet.findMany({
-      orderBy: {
-        name: "asc",
-      },
-    })
+    const list = await this.db.pet.findMany()
     return { data: list }
   }
 

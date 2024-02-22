@@ -1,5 +1,6 @@
 import { Type } from "class-transformer"
 import {
+  IsDate,
   IsEnum,
   IsMobilePhone,
   IsNotEmpty,
@@ -39,8 +40,7 @@ export class CreatePetDto {
   animal: string
 
   @Type(() => Date)
-  @MaxDate(() => new Date(), {
-    message: `maximal allowed date for dateOfBirth is ${new Date().toISOString()}`,
-  })
+  @IsDate()
+  @MaxDate(new Date())
   dateOfBirth: Date
 }
