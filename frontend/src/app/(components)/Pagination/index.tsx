@@ -13,7 +13,7 @@ export default function Pagination() {
     s.dec
   ])
   const allPets = usePetsContext((s) => s.allPets)
-  const pageLimit = allPets.length / CARD_LIMIT.DESKTOP
+  const pageLimit = Math.ceil(allPets.length / CARD_LIMIT.DESKTOP)
   const hasNextPage = page < pageLimit
   const hasPrevPage = page > 1
 
@@ -29,7 +29,7 @@ export default function Pagination() {
   }
 
   return (
-    <div className="float-right mt-12 flex items-center gap-2">
+    <div className="absolute right-0 top-full mt-12 flex items-center gap-2">
       <button
         onClick={handleDecreasePage}
         className={hasPrevPage ? "" : "cursor-default opacity-70"}
