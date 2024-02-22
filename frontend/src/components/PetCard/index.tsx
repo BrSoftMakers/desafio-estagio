@@ -16,9 +16,7 @@ type PetCardProps = {
   pet: iPet
 }
 
-export default function PetCard({
-  pet: { name, animal, ownerName, ...rest }
-}: PetCardProps) {
+export default function PetCard({ pet }: PetCardProps) {
   const [isOpen, setIsOpen] = useState(false)
 
   const handleToggle = () => setIsOpen((prev) => !prev)
@@ -32,15 +30,15 @@ export default function PetCard({
         onClick={handleToggle}
       >
         <div className="flex size-full items-center rounded-[10px] bg-gradient-to-r from-dark to-dark_blue">
-          <PetLogo role={animal} />
+          <PetLogo role={pet.animal} />
           <div className="ml-[1.1rem] flex grow flex-col gap-2 text-white">
             <p className="flex items-center gap-3">
               <Image src={PetIcon} alt="icon for pet" />
-              {name}
+              {pet.name}
             </p>
             <p className="flex items-center gap-3">
               <Image src={UserIcon} alt="user icon" />
-              {ownerName}
+              {pet.ownerName}
             </p>
           </div>
           <Image
@@ -59,7 +57,7 @@ export default function PetCard({
             className="fixed inset-0 z-10"
             onClick={() => setIsOpen((state) => !state)}
           ></div>
-          <PetCardModal {...rest} />
+          <PetCardModal pet={pet} />
         </>
       )}
     </div>

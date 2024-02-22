@@ -7,5 +7,5 @@ export default interface iPet {
   breed: string
   ownerName: string
   ownerPhone: string
-  dateOfBirth: Date
+  dateOfBirth: string
 }

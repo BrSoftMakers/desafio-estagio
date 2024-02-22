@@ -14,6 +14,9 @@ const config: Config = {
         default_blue: "#0056E2",
         light_blue: "#00CAFC",
         grey: "#404A5C"
+      },
+      borderWidth: {
+        3: "3px"
       }
     }
   },

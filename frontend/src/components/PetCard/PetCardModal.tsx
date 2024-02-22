@@ -8,30 +8,24 @@ import PhoneIcon from "@/../public/assets/img/icons/phone.svg"
 import DeleteIcon from "@/../public/assets/img/icons/trash.svg"
 // Context
 import { useModalContext } from "@/context/modalContext"
+import iPet from "@/types/iPet"
+import calcAge from "@/utils/calcAge"
 import formatNumber from "@/utils/formatNumber"
 import { useMemo } from "react"
 
 type PetCardModalProps = {
-  id: number
-  breed: string
-  ownerPhone: string
-  dateOfBirth: Date
+  pet: iPet
 }
 
-export default function PetCardModal({
-  breed,
-  ownerPhone,
-  dateOfBirth
-}: PetCardModalProps) {
-  const [toggleEditModal, toggleDeleteModal] = useModalContext((s) => [
-    s.toggleEditModal,
-    s.toggleDeleteModal
+export default function PetCardModal({ pet }: PetCardModalProps) {
+  const [openEditModal, openDeleteModal] = useModalContext((s) => [
+    s.openEditModal,
+    s.openDeleteModal
   ])
 
   const age = useMemo(
-    () =>
-      new Date(dateOfBirth).getFullYear() - new Date(Date.now()).getFullYear(),
-    [dateOfBirth]
+    () => calcAge(pet.dateOfBirth.toString()),
+    [pet.dateOfBirth]
   )
 
   return (
@@ -41,11 +35,11 @@ export default function PetCardModal({
           <div className="m-2 flex max-w-full flex-col items-start gap-2">
             <p className="flex items-center">
               <Image src={DNAIcon} alt="DNA icon" className="mr-2.5" />
-              Raça: {breed}
+              Raça: {pet.breed}
             </p>
             <p className="flex items-center">
               <Image src={PhoneIcon} alt="phone icon" className="mr-2" />
-              Telefone: {formatNumber(ownerPhone)}
+              Telefone: {formatNumber(pet.ownerPhone)}
             </p>
             <p className="flex items-center">
               <Image
@@ -53,17 +47,22 @@ export default function PetCardModal({
                 alt="calendar icon"
                 className="mr-2.5"
               />
-              Idade: {age} Anos ({new Date(dateOfBirth).toLocaleDateString()})
+              Idade: {age} Anos (
+              {new Date(pet.dateOfBirth).toLocaleDateString()})
             </p>
           </div>
           <div className="mt-3 flex flex-col gap-3">
-            <Button height="md" onClick={toggleEditModal}>
+            <Button height="md" onClick={() => openEditModal(pet)}>
               <div className="flex items-center gap-2 bg-gradient-to-r from-light_blue to-default_blue bg-clip-text text-transparent">
                 <Image src={EditIcon} alt="pencil icon" />
                 Editar
               </div>
             </Button>
-            <Button height="md" variant="info" onClick={toggleDeleteModal}>
+            <Button
+              height="md"
+              variant="info"
+              onClick={() => openDeleteModal(pet)}
+            >
               <Image src={DeleteIcon} alt="trash icon" />
               Remover
             </Button>
