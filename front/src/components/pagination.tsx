@@ -5,9 +5,11 @@ import { useQuery } from "@tanstack/react-query";
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 export const Pagination = () => {
+  const router = useRouter();
+
   const searchParams = useSearchParams();
   const currentPage = searchParams.get("page")
     ? parseInt(searchParams.get("page")!)
@@ -22,6 +24,9 @@ export const Pagination = () => {
   if (error) return <p>Erro: {error.message}/</p>;
 
   const totalPages = data;
+
+  if (currentPage > totalPages && currentPage !== 1)
+    return router.push("?page=1");
 
   return (
     <div className="absolute bottom-16 right-16 flex justify-center items-center gap-4">
