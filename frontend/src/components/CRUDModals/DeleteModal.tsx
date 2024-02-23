@@ -39,7 +39,14 @@ export default function DeleteModal() {
           Tem certeza que deseja remover esse pet?
         </h2>
         <div className="flex items-center justify-between">
-          <Button height="md" width="lg">
+          <Button
+            height="md"
+            width="lg"
+            onClick={(e) => {
+              e.preventDefault()
+              closeDeleteModal()
+            }}
+          >
             <Image src={ArrowLeftIcon} alt="arrow left icon" />
             <span className="bg-gradient-to-r from-light_blue to-default_blue bg-clip-text font-bold text-transparent">
               Voltar

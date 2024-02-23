@@ -35,7 +35,14 @@ export default function EditModal() {
       </Modal.Header>
       <Form onSubmit={onSubmit} defaultValues={currentPet}>
         <div className="mt-[66px] flex items-center justify-between">
-          <Button height="md" width="lg">
+          <Button
+            height="md"
+            width="lg"
+            onClick={(e) => {
+              e.preventDefault()
+              closeEditModal()
+            }}
+          >
             <Image src={ArrowLeftIcon} alt="arrow left icon" />
             <span className="bg-gradient-to-r from-light_blue to-default_blue bg-clip-text font-bold text-transparent">
               Voltar
