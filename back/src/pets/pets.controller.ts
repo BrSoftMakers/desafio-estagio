@@ -21,8 +21,12 @@ export class PetsController {
   }
 
   @Get()
-  findAll(@Query('page') page: number = 1) {
-    return this.petsService.findAll(page);
+  findAll(
+    @Query('page') page: number = 1,
+    @Query('search') search: string = '',
+  ) {
+    const limit = 16;
+    return this.petsService.findAll(page, limit, search);
   }
 
   @Get('pages')
