@@ -1,4 +1,9 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  HttpException,
+  HttpStatus,
+  Injectable,
+} from '@nestjs/common';
 import { CreatePetDTO } from './dto/create-pet.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { UpdatePutPetDTO } from './dto/update-put-pet.dto';
@@ -10,23 +15,33 @@ import { FindPetDTO } from './dto/find-pet.dto';
 export class PetService {
   constructor(private readonly prisma: PrismaService) {}
 
-  async create(body: CreatePetDTO): Promise<CreatePetDTO> {
+  async create(body) {
     try {
-      const createdPet: CreatePetDTO = await this.prisma.pet.create({
-        data: body,
+      const ownerId = await this.prisma.owner.findFirst({
+        where: { email: body.email },
+      });
+
+      const { animal, name, phone, race, birth } = body;
+
+      const createdPet = await this.prisma.pet.create({
+        data: {
+          animal,
+          name,
+          phone,
+          race,
+          birth,
+          ownerId: ownerId.id,
+        },
       });
 
       return createdPet;
     } catch (error) {
       console.error(error);
-      throw new HttpException(
-        'Erro interno do servidor',
-        HttpStatus.INTERNAL_SERVER_ERROR,
-      );
+      throw new BadRequestException(error);
     }
   }
 
-  async findAll(page: number, pageSize: number): Promise<CreatePetDTO[]> {
+  async findAll(page: number, pageSize: number): Promise<any> {
     try {
       const skip: number = (page - 1) * pageSize;
       const take: number = pageSize;
@@ -34,9 +49,21 @@ export class PetService {
       const findPets: CreatePetDTO[] = await this.prisma.pet.findMany({
         skip,
         take,
+        include: {
+          owner: {
+            select: {
+              name: true,
+              email: true,
+            },
+          },
+        },
       });
 
-      return findPets;
+      const totalItems: number = await this.prisma.pet.count();
+
+      const totalPages: number = Math.ceil(totalItems / pageSize);
+
+      return [findPets, totalPages];
     } catch (error) {
       console.log(error);
       throw new HttpException(
@@ -80,14 +107,36 @@ export class PetService {
     updateBody: UpdatePutPetDTO,
   ): Promise<UpdatePutPetDTO> {
     try {
+      const { animal, birth, name, phone, race } = updateBody;
+
+      const existingPet = await this.prisma.pet.findUnique({
+        where: { id },
+      });
+
+      if (!existingPet) {
+        throw new HttpException(
+          `Pet with id ${id} not found`,
+          HttpStatus.NOT_FOUND,
+        );
+      }
+
       const updatePet: UpdatePutPetDTO = await this.prisma.pet.update({
         where: { id },
-        data: updateBody,
+        data: {
+          animal,
+          birth,
+          name,
+          phone,
+          race,
+        },
       });
 
       return updatePet;
     } catch (error) {
-      console.log(error);
+      console.error(error);
+      if (error instanceof HttpException) {
+        throw error;
+      }
       throw new HttpException(
         `Erro interno do servidor`,
         HttpStatus.INTERNAL_SERVER_ERROR,

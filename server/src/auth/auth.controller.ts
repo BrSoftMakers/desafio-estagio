@@ -28,7 +28,7 @@ export class AuthController {
   }
 
   @Patch('reset/:token')
-  async reset(@Param('token') token: string, @Body() password) {
+  async reset(@Param('token') token: string, @Body() password: string) {
     return this.authService.resetPassword(password, token);
   }
 }

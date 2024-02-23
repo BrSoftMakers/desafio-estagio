@@ -1,41 +1,32 @@
 'use client'
-
-import { useEffect } from "react";
-import { useForm } from "react-hook-form";
-import Link from "next/link";
 import { Card } from "@/components/ui/card";
 import Logo from "@/components/ui/logo";
+import { useForm } from "react-hook-form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { handleLoginRequest } from "@/utils/auth";
-import { useContext } from "react";
-import { AuthContext } from "@/context/auth";
-import { redirect } from "next/navigation";
-import { LoginValidateForm } from "@/validation/auth-login.schema";
+import Link from "next/link";
+import { handleRegisterRequest } from "@/utils/auth";
+import { useRouter } from "next/navigation";
+import { RegisterValidateForm } from "@/validation/auth-register.schema";
 import { useToast } from "@/components/ui/use-toast";
 
-interface LoginForm {
+interface RegisterForm {
+  name: string;
   email: string;
   password: string;
+  permission: 'boss' | 'employee' | 'client';
 }
 
-export default function Login() {
-  const { login } = useContext(AuthContext);
-  const token = typeof window !== 'undefined' ? localStorage.getItem('@token:auth') : null;
+export default function SignIn() {
+  const router = useRouter();
+  const { register, handleSubmit } = useForm<RegisterForm>();
   const { toast } = useToast();
-  const { register, handleSubmit } = useForm<LoginForm>();
 
-  useEffect(() => {
-    if (token) {
-      redirect('/home');
-    }
-  }, [token]);
-
-  const handleLogin = async (data: LoginForm) => {
+  const handleRegister = async (data: RegisterForm) => {
     try {
-      const validatedData = LoginValidateForm(data);
-      const userToken = await handleLoginRequest(validatedData);
-      await login(userToken);
+      const validatedData = RegisterValidateForm(data);
+      await handleRegisterRequest(validatedData);
+      router.push('/');
     } catch (error) {
       console.error(error);
 
@@ -54,15 +45,22 @@ export default function Login() {
 
   return (
     <div className="w-full h-full flex items-center justify-center">
-      <Card className="w-full max-w-[500px] h-full max-h-[500px] p-5 rounded-[10px] border-none">
+      <Card className="w-full max-w-[500px] h-full max-h-[500px] border-none p-5 rounded-[10px]">
         <Logo />
         <p className="text-slate-400 mt-1 mb-5">
-          Faça login usando suas credenciais:
+          Faça seu cadastro usando suas credenciais:
         </p>
         <form
           className="flex flex-col gap-3"
-          onSubmit={handleSubmit(handleLogin)}
+          onSubmit={handleSubmit(handleRegister)}
         >
+          <label>Nome</label>
+          <Input
+            type="name"
+            placeholder="Nome e sobrenome"
+            {...register("name", { required: true })}
+            className="rounded-[10px]"
+          />
           <label>E-mail</label>
           <Input
             type="email"
@@ -77,15 +75,21 @@ export default function Login() {
             {...register("password", { required: true })}
             className="rounded-[10px]"
           />
+          <label>Permissão</label>
+          <select {...register("permission")} className="rounded-[10px] bg-transparent outline-none hover:cursor-pointer py-2 text-slate-500 focus:outline-none">
+            <option value="boss">Chefe</option>
+            <option value="employee">Empregado</option>
+            <option value="client">Cliente</option>
+          </select>
           <Button
             type="submit"
             className="bg-gradient-to-r from-[#00CAFC] to-[#0056E2] w-full rounded-[10px]"
           >
-            Login
+            Cadastre-se
           </Button>
           <p className="text-slate-400 text-center">
-            Não possui uma conta?
-            <Link href="/register" className="ml-1 text-[#0056E2]">
+            Já possui uma conta?
+            <Link href="/" className="ml-1 text-[#0056E2]">
               Clique aqui
             </Link>
           </p>

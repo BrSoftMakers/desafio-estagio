@@ -69,13 +69,17 @@ export class AuthService {
   }
 
   async login(email: string, password: string): Promise<string> {
-    const user = await this.prisma.user.findFirst({ where: { email } });
+    try {
+      const user = await this.prisma.user.findFirst({ where: { email } });
 
-    if (!user || !(await this.comparePasswords(password, user.password))) {
-      throw new UnauthorizedException('E-mail e/ou senha incorreto(s).');
+      if (!user || !(await this.comparePasswords(password, user.password))) {
+        throw new UnauthorizedException('E-mail e/ou senha incorreto(s).');
+      }
+
+      return this.createToken(user);
+    } catch (error) {
+      console.log(error);
     }
-
-    return this.createToken(user);
   }
 
   async register(data: AuthCredentialRegisterDTO): Promise<string> {

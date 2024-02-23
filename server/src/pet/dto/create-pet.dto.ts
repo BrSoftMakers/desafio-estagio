@@ -1,4 +1,4 @@
-import { IsDateString, IsEnum, IsPhoneNumber, IsString } from 'class-validator';
+import { IsDateString, IsEmail, IsEnum, IsOptional, IsPhoneNumber, IsString } from 'class-validator';
 
 export class CreatePetDTO {
   @IsString()

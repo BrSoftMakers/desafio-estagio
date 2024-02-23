@@ -44,7 +44,7 @@ export class PetController {
     return this.petService.findAll(Number(page), Number(pageSize));
   }
 
-  @Get('find/:name')
+  @Get('/find/:name')
   @HttpCode(200)
   async findByName(@Param('name') name): Promise<FindPetDTO> {
     return this.petService.findByName(name);
