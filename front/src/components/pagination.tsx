@@ -1,18 +1,31 @@
 "use client";
 
+import { getPagesNumber } from "@/lib/data";
+import { useQuery } from "@tanstack/react-query";
 import clsx from "clsx";
 import Image from "next/image";
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
-export const Pagination = ({
-  totalPages,
-  currentPage,
-}: {
-  totalPages: number;
-  currentPage: number;
-}) => {
+export const Pagination = () => {
+  const searchParams = useSearchParams();
+  const currentPage = searchParams.get("page")
+    ? parseInt(searchParams.get("page")!)
+    : 1;
+
+  const { isPending, error, data } = useQuery({
+    queryKey: ["pages", currentPage],
+    queryFn: getPagesNumber,
+  });
+
+  if (isPending) return null;
+  if (error) return <p>Erro: {error.message}/</p>;
+
+  const totalPages = data;
+
   return (
     <div className="absolute bottom-16 right-16 flex justify-center items-center gap-4">
-      <a
+      <Link
         href={`?page=${currentPage - 1}`}
         aria-disabled={currentPage === 1}
         className={clsx({
@@ -25,11 +38,11 @@ export const Pagination = ({
         }}
       >
         <Image src="/nav-arrow.svg" alt="" height={22} width={22} />
-      </a>
+      </Link>
       <span className="text-white">
         {currentPage} de {totalPages}
       </span>
-      <a
+      <Link
         href={`?page=${currentPage + 1}`}
         className={clsx({
           "opacity-50 cursor-not-allowed":
@@ -49,7 +62,7 @@ export const Pagination = ({
           width={22}
           className="rotate-180"
         />
-      </a>
+      </Link>
     </div>
   );
 };

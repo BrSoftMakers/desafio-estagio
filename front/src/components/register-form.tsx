@@ -18,7 +18,7 @@ import clsx from "clsx";
 import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Dispatch, PropsWithChildren, SetStateAction, useContext } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -47,6 +47,9 @@ export const RegisterForm = ({
 }>) => {
   const router = useRouter();
   const { pets, setPets } = useContext(PetsContext);
+  const searchParams = useSearchParams();
+  const currentPage = searchParams.get("page") ?? "1";
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -63,7 +66,8 @@ export const RegisterForm = ({
     form.reset();
     setDialogOpen(false);
     const createdPet = await createPet(value);
-    if (pets.length === 16) return router.refresh();
+    if (pets.length === 16)
+      return router.push(`?page=${parseInt(currentPage) + 1}`);
     setPets((prev) => [...prev, createdPet]);
   };
   return (

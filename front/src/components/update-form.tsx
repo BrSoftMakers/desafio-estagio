@@ -19,6 +19,7 @@ import clsx from "clsx";
 import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
 import Image from "next/image";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Dispatch, PropsWithChildren, SetStateAction, useContext } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -47,7 +48,11 @@ export const UpdateForm = ({
   setDialogOpen: Dispatch<SetStateAction<boolean>>;
   petData: Pet;
 }>) => {
-  const { setPets } = useContext(PetsContext);
+  const router = useRouter();
+  const { pets, setPets } = useContext(PetsContext);
+  const searchParams = useSearchParams();
+  const currentPage = searchParams.get("page") ?? "1";
+
   const { id, ...petInitialData } = petData;
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -62,8 +67,10 @@ export const UpdateForm = ({
     if (id === undefined) throw new Error("Id do pet não foi providenciado");
     const wasUpdated = await updatePet(value, id);
     if (!wasUpdated) return;
+    if (pets.length === 16)
+      return router.push(`?page=${parseInt(currentPage) + 1}`);
     setPets((prev) =>
-      prev.map((pet) => (pet.id === id ? { id, ...value } : pet))
+      prev.map((pet) => (pet.id === id ? { ...value, id } : pet))
     );
   };
   return (
