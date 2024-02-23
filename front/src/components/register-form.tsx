@@ -12,7 +12,7 @@ import {
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { createPet } from "@/lib/actions";
 import { PetsContext } from "@/lib/contexts";
-import { cn } from "@/lib/utils";
+import { cn, formatToPhone } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import clsx from "clsx";
 import { format } from "date-fns";
@@ -35,7 +35,7 @@ const formSchema = z.object({
     required_error: "Informe uma data de nascimento",
   }),
   phone: z.string().regex(/^\(\d{2}\)\s9\s\d{4}-\d{4}$/, {
-    message: "Telefone inválido (insira no formato (00) 0 0000-0000)",
+    message: "Telefone inválido (insira no formato (00) 9 0000-0000)",
   }),
 });
 
@@ -199,7 +199,7 @@ export const RegisterForm = ({
         <FormField
           control={form.control}
           name="phone"
-          render={({ field }) => (
+          render={({ field: { onChange, ...rest } }) => (
             <FormItem>
               <FormLabel className="flex gap-1">
                 <Image src="/phone.svg" alt="" width={16} height={16} />
@@ -210,7 +210,11 @@ export const RegisterForm = ({
                   type="text"
                   placeholder="(00) 0 0000-0000"
                   className="bg-transparent border-[#404A5C] border-solid border-4"
-                  {...field}
+                  {...rest}
+                  onChange={(e) => {
+                    e.target.value = formatToPhone(e.target.value);
+                    onChange(e);
+                  }}
                 />
               </FormControl>
               <FormMessage />

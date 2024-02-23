@@ -12,7 +12,7 @@ import {
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { updatePet } from "@/lib/actions";
 import { PetsContext } from "@/lib/contexts";
-import { cn } from "@/lib/utils";
+import { cn, formatToPhone } from "@/lib/utils";
 import { Pet } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import clsx from "clsx";
@@ -202,7 +202,7 @@ export const UpdateForm = ({
         <FormField
           control={form.control}
           name="phone"
-          render={({ field }) => (
+          render={({ field: { onChange, ...rest } }) => (
             <FormItem>
               <FormLabel className="flex gap-1">
                 <Image src="/phone.svg" alt="" width={16} height={16} />
@@ -213,7 +213,11 @@ export const UpdateForm = ({
                   type="text"
                   placeholder="(00) 0 0000-0000"
                   className="bg-transparent border-[#404A5C] border-solid border-4"
-                  {...field}
+                  {...rest}
+                  onChange={(e) => {
+                    e.target.value = formatToPhone(e.target.value);
+                    onChange(e);
+                  }}
                 />
               </FormControl>
               <FormMessage />
