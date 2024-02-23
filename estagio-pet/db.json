@@ -1,0 +1,31 @@
+{
+  "animals": [
+    {
+      "id": "1843",
+      "name": "paçoca",
+      "owner": "renato",
+      "phoneNumber": "55 83 93849384",
+      "animalType": "cat",
+      "breed": "angorá",
+      "birthDate": "2021-06-06"
+    },
+    {
+      "id": "cf4b",
+      "name": "algodaozinho",
+      "owner": "ernandy lucenaa",
+      "phoneNumber": "88 883938923",
+      "breed": "dea",
+      "animalType": "cat",
+      "birthDate": "2013-02-22"
+    },
+    {
+      "id": "1718",
+      "name": "trex",
+      "owner": "rafael junior",
+      "phoneNumber": "55 78 837583759",
+      "animalType": "dog",
+      "breed": "golden",
+      "birthDate": "2022-02-23"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  
+}
+
+body {
+    background: linear-gradient(to bottom, #000820, #1c0069);
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+    max-height: 100%;
+  }
+  
+
+@media (min-width: 200px) and (max-width: 300px) {
+  .xxs-search-bar {
+    font-size: 10px;
+    display: none;
+  }
+
+  .xxs-placeh {
+    width: 120px;
+  }
+
+  .xxs-cadastrar-button {
+    font-size: 10px;
+    padding: 12px;
+    margin-left: 10px;
+  }
+}
+
+
+@media (min-width: 320px) and (max-width: 380px) {
+  .xxs-search-bar {
+    font-size: 10px;
+  }
+
+  .xxs-placeh {
+    width: 200px;
+  }
+
+  .xxs-cadastrar-button {
+    font-size: 10px;
+    padding: 12px;
+    margin-left: 15px;
+  }
+}
+
+.opacity-background {
+  background-color: rgba(255, 255, 255, 0.074);
+}
+
+.indigo-box-shadow {
+  box-shadow: 0 0 20px rgba(53, 78, 220, 0.507);
+}
+
+.modal-edicao {
+  z-index: 100; 
+}
