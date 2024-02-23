@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+body {
+  background: url("/backgroundTop.svg") left top no-repeat,
+    url("/backgroundBottom.svg") right bottom no-repeat;
+  background-size: auto;
+  background-color: hsl(216, 100%, 3%);
+  margin: 4%;
+}
+html {
+  height: 100%;
+}
+
+.w-80{
+  width: 80%;
+}
+
+.h-7{
+  height: 7%;
+}
+
+.border-3{
+  border-width: .2rem;
+}
+
+.w-100{
+  width: 100%;
+}
+.h-100{
+  height: 100%;
+}

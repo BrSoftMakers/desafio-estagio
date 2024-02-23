@@ -1,5 +1,28 @@
  ![SoftMakers](https://www.softmakers.com.br/assets/img/logotipo14xxhdpi.png)
 
+ Entre na pasta que deseja deixar o projeto
+ No terminal da pasta criada digite o comando abaixo:
+
+git clone https://github.com/Caua-Vinicius/desafio-estagio.git
+
+Após o repositório ser clonado abra o terminal na pasta "backend" e instale as dependencias usando, após fazer isso faça o mesmo na pasta "frontend:
+
+npm install
+
+Para configurar o prisma use o seguinte comando no terminal da pasta  "backend":
+
+npx prisma generate
+
+Após instalar todos os pacotes necessários basta rodar os seguintes comandos no terminal de ambas pastas "backend" e "frontend", respectivamente:
+
+npm run start
+npm run dev
+
+
+
+
+
+
 # Desafio - Desenvolvedor Fullstack - Estágio
 Seja bem-vindo! Este desafio foi projetado para avaliar a sua capacidade técnica como candidato ao cargo proposto.
 
