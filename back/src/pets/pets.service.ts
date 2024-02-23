@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { FindManyOptions, Like, Repository } from 'typeorm';
 import { PetDto } from './dto/pet.dto';
 import { Pet } from './entities/pet.entity';
 
@@ -15,12 +15,19 @@ export class PetsService {
     return this.petRepository.save(createPetDto);
   }
 
-  findAll(page: number = 1, limit: number = 16) {
+  findAll(page: number = 1, limit: number = 16, search: string = '') {
     const skip = (page - 1) * limit;
-    return this.petRepository.find({
+    const basicQuery: FindManyOptions<Pet> = {
       take: limit,
       skip,
       order: { id: 'ASC' },
+    };
+    if (search === '') {
+      return this.petRepository.find(basicQuery);
+    }
+    return this.petRepository.find({
+      ...basicQuery,
+      where: [{ name: Like(`%${search}%`) }],
     });
   }
 
