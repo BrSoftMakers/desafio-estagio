@@ -31,8 +31,10 @@ export class PetsService {
     });
   }
 
-  async getPages(limit: number = 16) {
-    const petsNumber = await this.petRepository.count();
+  async getPages(limit: number = 16, search: string = '') {
+    const petsNumber = await this.petRepository.count({
+      where: [{ name: Like(`%${search}%`) }],
+    });
     return Math.ceil(petsNumber / limit);
   }
 

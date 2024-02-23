@@ -4,6 +4,7 @@ import {
   Delete,
   Get,
   Param,
+  ParseIntPipe,
   Patch,
   Post,
   Query,
@@ -22,7 +23,7 @@ export class PetsController {
 
   @Get()
   findAll(
-    @Query('page') page: number = 1,
+    @Query('page', ParseIntPipe) page: number = 1,
     @Query('search') search: string = '',
   ) {
     const limit = 16;
@@ -30,8 +31,9 @@ export class PetsController {
   }
 
   @Get('pages')
-  getPages() {
-    return this.petsService.getPages();
+  getPages(@Query('search') search: string = '') {
+    const limit = 16;
+    return this.petsService.getPages(limit, search);
   }
 
   @Patch(':id')
