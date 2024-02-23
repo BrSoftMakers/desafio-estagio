@@ -1,20 +1,51 @@
- ![SoftMakers](https://www.softmakers.com.br/assets/img/logotipo14xxhdpi.png)
+# Projeto Prisma - Guia de Instalação
 
-# Desafio - Desenvolvedor Fullstack - Estágio
-Seja bem-vindo! Este desafio foi projetado para avaliar a sua capacidade técnica como candidato ao cargo proposto.
+Este guia descreve os passos necessários para instalar e configurar o ambiente de um projeto Prisma.
 
-## Instruções
-- Faça um fork deste repositório;
-- O conjunto mínimo de tecnologias a serem utilizadas são: HTML, CSS e JS;
-- Crie um passo a passo de como rodar a sua aplicação;
-- Após finalizar, submeta um pull request com um comentário informando o seu e-mail de contato e aguarde nossa avaliação.
+## Pré-requisitos
 
-## Proposta
-O teste consiste em desenvolver um projeto utilizando NextJS no front-end e Nest.js no back-end, com o objetivo de criar uma aplicação que permita listar, visualizar, criar, editar e excluir animais de estimação em uma petshop. Utilize o Protótipo Figma fornecido como referência https://www.figma.com/file/z0zYWFHb7OK6TUXDBBw5my/SoftMakers-Challenges%3A-Dev-Jr.?type=design&node-id=0%3A1&mode=design&t=vAPkbzL97wUL9qma-1
+- Node.js e npm instalados globalmente na sua máquina.
 
-## Diferenciais
-Serão considerados diferenciais:
+## Passos de Instalação
 
-- O uso de qualquer banco de dados para armazenar os dados da sua aplicação;
-- O uso de qualquer framework;
-- Boas práticas de escrita de código (código limpo, padrões de arquitetura, etc.).
+1. **Clonar o repositório:**
+
+   ```bash
+   git clone https://github.com/Alexsandro-ms/soft-pet.git
+
+   ```
+
+2. **Instalar Dependências:**
+
+```bash
+    cd soft-pet
+    cd server && npm install # ou yarn i
+    cd ../system && npm instal # ou yarn i
+```
+
+3. **Configurar os arquivos `.env`:**
+
+- Renomeie o arquivo .env.example para .env e atualize as variáveis de ambiente conforme necessário, incluindo as informações do banco de dados.
+
+- **Tanto o do server quanto do system**
+
+4. **Criar e migrar o banco de dados:**
+
+```bash
+    npx prisma migrate dev --name initial_migration
+```
+
+- Recomendo usar o postgresql ou mysql
+
+- Você pode usar o Supabase para armazenar: ['Supabase'](supabase.com/)
+
+5. **Iniciar servidor em desenvolvimento:**
+```bash
+    cd server && npm run dev # ou yarn dev
+```
+
+```bash
+    cd system && npm run dev # ou yarn dev
+```
+
+- O servidor estará disponível em http://localhost:8080 ou você pode definir um nas variaveis de ambiente.

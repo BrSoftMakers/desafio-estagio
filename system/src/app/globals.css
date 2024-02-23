@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --dark-blue: 217, 100%, 15%;
+    --grey: 219, 18%, 31%;
+    --background: 216, 100%, 3%;
+    --foreground: 0, 0%, 100%;
+    --border: 219, 18%, 31%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground h-full;
+    background: url("/bg-01.svg") left top no-repeat,
+      url("/bg-02.svg") right bottom no-repeat;
+    background-size: auto;
+    background-color: hsl(216, 100%, 3%);
+  }
+  html {
+    @apply h-full;
+  }
+}
