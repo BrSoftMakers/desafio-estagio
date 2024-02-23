@@ -14,10 +14,11 @@ export const PetsGrid = () => {
   const currentPage = searchParams.get("page")
     ? parseInt(searchParams.get("page")!)
     : 1;
+  const currentSearch = searchParams.get("search") ?? "";
 
-  const getPetsFunction = getPets.bind(null, currentPage);
+  const getPetsFunction = getPets.bind(null, currentPage, currentSearch);
   const { isPending, error, data } = useQuery({
-    queryKey: ["pets", currentPage],
+    queryKey: ["pets", currentPage, currentSearch],
     queryFn: getPetsFunction,
   });
 

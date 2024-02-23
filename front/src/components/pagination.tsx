@@ -14,10 +14,12 @@ export const Pagination = () => {
   const currentPage = searchParams.get("page")
     ? parseInt(searchParams.get("page")!)
     : 1;
+  const currentSearch = searchParams.get("search") ?? "";
 
+  const getPagesFunction = getPagesNumber.bind(null, currentSearch);
   const { isPending, error, data } = useQuery({
-    queryKey: ["pages", currentPage],
-    queryFn: getPagesNumber,
+    queryKey: ["pages", currentPage, currentSearch],
+    queryFn: getPagesFunction,
   });
 
   if (isPending) return null;
@@ -31,7 +33,7 @@ export const Pagination = () => {
   return (
     <div className="absolute bottom-16 right-16 flex justify-center items-center gap-4">
       <Link
-        href={`?page=${currentPage - 1}`}
+        href={`?page=${currentPage - 1}&search=${currentSearch}`}
         aria-disabled={currentPage === 1}
         className={clsx({
           "opacity-50 cursor-not-allowed": currentPage === 1,
@@ -48,7 +50,7 @@ export const Pagination = () => {
         {currentPage} de {totalPages}
       </span>
       <Link
-        href={`?page=${currentPage + 1}`}
+        href={`?page=${currentPage + 1}&search=${currentSearch}`}
         className={clsx({
           "opacity-50 cursor-not-allowed":
             currentPage === totalPages || currentPage > totalPages,
