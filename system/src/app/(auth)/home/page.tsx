@@ -12,15 +12,17 @@ import Logo from "@/components/ui/logo";
 import ContentAnimals from "./components/content-animals";
 import InputSearch from "./components/input-search";
 import { CreatePetDialog } from "@/app/(auth)/home/components/create-dialog";
-import { handleGetAll, handleGetPetByName } from "@/utils/pet";
+import { handleGetAll } from "@/utils/pet";
 import { AuthContext } from "@/context/auth";
 import { useToast } from "@/components/ui/use-toast";
+import { redirect } from "next/navigation";
 
 const TOKEN_KEY = "@token:auth";
 
 export default function Home() {
   const [pagination, setPagination] = useState<number>(1);
   const [maxPage, setMaxPage] = useState<number>(1);
+  const [atualizatePage, setAtualizatePage] = useState<boolean>(false);
   const [pets, setPets] = useState([]);
   const token =
     typeof window !== "undefined" ? localStorage.getItem(TOKEN_KEY) : null;
@@ -28,10 +30,11 @@ export default function Home() {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const { toast } = useToast();
 
-  const handleSearchButtonClick = async () => {
-    const petSearch = await handleGetPetByName(searchTerm, TOKEN_KEY);
-    setPets(petSearch);
-  };
+  useEffect(() => {
+    if (atualizatePage) {
+      redirect("/");
+    }
+  }, [atualizatePage]);
 
   const handleIncrementPagination = () => {
     setPagination((prev) => (prev === maxPage ? prev : prev + 1));
@@ -39,6 +42,16 @@ export default function Home() {
 
   const handleDecrementPagination = () => {
     setPagination((prev) => (prev === 1 ? 1 : prev - 1));
+  };
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      setAtualizatePage(true);
+      redirect("/");
+    } catch (error) {
+      console.error("Error during logout:", error);
+    }
   };
 
   const handleGetAllPets = async () => {
@@ -50,12 +63,10 @@ export default function Home() {
       console.error("Error fetching pets:", error);
 
       if (error.response) {
-        toast({
-          description: error.response.data.message[0]
-        });
+          console.log(error.response.data.message[0])
       } else {
         toast({
-          description: "Ocorreu um erro"
+          description: "Saiu com sucesso"
         });
       }
     }
@@ -75,20 +86,14 @@ export default function Home() {
         <Logo />
         <Button
           className="border-2 border-slate-500 rounded-[10px] ml-auto"
-          onClick={logout}
+          onClick={handleLogout}
         >
           Sair
         </Button>
       </div>
       <div className="flex items-center gap-5 mt-7 mb-7 max-sm:flex-col">
-        <InputSearch
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        >
-          <Button
-            className="bg-grey border-none rounded-[5px] bg-[#404A5C] hover:bg-[#404A5C]"
-            onClick={handleSearchButtonClick}
-          >
+        <InputSearch>
+          <Button className="bg-grey border-none rounded-[5px] bg-[#404A5C] hover:bg-[#404A5C]">
             <p className="hidden sm:block">Pesquisar</p>
             <div className="block sm:hidden">
               <SearchIcon />

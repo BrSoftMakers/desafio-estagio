@@ -54,6 +54,13 @@ export class UserService {
         },
       });
 
+      await this.prisma.owner.create({
+        data: {
+          email: createdUser.email,
+          name: createdUser.name,
+        },
+      });
+
       return createdUser;
     } catch (error) {
       this.handleServerError(error);

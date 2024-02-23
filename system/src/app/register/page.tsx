@@ -79,7 +79,7 @@ export default function SignIn() {
           <select {...register("permission")} className="rounded-[10px] bg-transparent outline-none hover:cursor-pointer py-2 text-slate-500 focus:outline-none">
             <option value="boss">Chefe</option>
             <option value="employee">Empregado</option>
-            <option value="client">Cliente</option>
+            <option value="client" selected={() => alert('Clientes não podem cadastrar um pet')}>Cliente</option>
           </select>
           <Button
             type="submit"
