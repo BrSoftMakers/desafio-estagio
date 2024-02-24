@@ -46,7 +46,11 @@ Este projeto é uma aplicação web desenvolvida como parte do desafio para o es
     ```bash
     json-server --watch db.json --port 4000
     ```
-4. Em um terminal separado, inicie o servidor Next.js: 
+ 4. Caso encontre algum possivel erro ao executar o json-server, execute novamente o server após isso: 
+    ```bash
+    Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+    ```
+5. Em um terminal separado, inicie o servidor Next.js: 
     ```bash
     npm run dev
     ```
