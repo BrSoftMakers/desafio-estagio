@@ -55,6 +55,7 @@ Este projeto é uma aplicação web desenvolvida como parte do desafio para o es
     npm run dev
     ```
 
+
 ---
 
 ## Considerações Finais
