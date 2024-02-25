@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #00060F;
+  line-height: 18px;
+  color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 34px;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+img {
+  user-select: none;
+}
+input[type="date"] {
+  position: relative;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: auto;
+  color: transparent;
+  background: transparent;
+  cursor: pointer;
+}
+input[type="date"]::placeholder {
+  @apply text-grey
+}
+
+
+/* .bg-gradient-1 {
+  @apply from-light_blue to-default_blue;
+}
+
+.bg-gradient-2 {
+  @apply from-dark to-dark_blue;
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent;
+}  */
