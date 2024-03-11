@@ -1,6 +1,6 @@
 //E-mail de contato - joaopauloquino@gmail.com 
 
-# Desafio - Desenvolvedor Fullstack - Estágio
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
