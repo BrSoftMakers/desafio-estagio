@@ -1,0 +1,36 @@
+
+.card__contains{
+    position: absolute;
+    margin-left:80px;
+    margin-top: 50px;
+}
+.card__bg{
+    position: absolute;
+    border-radius: 10px;   
+}
+.card__bg:hover{
+    border: 3px solid blue;
+}
+.card__animal{
+    position: relative;
+    top: 16px;
+    left: 10px;
+}
+.card__div{
+    position: relative;   
+    color: white;
+    bottom:40px;
+    left: 100px;
+}
+.card__div p{
+    margin-bottom: 4px;
+}
+.card__seta{
+    position: relative;
+    bottom: 70px;
+    left: 250px;
+    cursor: pointer;
+}
+.card__seta:active{
+    transform: rotate(180deg);
+}
