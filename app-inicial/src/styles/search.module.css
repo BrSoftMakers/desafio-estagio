@@ -1,0 +1,50 @@
+.contains__search{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+.search{    
+    position: relative;
+    width: 75vw;
+}
+.search__input{
+    width: 75vw;
+   border: 3px solid #404A5C;
+   background: none;
+   height: 50px;
+   color: white;
+   outline: none;
+   border-radius:5px;
+   padding: 0px 60px ;
+   font-size: 20px;
+}
+.search__button{
+    position: absolute;
+    right: 6px;
+    top: 6px ;
+    color: white;
+    background-color: #404A5C;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 30px;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+}
+.search__lupa{
+    position: absolute;
+    width: 45px;
+    top: 2px;
+    left: 2px;
+    cursor: pointer;
+}
+
+.search__cadastro_btn{
+    margin-left: 20px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+.search__cadastro_btn:hover{
+    transform: scale(1.1);
+}
