@@ -1,0 +1,36 @@
+version: '3'
+services:
+  back:
+    build: ./back
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+    networks:
+      softpet:
+        aliases:
+          - back
+  front:
+    build: ./front
+    ports:
+      - 3001:3001
+    networks:
+      softpet:
+        aliases:
+          - front
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: softpet
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: softpetdb
+    ports:
+      - 5432:5432
+    networks:
+      softpet:
+        aliases:
+          - db
+
+
+networks:
+  softpet:
