@@ -1,9 +1,10 @@
 "use server";
 
-import { Pet, PetDTO } from "@/types";
+import { Pet, PetDTO, RegisterSchemaOuputType } from "@/types";
 import { revalidatePath } from "next/cache";
 
-export const createPet = async (pet: Pet) => {
+// TODO - Refatorar actions
+export const createPet = async (pet: RegisterSchemaOuputType) => {
   const petJson = JSON.stringify(pet);
   const response = await fetch("http://back:3000/pets", {
     method: "POST",
