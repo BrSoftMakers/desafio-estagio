@@ -1,8 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { Pet } from './pets/entities/pet.entity';
+import { PetModel } from './pets/models/pet.model';
 import { PetsModule } from './pets/pets.module';
 
 @Module({
@@ -14,12 +12,10 @@ import { PetsModule } from './pets/pets.module';
       username: 'softpet',
       password: '123456',
       database: 'softpetdb',
-      entities: [Pet],
+      entities: [PetModel],
       synchronize: true,
     }),
     PetsModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
 })
 export class AppModule {}
