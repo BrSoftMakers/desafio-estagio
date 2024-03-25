@@ -2,22 +2,18 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { FindManyOptions, Like, Repository } from 'typeorm';
 import { PetDto } from './dto/pet.dto';
-import { Pet } from './entities/pet.entity';
+import { PetModel } from './models/pet.model';
 
 @Injectable()
 export class PetsService {
   constructor(
-    @InjectRepository(Pet)
-    private petRepository: Repository<Pet>,
+    @InjectRepository(PetModel)
+    private petRepository: Repository<PetModel>,
   ) {}
-
-  create(createPetDto: PetDto) {
-    return this.petRepository.save(createPetDto);
-  }
 
   findAll(page: number = 1, limit: number = 16, search: string = '') {
     const skip = (page - 1) * limit;
-    const basicQuery: FindManyOptions<Pet> = {
+    const basicQuery: FindManyOptions<PetModel> = {
       take: limit,
       skip,
       order: { id: 'ASC' },
