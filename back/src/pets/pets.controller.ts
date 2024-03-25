@@ -6,7 +6,6 @@ import {
   Param,
   ParseIntPipe,
   Patch,
-  Post,
   Query,
 } from '@nestjs/common';
 import { PetDto } from './dto/pet.dto';
@@ -15,11 +14,6 @@ import { PetsService } from './pets.service';
 @Controller('pets')
 export class PetsController {
   constructor(private readonly petsService: PetsService) {}
-
-  @Post()
-  create(@Body() createPetDto: PetDto) {
-    return this.petsService.create(createPetDto);
-  }
 
   @Get()
   findAll(
